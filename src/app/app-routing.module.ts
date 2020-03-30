@@ -1,0 +1,70 @@
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'registre-simptomes',
+    loadChildren: () => import('./pages/registre-simptomes/registre-simptomes.module').then( m => m.RegistreSimptomesPageModule)
+  },
+  {
+    path: 'manca-apetit',
+    loadChildren: () => import('./pages/manca-apetit/manca-apetit.module').then( m => m.MancaApetitPageModule)
+  },
+  {
+    path: 'reestrenyiment',
+    loadChildren: () => import('./pages/reestrenyiment/reestrenyiment.module').then( m => m.ReestrenyimentPageModule)
+  },
+  {
+    path: 'diarrees',
+    loadChildren: () => import('./pages/diarrees/diarrees.module').then( m => m.DiarreesPageModule)
+  },
+  {
+    path: 'fatiga',
+    loadChildren: () => import('./pages/fatiga/fatiga.module').then( m => m.FatigaPageModule)
+  },
+  {
+    path: 'canvis-bucals',
+    loadChildren: () => import('./pages/canvis-bucals/canvis-bucals.module').then( m => m.CanvisBucalsPageModule)
+  },
+  {
+    path: 'nausees-vomits',
+    loadChildren: () => import('./pages/nausees-vomits/nausees-vomits.module').then( m => m.NauseesVomitsPageModule)
+  },
+  {
+    path: 'dolor',
+    loadChildren: () => import('./pages/dolor/dolor.module').then( m => m.DolorPageModule)
+  },
+  {
+    path: 'calendari',
+    loadChildren: () => import('./pages/calendari/calendari.module').then( m => m.CalendariPageModule)
+  },
+  {
+    path: 'nutricio',
+    loadChildren: () => import('./pages/nutricio/nutricio.module').then( m => m.NutricioPageModule)
+  },
+  {
+    path: 'portal-informatiu',
+    loadChildren: () => import('./pages/portal-informatiu/portal-informatiu.module').then( m => m.PortalInformatiuPageModule)
+  },
+  {
+    path: 'signes-vitals',
+    loadChildren: () => import('./pages/signes-vitals/signes-vitals.module').then( m => m.SignesVitalsPageModule)
+  },
+  {
+    path: 'colostomies',
+    loadChildren: () => import('./pages/colostomies/colostomies.module').then( m => m.ColostomiesPageModule)
+  },
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

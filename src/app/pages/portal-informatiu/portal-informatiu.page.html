@@ -1,0 +1,16 @@
+<app-default-header titol="Portal informatiu"></app-default-header>
+
+<ion-content>
+  <ion-card mode="ios">
+    <ion-card-header>
+      <img src="https://image.freepik.com/vector-gratis/cerebro-humano-dibujado-mano_53876-15780.jpg">
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let info of informacio" detail>
+          <ion-label>{{ info }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

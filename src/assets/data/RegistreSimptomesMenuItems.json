@@ -1,0 +1,44 @@
+[
+    {
+        "name" :"Manca d'apetit",
+        "redirectTo": "/manca-apetit",
+        "image" : "/assets/icon/food.svg"
+
+    },
+    {
+        "name" : "Restrenyiment",
+        "redirectTo" : "/reestrenyiment",
+        "image" : "/assets/icon/toilet.svg"
+
+    },
+    {
+        "name" : "Diarrees",
+        "redirectTo" : "/diarrees",
+        "image" : "/assets/icon/shit.svg"
+
+    },
+    {
+        "name" : "Fatiga",
+        "redirectTo" : "/fatiga",
+        "image" : "/assets/icon/bed.svg"
+
+    },
+    {
+        "name" : "Canvis bucals",
+        "redirectTo" : "/canvis-bucals",
+        "image" : "/assets/icon/lips.svg"
+
+    },
+    {
+        "name" : "Nàuseas i vòmits",
+        "redirectTo" : "/nausees-vomits",
+        "image" : "/assets/icon/vomiting.svg"
+
+    },
+    {
+        "name" : "Dolor",
+        "redirectTo" : "/dolor",
+        "image" : "/assets/icon/pain.svg"
+
+    }
+]

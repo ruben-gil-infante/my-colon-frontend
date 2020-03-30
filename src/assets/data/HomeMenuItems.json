@@ -1,0 +1,55 @@
+[
+    {
+        "name" :"Registre de simptomes",
+        "redirectTo": "/registre-simptomes",
+        "image" : "/assets/icon/eye.svg"
+    },
+    {
+        "name" : "Signes Vitals",
+        "redirectTo" : "/signes-vitals",
+        "image" : "/assets/icon/electrocardiogram.svg"
+
+    },
+    {
+        "name" : "Medicació",
+        "redirectTo" : "/medicacio",
+        "image" : "/assets/icon/pills.svg"
+
+    },
+    {
+        "name" : "Nutrició",
+        "redirectTo" : "/nutricio",
+        "image" : "/assets/icon/apple.svg"
+
+    },
+    {
+        "name" : "Colostomies",
+        "redirectTo" : "/colostomies",
+        "image" : "/assets/icon/bandage.svg"
+
+    },
+    {
+        "name" : "Calendari",
+        "redirectTo" : "/calendari",
+        "image" : "/assets/icon/calendar.svg"
+
+    },
+    {
+        "name" : "Comunitat",
+        "redirectTo" : "/comunitat",
+        "image" : "/assets/icon/smartphone.svg"
+
+    },
+    {
+        "name" : "Missatges",
+        "redirectTo" : "/missatges",
+        "image" : "/assets/icon/message.svg"
+
+    },
+    {
+        "name" :"Portal Informatiu",
+        "redirectTo" : "/portal-informatiu",
+        "image" : "/assets/icon/nurse.svg"
+
+    }
+]

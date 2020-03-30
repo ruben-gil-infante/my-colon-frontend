@@ -1,0 +1,13 @@
+<ion-card mode="ios">
+  <ion-card-header class="ion-card-header">
+    <ion-card-title class="ion-card-title-form">{{ titol }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-checkbox slot="start"></ion-checkbox>
+        <ion-label>{{ item }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,66 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+.menuIonList{
+    margin: 4%
+}
+
+.homeToolbar{
+    padding: 10px!important;
+    font-size: 1.2em!important;
+}
+
+.left-20{
+    margin-left: 20px;
+}
+
+.principalFooter{
+    height: 10%;
+    padding:20px;
+}
+
+.footerLogo{
+    font-size: 1.6rem;
+    margin: 0 auto;
+}
+
+.ion-card-title-form{
+    font-size: 1.1rem!important;
+}
+
+.right-20{
+    margin-right: 20px;
+}
+ 
+.ion-card-header {
+    margin-bottom: 20px !important;
+    font-size: 0.9em !important;
+}
+
+.header-toolbar{
+    height: 15%!important;
+}

@@ -1,0 +1,28 @@
+<app-default-header titol="Colostomies"></app-default-header>
+
+<ion-content>
+  <ion-card mode="ios">
+    <ion-header>
+      <img src="https://www.aecc.es/sites/default/files/inline-images/anatomia-cancer-colon.png">
+    </ion-header>
+    <ion-card-content>
+      <ion-label slot="start">Selecciona el tipus de colostomia</ion-label>
+      <ion-list>
+        <ion-item *ngFor="let colostomia of tipusColostomia">
+          <ion-label>{{ colostomia }}</ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <ion-card mode="ios">
+    <ion-card-content>
+      <ion-label slot="start">Selecciona un per obtenir l'informació</ion-label>
+      <ion-list>
+        <ion-item *ngFor="let info of informacio" detail>
+          <ion-label>{{ info }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

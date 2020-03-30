@@ -1,0 +1,21 @@
+<ion-card mode="ios">
+  <ion-card-header class="ion-card-header">
+    <ion-card-title class="ion-card-title-form">{{ nom }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list mode="ios">
+      <ion-item>
+        <ion-range (ionChange)="valorSeleccionat ( $event )"
+                  [min]="min"
+                   [max]="max"
+                   pin="true"
+                   step="1"
+                   snaps="true"
+                   color="primary">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">10</ion-label>
+        </ion-range>
+      </ion-item>
+    </ion-list> 
+  </ion-card-content>
+</ion-card>

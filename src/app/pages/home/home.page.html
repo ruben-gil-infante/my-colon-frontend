@@ -1,0 +1,28 @@
+<ion-header >
+  <ion-toolbar color="primary" class="homeToolbar">
+    <ion-avatar slot="start">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRIbGsLzDdqtqrweH-uw22Sj9CWjPD2xVFUD9zfgiXwBZM11it9">
+    </ion-avatar>
+    <ion-label class="left-20">
+      Nom del pacient
+    </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list class="menuIonList">
+    <ion-item *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo" detail>
+      <ion-icon [src]="item.image" slot="start"></ion-icon>
+      <ion-label>
+        {{ item.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="principalFooter">
+  <ion-label class="footerLogo">
+    My Colon
+  </ion-label>
+</ion-footer>

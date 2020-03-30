@@ -1,0 +1,22 @@
+<app-registre-simptomes-header nom="Dolor"></app-registre-simptomes-header>
+
+<ion-content>
+
+  <app-si-no-selector pregunta="Tens dolor?"></app-si-no-selector>
+  
+  <!-- FIXME: Hay que abrir una pantalla-->
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title-form">A on està localitzat el dolor?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button fill="outline">MARCAR</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <app-range-bar nom="Puntua la teva fatiga" min="1" max="10" (rangeValueChange)="dolorSeleccionat ($event) "></app-range-bar>
+
+  <app-opcions-selector titol="Descriu el dolor" [items]="descriuDolor"></app-opcions-selector>
+  <app-opcions-selector titol="Quan apareix el dolor?" [items]="apareixDolor"></app-opcions-selector>
+
+</ion-content>

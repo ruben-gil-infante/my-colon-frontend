@@ -1,0 +1,12 @@
+<app-registre-simptomes-header nom="Diarrees"></app-registre-simptomes-header>
+
+
+<ion-content padding>
+  <app-si-no-selector pregunta="Tens diarrees?"></app-si-no-selector>
+
+  <app-opcions-selector titol="Quantes vegades has anat de diarrea en les últimes 24h?" [items]="vegades"></app-opcions-selector>
+
+  <app-escala-bristol-selector></app-escala-bristol-selector>
+  
+  <app-color-femta-selector></app-color-femta-selector>
+</ion-content>
