@@ -12,16 +12,19 @@ import { FemtaPopoverComponent } from 'src/app/components/femta-popover/femta-po
 import { ColorFemtaSelectorComponent } from 'src/app/components/color-femta-selector/color-femta-selector.component';
 import { EscalaBristolSelectorComponent } from 'src/app/components/escala-bristol-selector/escala-bristol-selector.component';
 import { SiNoSelectorComponent } from 'src/app/components/si-no-selector/si-no-selector.component';
-import { RegistreSimptomesHeaderComponent } from 'src/app/components/registre-simptomes-header/registre-simptomes-header.component';
 import { OpcionsSelectorComponent } from 'src/app/components/opcions-selector/opcions-selector.component';
+import { SaveButtonComponent } from 'src/app/components/save-button/save-button.component';
+import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 
 @NgModule({
   entryComponents: [FemtaPopoverComponent, 
     ColorFemtaSelectorComponent,
     EscalaBristolSelectorComponent,
     SiNoSelectorComponent, 
-    RegistreSimptomesHeaderComponent, 
-    OpcionsSelectorComponent],
+    OpcionsSelectorComponent,
+    DefaultHeaderComponent,
+    SaveButtonComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

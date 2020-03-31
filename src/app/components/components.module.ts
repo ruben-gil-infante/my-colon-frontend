@@ -7,8 +7,8 @@ import { ColorFemtaSelectorComponent } from './color-femta-selector/color-femta-
 import { EscalaBristolSelectorComponent } from './escala-bristol-selector/escala-bristol-selector.component';
 import { SiNoSelectorComponent } from './si-no-selector/si-no-selector.component';
 import { OpcionsSelectorComponent } from './opcions-selector/opcions-selector.component';
-import { RegistreSimptomesHeaderComponent } from './registre-simptomes-header/registre-simptomes-header.component';
 import { DefaultHeaderComponent } from './default-header/default-header.component';
+import { SaveButtonComponent } from './save-button/save-button.component';
 
 
 
@@ -19,8 +19,8 @@ import { DefaultHeaderComponent } from './default-header/default-header.componen
     EscalaBristolSelectorComponent, 
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
-    RegistreSimptomesHeaderComponent,
-    DefaultHeaderComponent
+    DefaultHeaderComponent,
+    SaveButtonComponent
   ],
   imports: [
     CommonModule,
@@ -32,8 +32,8 @@ import { DefaultHeaderComponent } from './default-header/default-header.componen
     EscalaBristolSelectorComponent, 
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
-    RegistreSimptomesHeaderComponent,
-    DefaultHeaderComponent
+    DefaultHeaderComponent,
+    SaveButtonComponent
   ]
 })
 export class ComponentsModule { }

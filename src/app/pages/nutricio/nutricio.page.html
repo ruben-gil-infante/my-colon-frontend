@@ -1,6 +1,14 @@
-<app-default-header titol="Nutrició"></app-default-header>
+<app-default-header icon="/assets/icon/apple.svg" titol="Nutrició"></app-default-header>
 
 <ion-content padding>
+
+  <ion-card>
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title-form">
+        Quina quantitat de cada apat he menjat avui?
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 
   <app-range-bar nom="Esmorzar" min="0" max="100"></app-range-bar>
@@ -20,4 +28,5 @@
     </ion-card-content>
   </ion-card>
 
+  <app-save-button></app-save-button>
 </ion-content>

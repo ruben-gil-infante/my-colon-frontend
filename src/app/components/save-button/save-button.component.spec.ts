@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RegistreSimptomesHeaderComponent } from './registre-simptomes-header.component';
+import { SaveButtonComponent } from './save-button.component';
 
-describe('RegistreSimptomesHeaderComponent', () => {
-  let component: RegistreSimptomesHeaderComponent;
-  let fixture: ComponentFixture<RegistreSimptomesHeaderComponent>;
+describe('SaveButtonComponent', () => {
+  let component: SaveButtonComponent;
+  let fixture: ComponentFixture<SaveButtonComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistreSimptomesHeaderComponent ],
+      declarations: [ SaveButtonComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RegistreSimptomesHeaderComponent);
+    fixture = TestBed.createComponent(SaveButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

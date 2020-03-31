@@ -1,4 +1,4 @@
-<app-registre-simptomes-header nom="Dolor"></app-registre-simptomes-header>
+<app-default-header defaultHref="/registre-simptomes" titol="Dolor" icon="/assets/icon/pain.svg"></app-default-header>
 
 <ion-content>
 
@@ -18,5 +18,7 @@
 
   <app-opcions-selector titol="Descriu el dolor" [items]="descriuDolor"></app-opcions-selector>
   <app-opcions-selector titol="Quan apareix el dolor?" [items]="apareixDolor"></app-opcions-selector>
+
+  <app-save-button></app-save-button>
 
 </ion-content>

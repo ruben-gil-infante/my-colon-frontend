@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DefaultHeaderComponent implements OnInit {
 
   @Input() titol : string;
+  @Input() icon : string;
+  @Input() defaultHref : string = "/";
 
   constructor() { }
 
