@@ -49,7 +49,7 @@
     {
         "name" :"Portal Informatiu",
         "redirectTo" : "/portal-informatiu",
-        "image" : "/assets/icon/nurse.svg"
+        "image" : "/assets/icon/info.svg"
 
     }
 ]

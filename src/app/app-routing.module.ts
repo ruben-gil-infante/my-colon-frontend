@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'colostomies',
     loadChildren: () => import('./pages/colostomies/colostomies.module').then( m => m.ColostomiesPageModule)
   },
+  {
+    path: 'comunitat',
+    loadChildren: () => import('./pages/comunitat/comunitat.module').then( m => m.ComunitatPageModule)
+  },
 ];
 
 @NgModule({
