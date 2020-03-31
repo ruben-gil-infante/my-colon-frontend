@@ -10,6 +10,8 @@ import { CalendariPage } from './calendari.page';
 import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 
+
+
 @NgModule({
   entryComponents: [DefaultHeaderComponent],
   imports: [
