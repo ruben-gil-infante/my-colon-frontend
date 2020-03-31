@@ -9,9 +9,9 @@ import { RangeBarComponent } from 'src/app/components/range-bar/range-bar.compon
 export class DolorPage implements OnInit {
 
 
-  private dolor : number;
+  dolor : number;
 
-  private descriuDolor : string [] = [
+  descriuDolor : string [] = [
     'Opressiu',
     'Constant',
     'Ardent',
@@ -19,7 +19,7 @@ export class DolorPage implements OnInit {
     'Penetrant'
   ];
 
-  private apareixDolor : string [] = [
+  apareixDolor : string [] = [
     'En repòs',
     'En els canvis de posició',
     'Realitzant activitat física'

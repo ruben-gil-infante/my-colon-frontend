@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortalInformatiuPage implements OnInit {
 
-  private informacio : string [] = [
+  informacio : string [] = [
     'Preparació de proves',
     'Dietas',
     'Informació detalla cd CCR',

@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColostomiesPage implements OnInit {
 
-  private tipusColostomia : string [] = [
+  tipusColostomia : string [] = [
     'Colòstomia transversal',
     'Colòstomia ascendent',
     'Colòstomia descendent i sigmoide'
   ]
 
-  private informacio : string [] = [
+  informacio : string [] = [
     'Cures de l`estoma',
     'Buidatge i canvi de bossa col·lectora',
     'Material',

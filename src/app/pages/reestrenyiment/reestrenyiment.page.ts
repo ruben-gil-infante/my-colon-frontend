@@ -9,7 +9,7 @@ import { FemtaPopoverComponent } from 'src/app/components/femta-popover/femta-po
 })
 export class ReestrenyimentPage implements OnInit {
 
-  private ultimCopVentre : string [] = [
+  ultimCopVentre : string [] = [
 
     'Avui',
     'Ahir',
@@ -19,7 +19,7 @@ export class ReestrenyimentPage implements OnInit {
     'Fa més de 5 dies'
   ]
 
-  private ultimaFemtaEscalaBristol : number;
+  ultimaFemtaEscalaBristol : number;
 
   constructor() { }
 

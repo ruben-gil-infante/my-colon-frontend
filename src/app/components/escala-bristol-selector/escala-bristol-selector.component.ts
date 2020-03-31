@@ -8,7 +8,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class EscalaBristolSelectorComponent implements OnInit {
 
-  private ultimaFemtaEscalaBristol : number;
+  ultimaFemtaEscalaBristol : number;
 
   constructor(private alertController : AlertController) { }
 

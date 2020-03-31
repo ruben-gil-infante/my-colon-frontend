@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CanvisBucalsPage implements OnInit {
 
-  private simptomes : string [] = [
+  simptomes : string [] = [
     'Boca seca',
     'Llenga enblanquida',
     'Boca amb és sensibilitat o dolor',

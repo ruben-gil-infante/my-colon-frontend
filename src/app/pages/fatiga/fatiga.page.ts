@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FatigaPage implements OnInit {
 
-  private valorSeleccionat : number;
+  valorSeleccionat : number;
 
   constructor() { }
 

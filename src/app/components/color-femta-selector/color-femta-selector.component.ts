@@ -9,7 +9,7 @@ import { FemtaPopoverComponent } from '../femta-popover/femta-popover.component'
 })
 export class ColorFemtaSelectorComponent implements OnInit {
 
-  private colorSeleccionat : string = "Cap";
+  colorSeleccionat : string = "Cap";
 
   constructor(private popoverCtrl : PopoverController) { }
 

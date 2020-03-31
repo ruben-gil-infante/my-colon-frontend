@@ -8,7 +8,7 @@ import { PopoverController } from '@ionic/angular';
 })
 export class FemtaPopoverComponent implements OnInit {
 
-  private femtaColors : string [] = [
+  femtaColors : string [] = [
     'Marró',
     'Groc',
     'Verd',

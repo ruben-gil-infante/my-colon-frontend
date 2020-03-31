@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NauseesVomitsPage implements OnInit {
 
-  private nausees : string [] = ['Un cop o dos al dia', 'Més de dos cops al dia'];
-  private descripcioVomit : String [] = [
+  nausees : string [] = ['Un cop o dos al dia', 'Més de dos cops al dia'];
+  descripcioVomit : String [] = [
     'Contingut alimentici',
     'Mucós',
     'Biliós (tonalitat verda)',
