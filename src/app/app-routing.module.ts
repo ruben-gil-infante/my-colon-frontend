@@ -63,6 +63,10 @@ const routes: Routes = [
     path: 'comunitat',
     loadChildren: () => import('./pages/comunitat/comunitat.module').then( m => m.ComunitatPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 
 @NgModule({
