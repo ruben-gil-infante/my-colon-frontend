@@ -33,6 +33,7 @@ export class EscalaBristolSelectorComponent implements OnInit {
           text: 'Save',
           handler: ( event ) => {
             this.ultimaFemtaEscalaBristol = event.escalaBristol;
+            this.enviarDadaSeleccionada();
           }
         }
       ]
@@ -42,4 +43,9 @@ export class EscalaBristolSelectorComponent implements OnInit {
 
   }
 
+  enviarDadaSeleccionada () {
+
+  }
+
 }
+

@@ -19,4 +19,12 @@ export class DataService {
     return this.http.get<MenuItem []>('/assets/data/RegistreSimptomesMenuItems.json');
   }
 
+  // FIXME: Add method to get and save items from the database
+  submit (){
+  }
+
+  request (){
+
+  }
+
 }

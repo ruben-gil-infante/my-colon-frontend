@@ -17,7 +17,8 @@
         <ion-label position="fixed">Contraseya</ion-label>
         <ion-input [(ngModel)]="contrasenya" placeholder="contrasenya" type="password"></ion-input>
         <div class="center-element">
-          <ion-button (click)="login( $event )" color="primary" size="small" class="top-20">LOGIN</ion-button>
+          <ion-button routerLink="/home" (click)="login( $event )" color="primary" size="small" class="top-20">LOGIN</ion-button>
+          <ion-button reouterLink="/registre-usuari" color="primary" size="small" class="top-20">REGISTRAR</ion-button>
         </div>
     </ion-card-content>
   </ion-card>

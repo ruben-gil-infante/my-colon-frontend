@@ -51,5 +51,10 @@
         "redirectTo" : "/portal-informatiu",
         "image" : "/assets/icon/info.svg"
 
+    },
+    {
+        "name": "Dades registrades",
+        "redirectTo": "/dades-registrades",
+        "image": "/assets/icon/notebook.svg"
     }
 ]

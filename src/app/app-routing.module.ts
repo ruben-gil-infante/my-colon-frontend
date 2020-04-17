@@ -66,7 +66,23 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'missatges',
+    loadChildren: () => import('./pages/missatges/missatges.module').then( m => m.MissatgesPageModule)
   },
+  {
+    path: 'dades-registrades',
+    loadChildren: () => import('./pages/dades-registrades/dades-registrades.module').then( m => m.DadesRegistradesPageModule)
+  },
+  {
+    path: 'medicacio',
+    loadChildren: () => import('./pages/medicacio/medicacio.module').then( m => m.MedicacioPageModule)
+  },
+  {
+    path: 'registre-usuari',
+    loadChildren: () => import('./pages/registre-usuari/registre-usuari.module').then( m => m.RegistreUsuariPageModule)
+  },
+
 ];
 
 @NgModule({

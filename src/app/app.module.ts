@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { Calendar } from '@ionic-native/calendar/ngx';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 
 
@@ -29,6 +30,7 @@ import { Calendar } from '@ionic-native/calendar/ngx';
     Calendar,
     StatusBar,
     SplashScreen,
+    EmailComposer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent],
