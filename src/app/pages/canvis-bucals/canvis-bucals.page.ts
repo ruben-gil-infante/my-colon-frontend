@@ -9,15 +9,23 @@ import { OptionItem } from 'src/interfaces/interfaces';
 export class CanvisBucalsPage implements OnInit {
 
   simptomes : OptionItem [] = [
-    {id: 1, text: 'Boca seca', checked: false},
-    {id: 2, text: 'Llenga enblanquida', checked: false},
-    {id: 3, text: 'Boca amb és sensibilitat o dolor', checked: false},
-    {id: 4, text: 'Canvis en el gust', checked: false}
+    {id: 0, text: 'Boca seca', checked: false},
+    {id: 1, text: 'Llenga enblanquida', checked: false},
+    {id: 2, text: 'Boca amb és sensibilitat o dolor', checked: false},
+    {id: 3, text: 'Canvis en el gust', checked: false}
   ]
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  itemSeleccionat( id ){
+    console.log("Seleccionat", this.simptomes[id].text);
+  }
+
+  itemDesSeleccionat( id ){
+    console.log("Desseleccionat", this.simptomes[id].text);
   }
 
 }

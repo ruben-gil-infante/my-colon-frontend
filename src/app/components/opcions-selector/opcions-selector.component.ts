@@ -22,10 +22,10 @@ export class OpcionsSelectorComponent implements OnInit {
   elementSeleccionat (item, event) {
     if(event.toElement.checked){
       // deseleccionat
-      console.log("Item eliminat", item.id);
+      this.itemDesSeleccionat.emit(item.id);
     }else{
       // seleccionat
-      console.log("Item seleccionat", item.id);
+      this.itemSeleccionat.emit(item.id);
     }
   }
 

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, Renderer2, ViewChildren } from '@angular/core';
+import { IonItem } from '@ionic/angular';
 
 @Component({
   selector: 'app-si-no-selector',
@@ -8,9 +9,22 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SiNoSelectorComponent implements OnInit {
 
   @Input() pregunta : string;
+  @Output() resposta = new EventEmitter<boolean>();
+  
+  @ViewChildren("siButton") siButton : IonItem;
 
-  constructor() { }
+  constructor(private renderer : Renderer2) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.siButton);
+  }
+
+  si(){
+    console.log("Seleccionat si");
+  }
+
+  no(){
+    console.log("Seleccionat no");
+  }
 
 }
