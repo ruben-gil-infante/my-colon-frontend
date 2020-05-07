@@ -5,8 +5,8 @@
   <ion-card-content>
     <ion-list>
       <ion-item *ngFor="let item of items">
-        <ion-checkbox slot="start"></ion-checkbox>
-        <ion-label>{{ item }}</ion-label>
+        <ion-checkbox (click)="elementSeleccionat( item, $event )" slot="start" ></ion-checkbox>
+        <ion-label>{{ item.text }}</ion-label>
       </ion-item>
     </ion-list>
   </ion-card-content>

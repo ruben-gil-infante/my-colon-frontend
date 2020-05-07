@@ -13,7 +13,7 @@ export class SaveButtonComponent implements OnInit {
   ngOnInit() {}
 
   onClick( event ){
-    console.log( event )
+    console.log("Guardar dades recollides");
   }
 
 }

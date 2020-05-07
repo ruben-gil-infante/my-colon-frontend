@@ -1,3 +1,9 @@
+export interface OptionItem {
+    id : number;
+    text : string;
+    checked: boolean;
+}
+
 export interface MenuItem{
     name : string;
     redirectTo : string;

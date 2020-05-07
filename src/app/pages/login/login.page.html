@@ -3,7 +3,6 @@
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card mode="ios">
     <ion-card-header class="center-element">
@@ -18,8 +17,9 @@
         <ion-input [(ngModel)]="contrasenya" placeholder="contrasenya" type="password"></ion-input>
         <div class="center-element">
           <ion-button routerLink="/home" (click)="login( $event )" color="primary" size="small" class="top-20">LOGIN</ion-button>
-          <ion-button reouterLink="/registre-usuari" color="primary" size="small" class="top-20">REGISTRAR</ion-button>
         </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<app-default-footer></app-default-footer>

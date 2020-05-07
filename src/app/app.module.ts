@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { Calendar } from '@ionic-native/calendar/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { FormsModule } from '@angular/forms';
 
 
 

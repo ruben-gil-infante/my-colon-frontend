@@ -40,10 +40,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dolor/dolor.module').then( m => m.DolorPageModule)
   },
   {
-    path: 'calendari',
-    loadChildren: () => import('./pages/calendari/calendari.module').then( m => m.CalendariPageModule)
-  },
-  {
     path: 'nutricio',
     loadChildren: () => import('./pages/nutricio/nutricio.module').then( m => m.NutricioPageModule)
   },
@@ -66,7 +62,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'missatges',
     loadChildren: () => import('./pages/missatges/missatges.module').then( m => m.MissatgesPageModule)
   },
@@ -82,6 +79,14 @@ const routes: Routes = [
     path: 'registre-usuari',
     loadChildren: () => import('./pages/registre-usuari/registre-usuari.module').then( m => m.RegistreUsuariPageModule)
   },
+  {
+    path: 'notes',
+    loadChildren: () => import('./pages/notes/notes.module').then( m => m.NotesPageModule)
+  },  {
+    path: 'esdeveniments',
+    loadChildren: () => import('./pages/esdeveniments/esdeveniments.module').then( m => m.EsdevenimentsPageModule)
+  },
+
 
 ];
 

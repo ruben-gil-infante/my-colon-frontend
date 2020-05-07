@@ -9,6 +9,7 @@ import { SiNoSelectorComponent } from './si-no-selector/si-no-selector.component
 import { OpcionsSelectorComponent } from './opcions-selector/opcions-selector.component';
 import { DefaultHeaderComponent } from './default-header/default-header.component';
 import { SaveButtonComponent } from './save-button/save-button.component';
+import { DefaultFooterComponent } from './default-footer/default-footer.component';
 
 
 
@@ -20,7 +21,8 @@ import { SaveButtonComponent } from './save-button/save-button.component';
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,
-    SaveButtonComponent
+    SaveButtonComponent,
+    DefaultFooterComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { SaveButtonComponent } from './save-button/save-button.component';
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,
-    SaveButtonComponent
+    SaveButtonComponent,
+    DefaultFooterComponent
   ]
 })
 export class ComponentsModule { }

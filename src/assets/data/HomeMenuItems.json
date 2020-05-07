@@ -1,6 +1,6 @@
 [
     {
-        "name" :"Registre de simptomes",
+        "name" :"Registre de símptomes",
         "redirectTo": "/registre-simptomes",
         "image" : "/assets/icon/eye.svg"
     },
@@ -29,9 +29,9 @@
 
     },
     {
-        "name" : "Calendari",
-        "redirectTo" : "/calendari",
-        "image" : "/assets/icon/calendar.svg"
+        "name" : "Notes",
+        "redirectTo" : "/notes",
+        "image" : "/assets/icon/pencil.svg"
 
     },
     {
