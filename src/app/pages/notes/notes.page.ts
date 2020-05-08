@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Nota } from 'src/interfaces/interfaces';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notes',
@@ -7,13 +9,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesPage implements OnInit {
 
-  constructor() { }
+  constructor(public alertCtrl : AlertController) { }
+
+  notes : Nota [] = [
+
+  ];
 
   ngOnInit() {
   }
 
-  afegirNota(){
-    console.log("Afegir nota");
+  async afegirNota(  ){
+    const input = await this.alertCtrl.create({
+      header: 'Nota',
+      subHeader: 'Afegeixi el text per la nota:',
+      inputs: [
+        {
+          name: 'descripcio',
+          type: 'textarea',
+          placeholder: 'Descripció'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Guardar',
+          handler: ( data ) => {
+            console.log('Confirm Ok', data);
+            this.guardarNota(data.descripcio);
+          }
+        }
+      ]
+    });
+
+    await input.present();
+
+  }
+
+  guardarNota( nota ){
+    let notaAuxiliar = {
+      usuari: 1,
+      descripcio : nota,
+      data: new Date().toISOString()
+    }
+
+    this.notes.push(notaAuxiliar);
+  }
+
+  async eliminarNota( position ){
+
+    const confirmarEliminarAlert = await this.alertCtrl.create({
+      header: 'Estas segur?',
+      subHeader: 'Confirma que vols eliminar la nota',
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Si',
+          handler: ( data ) => {
+            console.log('Confirm Ok', data);
+            this.notes.splice(position, 1);
+          }
+        }
+      ]
+    });
+
+    await confirmarEliminarAlert.present();
+
   }
 
 }

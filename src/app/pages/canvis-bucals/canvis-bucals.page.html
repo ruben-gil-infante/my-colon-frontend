@@ -4,5 +4,5 @@
   <app-si-no-selector pregunta="Has patit canvis a nivell bucal?"></app-si-no-selector>
   <app-opcions-selector (itemSeleccionat)="itemSeleccionat( $event )" (itemDesSeleccionat)="itemDesSeleccionat( $event )" 
             [items]="simptomes" titol="Quins són els simptomes que pateixes?"></app-opcions-selector>
-  <app-save-button></app-save-button>
+  <app-save-button (guardar) = "enviarFormulari()"></app-save-button>
 </ion-content>

@@ -13,19 +13,19 @@ export interface Medicacio {
     nom : string;
     tipus : number;
     dosi : number;
-    userId : string;
+    usuari : number;
     horari : string;
-    data : Date;
+    data : string;
 }
 
 export interface Nutricio {
-    usuariId : string;
     esmorzar : number;
     dinar : number;
     berenar : number;
     sopar : number;
     gotsAigua : number;
-    data : Date;
+    data : string;
+    usuari : number;
 }
 
 export interface Apetit {
@@ -33,15 +33,15 @@ export interface Apetit {
     esmorzarAcabat : number;
     dinarAcabat : number;
     soparAcabat : number;
-    data : Date;
-    userId : string;
+    data : string;
+    usuari : number;
 }
 
 export interface CanvisBucals {
     afirmatiu : boolean;
     simptomes : string;
-    userId : string;
-    data : Date;
+    data : string;
+    usuari : number;
 }
 
 export interface Diarrees {
@@ -49,7 +49,7 @@ export interface Diarrees {
     vegades : number;
     escalaBristol : number;
     color : string;
-    data : Date;
+    data : string;
     userId : string;
 }
 
@@ -59,15 +59,15 @@ export interface Dolor {
     fatiga : number;
     descripcio : string;
     quanApareix : string;
-    data : Date;
-    userId : string;
+    data : string;
+    usuari : number;
 }
 
 export interface Fatiga {
     afirmatiu : boolean;
     puntuacio : number;
-    data : Date;
-    userId : string;
+    data : string;
+    usuari : number;
 }
 
 export interface Reestrenyiment {
@@ -75,8 +75,8 @@ export interface Reestrenyiment {
     ultimCopVentre : string;
     colorUltimaFemta : string;
     escalaBristol : number;
-    data : Date;
-    userId : string;
+    data : string;
+    usuari : number;
 }
 
 export interface Usuari {
@@ -85,4 +85,10 @@ export interface Usuari {
     segonCognom : string;
     correuElectronic : string;
     password : string;
+}
+
+export interface Nota {
+    usuari : number;
+    descripcio : string;
+    data : string;
 }

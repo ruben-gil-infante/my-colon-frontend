@@ -1,10 +1,20 @@
 <app-default-header titol="Notes" icon="/assets/icon/pencil.svg"></app-default-header>
 
 <ion-content>
-  <div class="center-element top-20">
-    <ion-button (click)="afegirNota()">+ Afegir Nota</ion-button>
-  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="afegirNota($event)">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<ion-list *ngFor="let nota of notes; let i = index;">
   <ion-card mode="ios">
-    
+    <ion-card-header class="right-align">
+      <ion-icon (click)="eliminarNota(i)" name="trash-outline" color="danger"></ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      {{ nota.descripcio }}
+    </ion-card-content>
   </ion-card>
+</ion-list>
 </ion-content>

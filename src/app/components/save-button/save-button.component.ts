@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-save-button',
@@ -7,13 +7,14 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class SaveButtonComponent implements OnInit {
 
+  @Output() guardar = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {}
 
   onClick( event ){
-    console.log("Guardar dades recollides");
+    this.guardar.emit();
   }
 
 }

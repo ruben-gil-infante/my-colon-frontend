@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,8 @@ import { PopoverController } from '@ionic/angular';
   styleUrls: ['./femta-popover.component.scss'],
 })
 export class FemtaPopoverComponent implements OnInit {
+
+  @Output() colorFemtaSeleccionat = new EventEmitter();
 
   femtaColors : string [] = [
     'Marró',

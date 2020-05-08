@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionItem } from 'src/interfaces/interfaces';
+import { OptionItem, CanvisBucals } from 'src/interfaces/interfaces';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-canvis-bucals',
@@ -15,17 +16,41 @@ export class CanvisBucalsPage implements OnInit {
     {id: 3, text: 'Canvis en el gust', checked: false}
   ]
 
-  constructor() { }
+  form : CanvisBucals;
+
+  endpoint : string = '';
+
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
   }
 
   itemSeleccionat( id ){
-    console.log("Seleccionat", this.simptomes[id].text);
+    this.simptomes[id].checked = true;
   }
 
   itemDesSeleccionat( id ){
-    console.log("Desseleccionat", this.simptomes[id].text);
+    this.simptomes[id].checked = false;
+  }
+
+  enviarFormulari (){
+    let simptomesEscollits = '';
+    this.simptomes.forEach(simptoma => {
+      if(simptoma.checked){
+        simptomesEscollits += simptoma.id + ';';
+      }
+    })
+
+
+    this.form = {
+      afirmatiu: false,
+      simptomes: simptomesEscollits,
+      usuari: 1,
+      data: new Date().toISOString()
+    }
+
+    this.dataService.submit(this.endpoint, this.form);
+    
   }
 
 }

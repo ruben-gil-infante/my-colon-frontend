@@ -10,6 +10,8 @@ export class DataService {
 
   constructor( private http : HttpClient ) { }
 
+  endpointPrefix = 'http://localhost:8080'; 
+
   getHomeMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
   }
@@ -20,9 +22,13 @@ export class DataService {
   }
 
   // FIXME: Add method to get and save items from the database
-  submit (){
+  submit (endpoint = '', object){
+    endpoint = this.endpointPrefix + endpoint;
+    this.http.post<any>(endpoint, object)
+      .subscribe({
+        error: error =>  console.error('Error guardant les dades', error)
+      });
   }
-
   request (){
 
   }

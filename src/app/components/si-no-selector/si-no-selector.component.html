@@ -6,13 +6,12 @@
    <ion-grid>
      <ion-row>
        <ion-col size="6">
-         <ion-item id="siButton" class="binaryCheckBoxMarked center-element" (click)="si()">
+         <ion-item id="siButton" [class]="binaryCheckboxMarked" (click)="si( $event )">
            <ion-label>SI</ion-label>
-          
          </ion-item>
        </ion-col>
        <ion-col>
-        <ion-item id="noButton" class="binaryCheckBox center-element" (click)="no()">
+        <ion-item id="noButton" [class]="binaryCheckbox" (click)="no( $event )">
           <ion-label>NO</ion-label>
         </ion-item>
        </ion-col>

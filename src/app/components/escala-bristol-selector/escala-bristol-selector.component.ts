@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -12,6 +12,7 @@ export class EscalaBristolSelectorComponent implements OnInit {
 
   constructor(private alertController : AlertController) { }
 
+  @Output() escalaSeleccionada = new EventEmitter();
 
   ngOnInit() {}
 
@@ -44,7 +45,7 @@ export class EscalaBristolSelectorComponent implements OnInit {
   }
 
   enviarDadaSeleccionada () {
-
+    this.escalaSeleccionada.emit(this.ultimaFemtaEscalaBristol);
   }
 
 }
