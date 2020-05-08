@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotesPageRoutingModule } from './notes-routing.module';
+import { MedicacioNitPageRoutingModule } from './medicacio-nit-routing.module';
 
-import { NotesPage } from './notes.page';
-import { ComponentsModule } from 'src/app/components/components.module';
+import { MedicacioNitPage } from './medicacio-nit.page';
 import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   entryComponents:[
@@ -18,9 +18,9 @@ import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.com
     CommonModule,
     FormsModule,
     IonicModule,
-    NotesPageRoutingModule,
+    MedicacioNitPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [NotesPage]
+  declarations: [MedicacioNitPage]
 })
-export class NotesPageModule {}
+export class MedicacioNitPageModule {}

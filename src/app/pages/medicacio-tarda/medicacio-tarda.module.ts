@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotesPageRoutingModule } from './notes-routing.module';
+import { MedicacioTardaPageRoutingModule } from './medicacio-tarda-routing.module';
 
-import { NotesPage } from './notes.page';
+import { MedicacioTardaPage } from './medicacio-tarda.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.component';
 
@@ -18,9 +18,9 @@ import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.com
     CommonModule,
     FormsModule,
     IonicModule,
-    NotesPageRoutingModule,
+    MedicacioTardaPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [NotesPage]
+  declarations: [MedicacioTardaPage]
 })
-export class NotesPageModule {}
+export class MedicacioTardaPageModule {}

@@ -1,20 +1,18 @@
 <app-default-header titol="Notes" icon="/assets/icon/pencil.svg"></app-default-header>
 
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="afegirNota($event)">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <app-fav-button (favButtonPressed)="afegirNota($event)"></app-fav-button>
 
-<ion-list *ngFor="let nota of notes; let i = index;">
-  <ion-card mode="ios">
-    <ion-card-header class="right-align">
-      <ion-icon (click)="eliminarNota(i)" name="trash-outline" color="danger"></ion-icon>
-    </ion-card-header>
-    <ion-card-content>
-      {{ nota.descripcio }}
-    </ion-card-content>
-  </ion-card>
-</ion-list>
+  <ion-list *ngFor="let nota of notes; let i = index;" mode="ios">
+    <ion-card mode="ios">
+      <ion-card-header class="right-align">
+        <ion-button (click)="eliminarNota(i)" size="small" color="transparent">
+          <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+        </ion-button>
+      </ion-card-header>
+      <ion-card-content>
+        {{ nota.descripcio }}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

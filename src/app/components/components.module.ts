@@ -10,6 +10,7 @@ import { OpcionsSelectorComponent } from './opcions-selector/opcions-selector.co
 import { DefaultHeaderComponent } from './default-header/default-header.component';
 import { SaveButtonComponent } from './save-button/save-button.component';
 import { DefaultFooterComponent } from './default-footer/default-footer.component';
+import { FavButtonComponent } from './fav-button/fav-button.component';
 
 
 
@@ -22,7 +23,8 @@ import { DefaultFooterComponent } from './default-footer/default-footer.componen
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,
     SaveButtonComponent,
-    DefaultFooterComponent
+    DefaultFooterComponent,
+    FavButtonComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { DefaultFooterComponent } from './default-footer/default-footer.componen
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,
     SaveButtonComponent,
-    DefaultFooterComponent
+    DefaultFooterComponent,
+    FavButtonComponent
   ]
 })
 export class ComponentsModule { }

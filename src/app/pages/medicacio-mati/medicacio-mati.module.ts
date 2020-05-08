@@ -4,23 +4,23 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotesPageRoutingModule } from './notes-routing.module';
+import { MedicacioMatiPageRoutingModule } from './medicacio-mati-routing.module';
 
-import { NotesPage } from './notes.page';
+import { MedicacioMatiPage } from './medicacio-mati.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.component';
 
 @NgModule({
-  entryComponents:[
+  entryComponents: [
     FavButtonComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NotesPageRoutingModule,
+    MedicacioMatiPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [NotesPage]
+  declarations: [MedicacioMatiPage]
 })
-export class NotesPageModule {}
+export class MedicacioMatiPageModule {}

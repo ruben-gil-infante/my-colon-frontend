@@ -11,9 +11,8 @@ export class NotesPage implements OnInit {
 
   constructor(public alertCtrl : AlertController) { }
 
-  notes : Nota [] = [
-
-  ];
+  // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
+  notes : Nota [] = [];
 
   ngOnInit() {
   }
@@ -22,6 +21,7 @@ export class NotesPage implements OnInit {
     const input = await this.alertCtrl.create({
       header: 'Nota',
       subHeader: 'Afegeixi el text per la nota:',
+      mode: "ios",
       inputs: [
         {
           name: 'descripcio',
@@ -65,6 +65,7 @@ export class NotesPage implements OnInit {
     const confirmarEliminarAlert = await this.alertCtrl.create({
       header: 'Estas segur?',
       subHeader: 'Confirma que vols eliminar la nota',
+      mode: "ios",
       buttons: [
         {
           text: 'No',
