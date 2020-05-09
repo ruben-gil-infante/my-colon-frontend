@@ -9,6 +9,7 @@ import { MedicacioMatiPageRoutingModule } from './medicacio-mati-routing.module'
 import { MedicacioMatiPage } from './medicacio-mati.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.component';
+import { FormulariMedicacioPageModule } from '../formulari-medicacio/formulari-medicacio.module';
 
 @NgModule({
   entryComponents: [
@@ -19,7 +20,8 @@ import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.com
     FormsModule,
     IonicModule,
     MedicacioMatiPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    FormulariMedicacioPageModule
   ],
   declarations: [MedicacioMatiPage]
 })

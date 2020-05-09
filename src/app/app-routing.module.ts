@@ -98,6 +98,10 @@ const routes: Routes = [
     path: 'medicacio-nit',
     loadChildren: () => import('./pages/medicacio-nit/medicacio-nit.module').then( m => m.MedicacioNitPageModule)
   },
+  {
+    path: 'formulari-medicacio',
+    loadChildren: () => import('./pages/formulari-medicacio/formulari-medicacio.module').then( m => m.FormulariMedicacioPageModule)
+  },
 
 
 ];

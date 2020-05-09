@@ -11,10 +11,9 @@ export interface MenuItem{
 
 export interface Medicacio {
     nom : string;
-    tipus : number;
-    dosi : number;
+    forma : number;
+    dosi : string;
     usuari : number;
-    horari : string;
     data : string;
 }
 

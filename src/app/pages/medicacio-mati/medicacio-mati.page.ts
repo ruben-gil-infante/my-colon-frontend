@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicacio } from 'src/interfaces/interfaces';
+import { AlertController, ModalController } from '@ionic/angular';
+import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
 
 @Component({
   selector: 'app-medicacio-mati',
@@ -11,21 +13,31 @@ export class MedicacioMatiPage implements OnInit {
   medicacions : Medicacio [] = [
     {
       usuari: 1,
-      dosi: 2,
+      dosi: '3mg dos cops al dia',
       nom: 'Pred Forte',
-      tipus: 1,
-      horari: '3 cops al dia',
+      forma: 1,
       data: new Date().toISOString()
     }
   ];
 
-  constructor() { }
+  constructor(private modalController : ModalController) { }
 
   ngOnInit() {
   }
 
-  // FIXME: MOSTRAR EL FORMULARI EN FORMA D'ALERTA
-  afegirMedicacio(){
-    console.log("Afegir medicacio mati");
+  async afegirMedicacio() {
+    const modal = await this.modalController.create({
+      component: FormulariMedicacioPage,
+      componentProps: {
+        nombre: 'Fernando',
+        pais: 'Costa Rica'
+      }
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+
+    console.log('Retorno del modal', data );
   }
 }
