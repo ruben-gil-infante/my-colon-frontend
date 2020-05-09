@@ -1,9 +1,11 @@
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let medicacio of medicacions; let i = index;">
+  <ion-list *ngFor="let medicacio of medicacions; let i = index;">
+    <ion-item>
       <ion-card mode="ios" class="width-100">
-        <ion-card-header>
-
+        <ion-card-header class="right-align">
+          <ion-button color="transparent" size="small" (click)="eliminarMedicacio (i)">
+            <ion-icon name="trash-outline" color="danger"></ion-icon>
+          </ion-button>
         </ion-card-header>
         <ion-card-content>
           <ion-item>

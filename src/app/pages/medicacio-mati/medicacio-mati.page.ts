@@ -25,19 +25,27 @@ export class MedicacioMatiPage implements OnInit {
   ngOnInit() {
   }
 
+  eliminarMedicacio(position){
+    this.medicacions.splice(position, 1);
+  }
+
   async afegirMedicacio() {
     const modal = await this.modalController.create({
       component: FormulariMedicacioPage,
-      componentProps: {
-        nombre: 'Fernando',
-        pais: 'Costa Rica'
-      }
     });
 
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
 
-    console.log('Retorno del modal', data );
+    this.medicacions.push ({
+      usuari: 1,
+      dosi: data.dosi,
+      nom: data.nom,
+      forma: data.forma.toString(),
+      data: new Date().toISOString()
+    })
   }
 }
+
+

@@ -51,9 +51,11 @@ export class DataService {
 
     const toast = await this.toastController.create({
       message: msg,
-      duration: 1500
+      duration: 2000
     });
     toast.present();
+
+  
   }
 
  

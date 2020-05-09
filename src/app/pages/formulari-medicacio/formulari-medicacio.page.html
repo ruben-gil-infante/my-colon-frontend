@@ -4,6 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button (click)="guardarMedicacio ()">Guardar Medicació</ion-button>
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nom</ion-label>
+        <ion-input clearOnEdit="true" [(ngModel)]="nom" placeholder="Pred forte" required type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Dosi</ion-label>
+        <ion-input clearOnEdit="true" [(ngModel)]="dosi" placeholder="3mg al dia" required type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Forma</ion-label>
+        <ion-input placeholder="Pastilla" type="text" [(ngModel)]="forma" (ionFocus)="formaMedicacioSelector()"></ion-input>
+      </ion-item>
+
+      <div class="center-element top-20">
+        <ion-button (click)="guardarMedicacio ()">Guardar</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
