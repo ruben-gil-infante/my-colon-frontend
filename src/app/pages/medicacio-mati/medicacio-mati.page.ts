@@ -8,7 +8,16 @@ import { Medicacio } from 'src/interfaces/interfaces';
 })
 export class MedicacioMatiPage implements OnInit {
 
-  medicacions : Medicacio [] = [];
+  medicacions : Medicacio [] = [
+    {
+      usuari: 1,
+      dosi: 2,
+      nom: 'Pred Forte',
+      tipus: 1,
+      horari: '3 cops al dia',
+      data: new Date().toISOString()
+    }
+  ];
 
   constructor() { }
 
@@ -19,5 +28,4 @@ export class MedicacioMatiPage implements OnInit {
   afegirMedicacio(){
     console.log("Afegir medicacio mati");
   }
-
 }
