@@ -48,6 +48,7 @@ export class MedicacioPage implements OnInit {
 
   mostrarMedicacioTarda (){
     console.log("Mostrar medicacio tarda");
+    
   }
 
   mostrarMedicacioNit (){
