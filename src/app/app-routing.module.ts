@@ -82,21 +82,14 @@ const routes: Routes = [
   {
     path: 'notes',
     loadChildren: () => import('./pages/notes/notes.module').then( m => m.NotesPageModule)
-  },  {
+  },
+  {
     path: 'esdeveniments',
     loadChildren: () => import('./pages/esdeveniments/esdeveniments.module').then( m => m.EsdevenimentsPageModule)
   },
   {
     path: 'medicacio-mati',
     loadChildren: () => import('./pages/medicacio-mati/medicacio-mati.module').then( m => m.MedicacioMatiPageModule)
-  },
-  {
-    path: 'medicacio-tarda',
-    loadChildren: () => import('./pages/medicacio-tarda/medicacio-tarda.module').then( m => m.MedicacioTardaPageModule)
-  },
-  {
-    path: 'medicacio-nit',
-    loadChildren: () => import('./pages/medicacio-nit/medicacio-nit.module').then( m => m.MedicacioNitPageModule)
   },
   {
     path: 'formulari-medicacio',

@@ -9,6 +9,8 @@ import { MedicacioPageRoutingModule } from './medicacio-routing.module';
 import { MedicacioPage } from './medicacio.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { Routes, RouterModule } from '@angular/router';
+import { FormulariMedicacioPageModule } from '../formulari-medicacio/formulari-medicacio.module';
+import { FavButtonComponent } from 'src/app/components/fav-button/fav-button.component';
 
 const routes: Routes = [
   {
@@ -36,13 +38,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    FavButtonComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MedicacioPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    FormulariMedicacioPageModule
+    
   ],
-  declarations: [MedicacioPage]
+  declarations: [MedicacioPage, ]
 })
 export class MedicacioPageModule {}

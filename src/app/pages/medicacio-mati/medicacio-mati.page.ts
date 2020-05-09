@@ -20,13 +20,9 @@ export class MedicacioMatiPage implements OnInit {
     }
   ];
 
-  constructor(private modalController : ModalController) { }
+  constructor(private modalController : ModalController, private alertController : AlertController) { }
 
   ngOnInit() {
-  }
-
-  eliminarMedicacio(position){
-    this.medicacions.splice(position, 1);
   }
 
   async afegirMedicacio() {
@@ -45,6 +41,33 @@ export class MedicacioMatiPage implements OnInit {
       forma: data.forma.toString(),
       data: new Date().toISOString()
     })
+  }
+
+  async eliminarMedicacio( position ){
+
+    const confirmarEliminarAlert = await this.alertController.create({
+      header: 'Estas segur?',
+      subHeader: 'Confirma que vols eliminar la medicació',
+      mode: "ios",
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Si',
+          handler: ( data ) => {
+            console.log('Confirm Ok', data);
+            this.medicacions.splice(position, 1);
+          }
+        }
+      ]
+    });
+
+    await confirmarEliminarAlert.present();
+
   }
 }
 
