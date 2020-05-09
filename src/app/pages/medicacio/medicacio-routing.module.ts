@@ -14,15 +14,15 @@ const routes: Routes = [
     children: [
       {
         path: 'medicacio-mati',
-        loadChildren: '../medicacio-mati/medicacio-mati.module#MedicacioMatiPageModule'
+        loadChildren: () => import ('../medicacio-mati/medicacio-mati.module').then(m => m.MedicacioMatiPageModule)
       },
       {
         path: 'medicacio-tarda',
-        loadChildren: '../medicacio-tarda/medicacio-tarda.module#MedicacioTardaPageModule'
+        loadChildren: () => import ('../medicacio-tarda/medicacio-tarda.module').then(m => m.MedicacioTardaPageModule)
       },
       {
         path: 'medicacio-nit',
-        loadChildren: '../medicacio-nit/medicacio-nit.module#MedicacioNitPageModule'
+        loadChildren: () => import ('../medicacio-nit/medicacio-nit.module').then(m => m.MedicacioNitPageModule)
       }
     ]
   }
