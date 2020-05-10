@@ -36,13 +36,14 @@ export class DataService {
 
   // GET --> cal implementar
   async request (endpoint, elementList){
-    endpoint = this.endpointPrefix + endpoint;
-
     const loading = await this.loadingController.create({
       message: 'Carregant...',
     });
 
     await loading.present();
+
+    endpoint = this.endpointPrefix + endpoint;
+
 
     this.http.get<any>(endpoint).subscribe({
       next: data => {

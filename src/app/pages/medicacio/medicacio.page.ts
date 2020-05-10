@@ -18,17 +18,7 @@ export class MedicacioPage implements OnInit {
 
   endpoint : string = '/api/v1/medicacio';
 
-  medicacions : Medicacio [] = [
-    {
-      id: null,
-      usuari: 1,
-      dosi: '3mg dos cops al dia',
-      nom: 'Pred Forte',
-      forma: 1,
-      franja: 1,
-      data: new Date().toISOString()
-    }
-  ];
+  medicacions : Medicacio [] = [];
 
 
   constructor(private modalController : ModalController,
