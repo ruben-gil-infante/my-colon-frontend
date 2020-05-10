@@ -15,10 +15,11 @@ export class NotesPage implements OnInit {
   // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
   notes : Nota [] = [];
 
+  // FIXME:  Es necessar l'id del usuari
   endpoint : string = '/api/v1/notes';
 
   ngOnInit() {
-    
+    this.dataService.request(`${this.endpoint}/1`, this.notes);
   }
 
   async afegirNota(  ){

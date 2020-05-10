@@ -24,17 +24,37 @@ export class DataService {
 
 
   // GET --> cal implementar
+  async request (endpoint, elementList){
+    endpoint = this.endpointPrefix + endpoint;
+
+    const loading = await this.loadingController.create({
+      message: 'Carregant...',
+    });
+
+    await loading.present();
+
+    this.http.get<any>(endpoint).subscribe({
+      next: data => {
+        console.log("Retrieved data", data);
+        this.loadingController.dismiss();
+      },
+      error: error => {
+        this.loadingController.dismiss();
+        this.presentToast('Error carregant es dades');
+      }
+    })
+  }
 
   // DELETE 
   // FIXME: Fer que es pugui eliminar passant el endpoint i el id
   async delete (endpoint = ''){
     endpoint = this.endpointPrefix + endpoint;
-
+    
     const loading = await this.loadingController.create({
-      message: 'Eliminant...',
+      message: 'Carregant...',
     });
 
-    await loading.present();;
+    await loading.present();
 
     this.http.delete(endpoint).subscribe({
       next : data => {
