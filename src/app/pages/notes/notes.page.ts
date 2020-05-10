@@ -83,16 +83,22 @@ export class NotesPage implements OnInit {
       data: new Date().toISOString()
     }
 
-    this.dataService.submit(this.endpoint, notaAuxiliar)
-      .then(data => {
-        // TODO: Guardar en la array con el id
-      }).catch(error => {
-        // TODO: No guardar i mostrar un toast con el mensaje de error
-      })
+    this.dataService.submit(this.endpoint, notaAuxiliar).subscribe(
+      data => {
+        this.loadingController.dismiss();
+        this.notes.push(...data);
+        this.dataService.presentToast('Guardat amb èxit...');
+      },
+      error => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Error guardant...');
+      }
+    )
 
   }
 
   // TODO: Acabar d'implementar el metode correctament
+  // FIXME: Canviar el nom dels metodes a alertEliminarNota... alertGuardarNota...
   async eliminarNota( position ){
 
     const confirmarEliminarAlert = await this.alertCtrl.create({
@@ -109,11 +115,7 @@ export class NotesPage implements OnInit {
         }, {
           text: 'Si',
           handler: ( data ) => {
-            console.log('Confirm Ok', data);
-            this.notes.splice(position, 1);
-            
-            let endpoint = `${this.endpoint}/${position}`;
-            this.dataService.delete(endpoint);
+            this.eliminarNota(position);
           }
         }
       ]
@@ -122,5 +124,12 @@ export class NotesPage implements OnInit {
     await confirmarEliminarAlert.present();
 
   }
+
+
+  // FIXME: Fer lo dels canvis dels noms
+  async elminarNota() {
+
+  }
+
 
 }
