@@ -10,16 +10,20 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class NotesPage implements OnInit {
 
-  constructor(public alertCtrl : AlertController, private dataService : DataService) { }
+  constructor(public alertCtrl : AlertController, private dataService : DataService) {}
 
   // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
   notes : Nota [] = [];
 
   // FIXME:  Es necessar l'id del usuari
   endpoint : string = '/api/v1/notes';
+  usuariId : number;
 
   ngOnInit() {
-    this.dataService.request(`${this.endpoint}/1`, this.notes);
+    // FIXME: L'endpoint ha de canviar, ja que s'han d'agafar les de matins, tardes i nits
+    console.log("ON INIT");
+    this.usuariId = this.dataService.getUsuariId();
+    this.dataService.request(`${this.endpoint}/${this.usuariId}`, this.notes);
   }
 
   async afegirNota(  ){
@@ -58,7 +62,7 @@ export class NotesPage implements OnInit {
   guardarNota( nota ){
     let notaAuxiliar = {
       id: null,
-      usuari: 1,
+      usuari: this.usuariId,
       descripcio : nota,
       data: new Date().toISOString()
     }

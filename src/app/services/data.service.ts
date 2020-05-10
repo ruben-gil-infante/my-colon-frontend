@@ -10,7 +10,7 @@ import { HOST_PREFIX } from "../helpers/constants";
 export class DataService {
 
 
-  usuariId : string;
+  usuariId : number;
   password : string;
   
 
@@ -21,6 +21,10 @@ export class DataService {
   setInformacioUsuari(usuariId, password){
     this.usuariId = usuariId;
     this.password = password;
+  }
+
+  getUsuariId(){
+    return this.usuariId;
   }
 
   getHomeMenuItems () {
@@ -45,7 +49,7 @@ export class DataService {
 
     this.http.get<any>(endpoint).subscribe({
       next: data => {
-        console.log("Retrieved data", data);
+        elementList.push(data);
         this.loadingController.dismiss();
       },
       error: error => {

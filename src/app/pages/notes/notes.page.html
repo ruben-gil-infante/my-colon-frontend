@@ -3,7 +3,7 @@
 <ion-content>
   <app-fav-button (favButtonPressed)="afegirNota($event)"></app-fav-button>
 
-  <ion-list *ngFor="let nota of notes; let i = index;" mode="ios">
+  <ion-list *ngFor="let nota of notes; let i = index; | async">
     <ion-card mode="ios">
       <ion-card-header class="right-align">
         <ion-button (click)="eliminarNota(i)" size="small" color="transparent">
