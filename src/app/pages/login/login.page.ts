@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,13 @@ export class LoginPage implements OnInit {
   usuari : string;
   contrasenya : string;
 
-  constructor() { }
+  constructor(private modalController : ModalController) { }
 
   ngOnInit() {
   }
 
   login( event ){
-    console.log(this.usuari, this.contrasenya, event);
+    this.modalController.dismiss();
   }
 
 }

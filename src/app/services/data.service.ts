@@ -9,10 +9,21 @@ import { ToastController, AlertController, LoadingController } from '@ionic/angu
 })
 export class DataService {
 
+
+  usuari : string;
+  password : string;
+  endpointPrefix = 'http://localhost:8080'; 
+
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) { }
 
-  endpointPrefix = 'http://localhost:8080'; 
+  setUsuari (usuari){
+    this.usuari = usuari;
+  }
+
+  setPassword (password){
+    this.password = password;
+  }
 
   getHomeMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
@@ -91,11 +102,6 @@ export class DataService {
         }
       });
   }
-
-  async loadingAlert (msg){
-
-  }
-  
 
   async presentToast(msg) {
 

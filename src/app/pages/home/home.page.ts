@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 import { Observable } from 'rxjs';
+import { ModalController } from '@ionic/angular';
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +14,24 @@ export class HomePage implements OnInit {
 
   menuItems : Observable<MenuItem[]>;
 
-  constructor( private dataService : DataService) { }
+  constructor( private dataService : DataService, private modalController : ModalController) { }
 
   ngOnInit() {
+    this.login();
+  }
+
+  async login (){
+    const modal = await this.modalController.create({
+      component: LoginPage,
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+
     this.menuItems = this.dataService.getHomeMenuItems();
   }
 
+  
 }
 
