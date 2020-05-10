@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/services/data.service';
-
+import { HOST_PREFIX } from '../../helpers/constants';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -26,13 +27,15 @@ export class LoginPage implements OnInit {
 
     await loading.present();
 
-    let endpoint = `http://localhost:8080/api/v1/usuari/${this.usuari}/${this.password}`
+    let endpoint = `${HOST_PREFIX}/api/v1/usuari/${this.usuari}/${this.password}`
   
     this.httpClient.get<any>(endpoint).subscribe({
       next: data => {
         this.loadingController.dismiss();
         this.dataService.setInformacioUsuari(data.id, data.password);
-        this.modalController.dismiss()
+        this.modalController.dismiss({
+          nomPacient: `${data.nom} ${data.primerCognom}`
+        })
       },
       error: error => {
         this.dataService.presentToast('Usuari o contrasenya incorrectes');

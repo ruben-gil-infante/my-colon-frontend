@@ -7,3 +7,6 @@ export const FORMA_MEDICACIO = {
     GOTES: {id: 6, text: 'Gotes'},
     PASTILLA: {id: 7, text: 'Pastilla'}
 }
+
+
+export const HOST_PREFIX = 'http://localhost:8080'; 

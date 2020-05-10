@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'src/interfaces/interfaces';
 import { ToastController, AlertController, LoadingController } from '@ionic/angular';
-
+import { HOST_PREFIX } from "../helpers/constants";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class DataService {
 
   usuariId : string;
   password : string;
-  endpointPrefix = 'http://localhost:8080'; 
+  
 
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) { }
@@ -40,7 +40,7 @@ export class DataService {
 
     await loading.present();
 
-    endpoint = this.endpointPrefix + endpoint;
+    endpoint = HOST_PREFIX + endpoint;
 
 
     this.http.get<any>(endpoint).subscribe({
@@ -58,7 +58,7 @@ export class DataService {
   // DELETE 
   // FIXME: Fer que es pugui eliminar passant el endpoint i el id
   async delete (endpoint = ''){
-    endpoint = this.endpointPrefix + endpoint;
+    endpoint = HOST_PREFIX + endpoint;
     
     const loading = await this.loadingController.create({
       message: 'Carregant...',
@@ -80,7 +80,7 @@ export class DataService {
 
   // POST
   async submit (endpoint = '', object, elementList = <any>[]){
-    endpoint = this.endpointPrefix + endpoint;
+    endpoint = HOST_PREFIX + endpoint;
 
     const loading = await this.loadingController.create({
       message: 'Guardant les dades...',
