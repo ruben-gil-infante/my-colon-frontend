@@ -91,6 +91,7 @@ export class MedicacioPage implements OnInit {
           handler: ( data ) => {
             console.log('Confirm Ok', data);
             this.medicacions.splice(position, 1);
+            this.dataService.delete(`${this.endpoint}/1`)
           }
         }
       ]

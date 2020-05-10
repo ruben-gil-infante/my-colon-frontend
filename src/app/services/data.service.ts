@@ -18,20 +18,36 @@ export class DataService {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
   }
 
-
   getRegistreSimpotomesMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/RegistreSimptomesMenuItems.json');
   }
 
-  // FIXME: Add method to get and save items from the database
+
+  // GET --> cal implementar
+
+  // DELETE
+  async delete (endpoint = ''){
+    endpoint = this.endpointPrefix + endpoint;
+
+    this.loadingAlert('Eliminant');
+
+    this.http.delete(endpoint).subscribe({
+      next : data => {
+        this.loadingController.dismiss();
+        this.presentToast('Eliminat amb èxit');
+      },
+      error : error => {
+        this.loadingController.dismiss();
+        this.presentToast('Error eliminant...');
+      }
+    });
+  } 
+
+  // POST
   async submit (endpoint = '', object){
     endpoint = this.endpointPrefix + endpoint;
 
-    const loading = await this.loadingController.create({
-      message: 'Guardant les dades...',
-    });
-
-    await loading.present();
+    this.loadingAlert('Guardant les dades');
 
     this.http.post<any>(endpoint, object)
       .subscribe({
@@ -45,9 +61,15 @@ export class DataService {
         }
       });
   }
-  request (){
 
+  async loadingAlert (msg){
+    const loading = await this.loadingController.create({
+      message: msg,
+    });
+
+    await loading.present();
   }
+  
 
   async presentToast(msg) {
 
@@ -60,8 +82,6 @@ export class DataService {
 
     toast.present();
   
-  }
-
- 
+  } 
 
 }
