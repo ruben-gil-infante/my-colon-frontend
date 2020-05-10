@@ -9,4 +9,5 @@ export const FORMA_MEDICACIO = {
 }
 
 
-export const HOST_PREFIX = 'http://localhost:8080'; 
+export const HOST_PREFIX = 'http://192.168.1.207:8080';
+//export const HOST_PREFIX = 'http://localhost:8080'; 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MenuItem } from 'src/interfaces/interfaces';
-import { ToastController, AlertController, LoadingController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { HOST_PREFIX } from "../helpers/constants";
 
 @Injectable({
@@ -56,7 +56,6 @@ export class DataService {
   }
 
   // DELETE 
-  // FIXME: Fer que es pugui eliminar passant el endpoint i el id
   async delete (endpoint = ''){
     endpoint = HOST_PREFIX + endpoint;
     
