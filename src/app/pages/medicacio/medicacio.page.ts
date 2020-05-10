@@ -3,6 +3,7 @@ import { Medicacio } from 'src/interfaces/interfaces';
 import { ModalController, AlertController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
 import { DataService } from 'src/app/services/data.service';
+import { fromEventPattern } from 'rxjs';
 
 @Component({
   selector: 'app-medicacio',
@@ -28,36 +29,6 @@ export class MedicacioPage implements OnInit {
     }
   ];
 
-  formaMedicacio = [
-    {
-      id: 1,
-      value: 'Càpsula'
-    },
-    {
-      id: 2,
-      value: 'Inhalador'
-    },
-    {
-      id: 3,
-      value: 'Ungüent'
-    },
-    {
-      id: 4,
-      value: 'Pegat'
-    },
-    {
-      id: 5,
-      value: 'Injeccio'
-    },
-    {
-      id: 6,
-      value: 'Gotes'
-    },
-    {
-      id: 7,
-      value: 'Pastilla'
-    }
-  ];
 
   constructor(private modalController : ModalController,
               private alertController : AlertController,
@@ -89,23 +60,17 @@ export class MedicacioPage implements OnInit {
 
     const { data } = await modal.onDidDismiss();
 
-    let forma = this.formaToNumero(data.forma);
-
     let post_medicacio = {
       usuari: 1,
       dosi: data.dosi,
       nom: data.nom,
-      forma: forma,
+      forma: data.forma,
       franja: 1,
       data: new Date().toISOString()
     }
 
     this.dataService.submit(this.endpoint, post_medicacio);
     
-  }
-
-  formaToNumero (forma : string){
-    return this.formaMedicacio.find(element => element.value == forma).id;
   }
 
   async eliminarMedicacio( position ){

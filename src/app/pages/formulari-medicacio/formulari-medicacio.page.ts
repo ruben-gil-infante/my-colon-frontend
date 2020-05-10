@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController, ToastController } from '@ionic/angular';
-import { DataService } from 'src/app/services/data.service';
+import {FORMA_MEDICACIO} from '../../helpers/constants.js';
 
 @Component({
   selector: 'app-formulari-medicacio',
@@ -58,47 +58,47 @@ export class FormulariMedicacioPage implements OnInit {
       header: 'Forma Medicació',
       inputs: [
         {
-          name: 'Càpsula',
+          name: FORMA_MEDICACIO.CAPSULA.text,
           type: 'radio',
-          label: 'Cápsula',
-          value: 'Cápsula',
+          label: FORMA_MEDICACIO.CAPSULA.text,
+          value: FORMA_MEDICACIO.CAPSULA.id,
           checked: true
         },
         {
-          name: 'Inhalador',
+          name: FORMA_MEDICACIO.INHALADOR.text,
           type: 'radio',
-          label: 'Inhalador',
-          value: 'Inhalador'
+          label: FORMA_MEDICACIO.INHALADOR.text,
+          value: FORMA_MEDICACIO.INHALADOR.id
         },
         {
-          name: 'Ungüent',
+          name: FORMA_MEDICACIO.UNGUENT.text,
           type: 'radio',
-          label: 'Ungüent',
-          value: 'Ungüent'
+          label: FORMA_MEDICACIO.UNGUENT.text,
+          value: FORMA_MEDICACIO.UNGUENT.id
         },
         {
-          name: 'Pegat',
+          name: FORMA_MEDICACIO.PEGAT.text,
           type: 'radio',
-          label: 'Pegat',
-          value: 'Pegat'
+          label: FORMA_MEDICACIO.PEGAT.text,
+          value: FORMA_MEDICACIO.PEGAT.id
         },
         {
-          name: 'Injecció',
+          name: FORMA_MEDICACIO.INJECCIO.text,
           type: 'radio',
-          label: 'Injecció',
-          value: 'Injecció'
+          label: FORMA_MEDICACIO.INJECCIO.text,
+          value: FORMA_MEDICACIO.INJECCIO.id
         },
         {
-          name: 'Gotes',
+          name: FORMA_MEDICACIO.GOTES.text,
           type: 'radio',
-          label: 'Gotes',
-          value: 'Gotes'
+          label: FORMA_MEDICACIO.GOTES.text,
+          value: FORMA_MEDICACIO.GOTES.id
         },
         {
-          name: 'Pastilla',
+          name: FORMA_MEDICACIO.PASTILLA.text,
           type: 'radio',
-          label: 'Pastilla',
-          value: 'Pastilla'
+          label: FORMA_MEDICACIO.PASTILLA.text,
+          value: FORMA_MEDICACIO.PASTILLA.id
         }
       ],
       buttons: [
