@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Medicacio } from 'src/interfaces/interfaces';
 import { ModalController, AlertController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-medicacio',
@@ -12,18 +13,55 @@ import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicac
 
 export class MedicacioPage implements OnInit {
 
-  medicacions     : Medicacio [] = [
+  // FIXME: Afegir constants per indicar la franja de la medicina que s'esta guardant
+
+  endpoint : string = '/api/v1/medicacio';
+
+  medicacions : Medicacio [] = [
     {
       usuari: 1,
       dosi: '3mg dos cops al dia',
       nom: 'Pred Forte',
       forma: 1,
+      franja: 1,
       data: new Date().toISOString()
     }
   ];
 
+  formaMedicacio = [
+    {
+      id: 1,
+      value: 'Cápsula'
+    },
+    {
+      id: 2,
+      value: 'Inhalador'
+    },
+    {
+      id: 3,
+      value: 'Ungüent'
+    },
+    {
+      id: 4,
+      value: 'Pegat'
+    },
+    {
+      id: 5,
+      value: 'Injeccio'
+    },
+    {
+      id: 6,
+      value: 'Gotes'
+    },
+    {
+      id: 7,
+      value: 'Pastilla'
+    }
+  ];
+
   constructor(private modalController : ModalController,
-              private alertController : AlertController) { }
+              private alertController : AlertController,
+              private dataService : DataService) { }
 
   ngOnInit() {
   }
@@ -31,28 +69,15 @@ export class MedicacioPage implements OnInit {
   segmentChanged(event){
     switch (event.detail.value){
       case 'mati': 
-        this.mostrarMedicacioMati();
+        console.log("Mostrar medicacions mati..."); 
         break;
       case 'tarda':
-        this.mostrarMedicacioTarda();
+        console.log("Mostrar medicacions tarda...");
         break;
       case 'nit':
-        this.mostrarMedicacioNit();
+        console.log("Mostrar medicacions nit...");
         break;
     }
-  }
-
-  mostrarMedicacioMati (){
-    console.log("Mostrar medicacio mati");
-  }
-
-  mostrarMedicacioTarda (){
-    console.log("Mostrar medicacio tarda");
-    
-  }
-
-  mostrarMedicacioNit (){
-    console.log("Mostrar medicacio nit");
   }
 
   async afegirMedicacio() {
@@ -64,13 +89,23 @@ export class MedicacioPage implements OnInit {
 
     const { data } = await modal.onDidDismiss();
 
-    this.medicacions.push ({
+    let forma = this.formaToNumero(data.forma);
+
+    let post_medicacio = {
       usuari: 1,
       dosi: data.dosi,
       nom: data.nom,
-      forma: data.forma.toString(),
+      forma: forma,
+      franja: 1,
       data: new Date().toISOString()
-    })
+    }
+
+    this.dataService.submit(this.endpoint, post_medicacio);
+    
+  }
+
+  formaToNumero (forma : string){
+    return this.formaMedicacio.find(element => element.value == forma).id;
   }
 
   async eliminarMedicacio( position ){

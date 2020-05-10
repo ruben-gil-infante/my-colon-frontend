@@ -14,6 +14,7 @@ export interface Medicacio {
     forma : number;
     dosi : string;
     usuari : number;
+    franja : number;
     data : string;
 }
 
