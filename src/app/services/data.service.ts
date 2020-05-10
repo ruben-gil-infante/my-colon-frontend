@@ -24,37 +24,41 @@ export class DataService {
   }
 
   // FIXME: Add method to get and save items from the database
-  submit (endpoint = '', object){
-
-    this.alertLoading();
-
+  async submit (endpoint = '', object){
     endpoint = this.endpointPrefix + endpoint;
+
+    const loading = await this.loadingController.create({
+      message: 'Guardant les dades...',
+    });
+
+    await loading.present();
+
     this.http.post<any>(endpoint, object)
       .subscribe({
-        error: error =>  this.presentToast('Problemes amb el servidor')
+        next : data => {
+          this.loadingController.dismiss();
+          this.presentToast('Guardat amb èxit');
+        },
+        error: error =>{
+          this.loadingController.dismiss();
+          this.presentToast('Problemes amb el servidor');
+        }
       });
   }
   request (){
 
   }
 
-  async alertLoading(){
-    const loading = await this.loadingController.create({
-      message: 'Guardant les dades...',
-    });
-
-    await loading.present();
-  }
-
   async presentToast(msg) {
-    this.loadingController.dismiss();
 
+    this.loadingController.dismiss();
+    
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000
     });
-    toast.present();
 
+    toast.present();
   
   }
 

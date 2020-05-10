@@ -31,7 +31,7 @@ export class MedicacioPage implements OnInit {
   formaMedicacio = [
     {
       id: 1,
-      value: 'Cápsula'
+      value: 'Càpsula'
     },
     {
       id: 2,

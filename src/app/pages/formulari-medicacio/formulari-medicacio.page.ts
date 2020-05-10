@@ -58,7 +58,7 @@ export class FormulariMedicacioPage implements OnInit {
       header: 'Forma Medicació',
       inputs: [
         {
-          name: 'Cápsula',
+          name: 'Càpsula',
           type: 'radio',
           label: 'Cápsula',
           value: 'Cápsula',
