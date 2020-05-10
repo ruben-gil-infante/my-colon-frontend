@@ -29,18 +29,15 @@ export class LoginPage implements OnInit {
     let endpoint = `http://localhost:8080/api/v1/usuari/${this.usuari}/${this.password}`
   
     this.httpClient.get<any>(endpoint).subscribe({
-      next: data => {console.log(data)
-        this.modalController.dismiss({
-          id: data.id,
-          password: data.password
-        })
+      next: data => {
+        this.loadingController.dismiss();
+        this.dataService.setInformacioUsuari(data.id, data.password);
+        this.modalController.dismiss()
       },
       error: error => {
         this.dataService.presentToast('Usuari o contrasenya incorrectes');
       }
     })
-  
-    //this.modalController.dismiss();
   
   }
 

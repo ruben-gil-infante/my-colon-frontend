@@ -10,18 +10,16 @@ import { ToastController, AlertController, LoadingController } from '@ionic/angu
 export class DataService {
 
 
-  usuari : string;
+  usuariId : string;
   password : string;
   endpointPrefix = 'http://localhost:8080'; 
 
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) { }
 
-  setUsuari (usuari){
-    this.usuari = usuari;
-  }
-
-  setPassword (password){
+  
+  setInformacioUsuari(usuariId, password){
+    this.usuariId = usuariId;
     this.password = password;
   }
 
