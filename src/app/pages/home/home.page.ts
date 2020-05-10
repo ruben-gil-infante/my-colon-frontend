@@ -13,6 +13,7 @@ import { LoginPage } from '../login/login.page';
 export class HomePage implements OnInit {
 
   menuItems : Observable<MenuItem[]>;
+  nomPacient : string;
 
   constructor( private dataService : DataService, private modalController : ModalController) { }
 
@@ -29,6 +30,8 @@ export class HomePage implements OnInit {
     await modal.present();
 
     const { data } = await modal.onDidDismiss();
+
+    this.nomPacient = data.nomPacient;
 
     this.menuItems = this.dataService.getHomeMenuItems();
   }
