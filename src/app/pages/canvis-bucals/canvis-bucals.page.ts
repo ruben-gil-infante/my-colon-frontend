@@ -43,6 +43,7 @@ export class CanvisBucalsPage implements OnInit {
 
 
     this.form = {
+      id: null,
       afirmatiu: false,
       simptomes: simptomesEscollits,
       usuari: 1,

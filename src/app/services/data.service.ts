@@ -25,11 +25,16 @@ export class DataService {
 
   // GET --> cal implementar
 
-  // DELETE
+  // DELETE 
+  // FIXME: Fer que es pugui eliminar passant el endpoint i el id
   async delete (endpoint = ''){
     endpoint = this.endpointPrefix + endpoint;
 
-    this.loadingAlert('Eliminant');
+    const loading = await this.loadingController.create({
+      message: 'Eliminant...',
+    });
+
+    await loading.present();;
 
     this.http.delete(endpoint).subscribe({
       next : data => {
@@ -44,16 +49,21 @@ export class DataService {
   } 
 
   // POST
-  async submit (endpoint = '', object){
+  async submit (endpoint = '', object, elementList = <any>[]){
     endpoint = this.endpointPrefix + endpoint;
 
-    this.loadingAlert('Guardant les dades');
+    const loading = await this.loadingController.create({
+      message: 'Guardant les dades...',
+    });
+
+    await loading.present();
 
     this.http.post<any>(endpoint, object)
       .subscribe({
         next : data => {
           this.loadingController.dismiss();
           this.presentToast('Guardat amb èxit');
+          elementList.push(object);
         },
         error: error =>{
           this.loadingController.dismiss();
@@ -63,11 +73,7 @@ export class DataService {
   }
 
   async loadingAlert (msg){
-    const loading = await this.loadingController.create({
-      message: msg,
-    });
 
-    await loading.present();
   }
   
 

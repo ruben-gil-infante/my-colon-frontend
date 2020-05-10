@@ -10,6 +10,7 @@ export interface MenuItem{
 }
 
 export interface Medicacio {
+    id : number;
     nom : string;
     forma : number;
     dosi : string;
@@ -19,6 +20,7 @@ export interface Medicacio {
 }
 
 export interface Nutricio {
+    id: number;
     esmorzar : number;
     dinar : number;
     berenar : number;
@@ -29,6 +31,7 @@ export interface Nutricio {
 }
 
 export interface Apetit {
+    id: number;
     afirmatiu : boolean;
     esmorzarAcabat : number;
     dinarAcabat : number;
@@ -38,6 +41,7 @@ export interface Apetit {
 }
 
 export interface CanvisBucals {
+    id: number;
     afirmatiu : boolean;
     simptomes : string;
     data : string;
@@ -45,6 +49,7 @@ export interface CanvisBucals {
 }
 
 export interface Diarrees {
+    id: number;
     afirmatiu : boolean;
     vegades : number;
     escalaBristol : number;
@@ -54,6 +59,7 @@ export interface Diarrees {
 }
 
 export interface Dolor {
+    id: number;
     afirmatiu : boolean;
     localitzacio : string;
     fatiga : number;
@@ -64,6 +70,7 @@ export interface Dolor {
 }
 
 export interface Fatiga {
+    id: number;
     afirmatiu : boolean;
     puntuacio : number;
     data : string;
@@ -71,6 +78,7 @@ export interface Fatiga {
 }
 
 export interface Reestrenyiment {
+    id: number;
     afirmatiu : boolean;
     ultimCopVentre : string;
     colorUltimaFemta : string;
@@ -80,6 +88,7 @@ export interface Reestrenyiment {
 }
 
 export interface Usuari {
+    id: number;
     nom : string;
     primerCognom : string;
     segonCognom : string;
@@ -88,6 +97,7 @@ export interface Usuari {
 }
 
 export interface Nota {
+    id: number;
     usuari : number;
     descripcio : string;
     data : string;

@@ -20,6 +20,7 @@ export class MedicacioPage implements OnInit {
 
   medicacions : Medicacio [] = [
     {
+      id: null,
       usuari: 1,
       dosi: '3mg dos cops al dia',
       nom: 'Pred Forte',
@@ -69,7 +70,7 @@ export class MedicacioPage implements OnInit {
       data: new Date().toISOString()
     }
 
-    this.dataService.submit(this.endpoint, post_medicacio);
+    this.dataService.submit(this.endpoint, post_medicacio, this.medicacions);
     
   }
 

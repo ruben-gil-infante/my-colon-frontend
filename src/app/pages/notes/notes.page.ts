@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Nota } from 'src/interfaces/interfaces';
 import { AlertController } from '@ionic/angular';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-notes',
@@ -9,12 +10,15 @@ import { AlertController } from '@ionic/angular';
 })
 export class NotesPage implements OnInit {
 
-  constructor(public alertCtrl : AlertController) { }
+  constructor(public alertCtrl : AlertController, private dataService : DataService) { }
 
   // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
   notes : Nota [] = [];
 
+  endpoint : string = '/api/v1/notes';
+
   ngOnInit() {
+    
   }
 
   async afegirNota(  ){
@@ -52,12 +56,14 @@ export class NotesPage implements OnInit {
 
   guardarNota( nota ){
     let notaAuxiliar = {
+      id: null,
       usuari: 1,
       descripcio : nota,
       data: new Date().toISOString()
     }
 
-    this.notes.push(notaAuxiliar);
+    this.dataService.submit(this.endpoint, notaAuxiliar, this.notes);
+
   }
 
   async eliminarNota( position ){
@@ -78,6 +84,9 @@ export class NotesPage implements OnInit {
           handler: ( data ) => {
             console.log('Confirm Ok', data);
             this.notes.splice(position, 1);
+            
+            let endpoint = `${this.endpoint}/${position}`;
+            this.dataService.delete(endpoint);
           }
         }
       ]
