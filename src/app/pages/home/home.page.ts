@@ -23,6 +23,7 @@ export class HomePage implements OnInit {
   async login (){
     const modal = await this.modalController.create({
       component: LoginPage,
+      backdropDismiss: false
     });
 
     await modal.present();
