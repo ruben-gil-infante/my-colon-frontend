@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Nota } from 'src/interfaces/interfaces';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-notes',
@@ -10,20 +11,35 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class NotesPage implements OnInit {
 
-  constructor(public alertCtrl : AlertController, private dataService : DataService) {}
+  constructor(public alertCtrl : AlertController, private dataService : DataService,
+              private loadingController : LoadingController) {}
 
   // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
   notes : Nota [] = [];
 
   // FIXME:  Es necessar l'id del usuari
-  endpoint : string = '/api/v1/notes';
+  endpoint : string;
   usuariId : number;
 
   ngOnInit() {
-    // FIXME: L'endpoint ha de canviar, ja que s'han d'agafar les de matins, tardes i nits
-    console.log("ON INIT");
     this.usuariId = this.dataService.getUsuariId();
-    this.dataService.request(`${this.endpoint}/${this.usuariId}`, this.notes);
+    this.endpoint = `/api/v1/notes/${this.usuariId}`
+    this.carregarNotes();
+  }
+
+  async carregarNotes (){
+    console.log(this.endpoint);
+
+    (await this.dataService.request(this.endpoint)).subscribe(
+      data => {
+        this.loadingController.dismiss();
+        this.notes.push(...data);
+      },  
+      error => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Error carregant les dades...');
+      }
+    )
   }
 
   async afegirNota(  ){
@@ -59,7 +75,7 @@ export class NotesPage implements OnInit {
 
   }
 
-  guardarNota( nota ){
+  async guardarNota( nota ){
     let notaAuxiliar = {
       id: null,
       usuari: this.usuariId,
@@ -67,10 +83,16 @@ export class NotesPage implements OnInit {
       data: new Date().toISOString()
     }
 
-    this.dataService.submit(this.endpoint, notaAuxiliar, this.notes);
+    this.dataService.submit(this.endpoint, notaAuxiliar)
+      .then(data => {
+        // TODO: Guardar en la array con el id
+      }).catch(error => {
+        // TODO: No guardar i mostrar un toast con el mensaje de error
+      })
 
   }
 
+  // TODO: Acabar d'implementar el metode correctament
   async eliminarNota( position ){
 
     const confirmarEliminarAlert = await this.alertCtrl.create({

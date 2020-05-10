@@ -60,7 +60,7 @@ export class MedicacioPage implements OnInit {
       data: new Date().toISOString()
     }
 
-    this.dataService.submit(this.endpoint, post_medicacio, this.medicacions);
+    this.dataService.submit(this.endpoint, post_medicacio);
     
   }
 

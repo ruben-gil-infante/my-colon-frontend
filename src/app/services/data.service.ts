@@ -27,17 +27,19 @@ export class DataService {
     return this.usuariId;
   }
 
+  // TODO: Treure aquest metode
   getHomeMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
   }
 
+  // TODO: Treure aquest metode
   getRegistreSimpotomesMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/RegistreSimptomesMenuItems.json');
   }
 
 
   // GET --> cal implementar
-  async request (endpoint, elementList){
+  async request (endpoint){
     const loading = await this.loadingController.create({
       message: 'Carregant...',
     });
@@ -47,16 +49,7 @@ export class DataService {
     endpoint = HOST_PREFIX + endpoint;
 
 
-    this.http.get<any>(endpoint).subscribe({
-      next: data => {
-        elementList.push(data);
-        this.loadingController.dismiss();
-      },
-      error: error => {
-        this.loadingController.dismiss();
-        this.presentToast('Error carregant es dades');
-      }
-    })
+    return this.http.get<any []>(endpoint); 
   }
 
   // DELETE 
@@ -69,20 +62,11 @@ export class DataService {
 
     await loading.present();
 
-    this.http.delete(endpoint).subscribe({
-      next : data => {
-        this.loadingController.dismiss();
-        this.presentToast('Eliminat amb èxit');
-      },
-      error : error => {
-        this.loadingController.dismiss();
-        this.presentToast('Error eliminant...');
-      }
-    });
+    return this.http.delete(endpoint);
   } 
 
   // POST
-  async submit (endpoint = '', object, elementList = <any>[]){
+  async submit (endpoint = '', object){
     endpoint = HOST_PREFIX + endpoint;
 
     const loading = await this.loadingController.create({
@@ -91,18 +75,7 @@ export class DataService {
 
     await loading.present();
 
-    this.http.post<any>(endpoint, object)
-      .subscribe({
-        next : data => {
-          this.loadingController.dismiss();
-          this.presentToast('Guardat amb èxit');
-          elementList.push(object);
-        },
-        error: error =>{
-          this.loadingController.dismiss();
-          this.presentToast('Problemes amb el servidor');
-        }
-      });
+    this.http.post<any>(endpoint, object);
   }
 
   async presentToast(msg) {
