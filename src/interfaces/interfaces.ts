@@ -99,6 +99,6 @@ export interface Usuari {
 export interface Nota {
     id: number;
     usuari : number;
-    descripcio : string;
     data : string;
+    descripcio : string;
 }

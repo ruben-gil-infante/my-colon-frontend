@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MenuItem } from 'src/interfaces/interfaces';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HOST_PREFIX } from "../helpers/constants";
@@ -39,7 +39,7 @@ export class DataService {
 
 
   // GET --> cal implementar
-  async request (endpoint){
+  async request <T> (endpoint){
     const loading = await this.loadingController.create({
       message: 'Carregant...',
     });
@@ -49,11 +49,11 @@ export class DataService {
     endpoint = HOST_PREFIX + endpoint;
 
 
-    return this.http.get<any []>(endpoint); 
+    return this.http.get<T>(endpoint); 
   }
 
   // DELETE 
-  async delete (endpoint = ''){
+  async delete <T>(endpoint = ''){
     endpoint = HOST_PREFIX + endpoint;
     
     const loading = await this.loadingController.create({
@@ -62,11 +62,11 @@ export class DataService {
 
     await loading.present();
 
-    return this.http.delete(endpoint);
+    return this.http.delete<T>(endpoint);
   } 
 
   // POST
-  async submit (endpoint = '', object){
+  async submit <T> (endpoint = '', object){
     endpoint = HOST_PREFIX + endpoint;
 
     const loading = await this.loadingController.create({
@@ -75,7 +75,7 @@ export class DataService {
 
     await loading.present();
 
-    this.http.post<any>(endpoint, object);
+    return this.http.post<T>(endpoint, object);
   }
 
   async presentToast(msg) {

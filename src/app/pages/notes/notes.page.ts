@@ -23,14 +23,14 @@ export class NotesPage implements OnInit {
 
   ngOnInit() {
     this.usuariId = this.dataService.getUsuariId();
-    this.endpoint = `/api/v1/notes/${this.usuariId}`
+    this.endpoint = `/api/v1/notes/`
     this.carregarNotes();
   }
 
   async carregarNotes (){
-    console.log(this.endpoint);
+    let carregarEndpoint = this.endpoint + `${this.usuariId}`;
 
-    (await this.dataService.request(this.endpoint)).subscribe(
+    (await this.dataService.request<Nota[]>(carregarEndpoint)).subscribe(
       data => {
         this.loadingController.dismiss();
         this.notes.push(...data);
@@ -42,7 +42,8 @@ export class NotesPage implements OnInit {
     )
   }
 
-  async afegirNota(  ){
+  // GUARDAR NOTA
+  async alertGuardarNota(  ){
     const input = await this.alertCtrl.create({
       header: 'Nota',
       subHeader: 'Afegeixi el text per la nota:',
@@ -58,13 +59,10 @@ export class NotesPage implements OnInit {
         {
           text: 'Cancelar',
           role: 'cancel',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
           text: 'Guardar',
           handler: ( data ) => {
-            console.log('Confirm Ok', data);
             this.guardarNota(data.descripcio);
           }
         }
@@ -77,29 +75,27 @@ export class NotesPage implements OnInit {
 
   async guardarNota( nota ){
     let notaAuxiliar = {
-      id: null,
       usuari: this.usuariId,
       descripcio : nota,
       data: new Date().toISOString()
-    }
+    };
 
-    this.dataService.submit(this.endpoint, notaAuxiliar).subscribe(
+    (await this.dataService.submit<Nota>(this.endpoint, notaAuxiliar)).subscribe(
       data => {
         this.loadingController.dismiss();
-        this.notes.push(...data);
-        this.dataService.presentToast('Guardat amb èxit...');
+        this.notes.push(data);
+        this.dataService.presentToast('Guardat amb èxit');
       },
       error => {
         this.loadingController.dismiss();
         this.dataService.presentToast('Error guardant...');
       }
-    )
+    );
 
   }
 
-  // TODO: Acabar d'implementar el metode correctament
-  // FIXME: Canviar el nom dels metodes a alertEliminarNota... alertGuardarNota...
-  async eliminarNota( position ){
+  // ELIMINAR NOTA
+  async alertEliminarNota( position ){
 
     const confirmarEliminarAlert = await this.alertCtrl.create({
       header: 'Estas segur?',
@@ -109,13 +105,11 @@ export class NotesPage implements OnInit {
         {
           text: 'No',
           role: 'cancel',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => { }
         }, {
           text: 'Si',
           handler: ( data ) => {
-            this.eliminarNota(position);
+            this.eliminarNota( position );
           }
         }
       ]
@@ -127,8 +121,19 @@ export class NotesPage implements OnInit {
 
 
   // FIXME: Fer lo dels canvis dels noms
-  async elminarNota() {
-
+  async eliminarNota( position ) {
+    let endpoint = this.endpoint + this.notes[position].id;
+    (await this.dataService.delete<Nota>(endpoint)).subscribe(
+      data => {
+        this.loadingController.dismiss();
+        this.notes.splice(position, 1);
+        this.dataService.presentToast('Eliminat amb èxit');
+      },
+      error => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Error eliminant...');
+      }
+    )
   }
 
 
