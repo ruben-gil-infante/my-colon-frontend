@@ -17,7 +17,7 @@ export class DataService {
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) { }
 
-  
+             
   setInformacioUsuari(usuariId, password){
     this.usuariId = usuariId;
     this.password = password;
@@ -27,6 +27,7 @@ export class DataService {
     return this.usuariId;
   }
 
+  // FIXME: IMPLEMENTAR => local data service
   // TODO: Treure aquest metode
   getHomeMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
@@ -38,7 +39,7 @@ export class DataService {
   }
 
 
-  // GET --> cal implementar
+  // GET
   async request <T> (endpoint){
     const loading = await this.loadingController.create({
       message: 'Carregant...',
@@ -52,31 +53,32 @@ export class DataService {
     return this.http.get<T>(endpoint); 
   }
 
-  // DELETE 
-  async delete <T>(endpoint = ''){
-    endpoint = HOST_PREFIX + endpoint;
-    
-    const loading = await this.loadingController.create({
-      message: 'Carregant...',
-    });
-
-    await loading.present();
-
-    return this.http.delete<T>(endpoint);
-  } 
 
   // POST
   async submit <T> (endpoint = '', object){
     endpoint = HOST_PREFIX + endpoint;
 
     const loading = await this.loadingController.create({
-      message: 'Guardant les dades...',
+      message: 'Guardant...',
     });
 
     await loading.present();
 
     return this.http.post<T>(endpoint, object);
   }
+
+  // DELETE 
+  async delete <T>(endpoint = ''){
+    endpoint = HOST_PREFIX + endpoint;
+     
+    const loading = await this.loadingController.create({
+      message: 'Eliminant...',
+    });
+  
+    await loading.present();
+  
+    return this.http.delete<T>(endpoint);
+  } 
 
   async presentToast(msg) {
 
@@ -89,6 +91,6 @@ export class DataService {
 
     toast.present();
   
-  } 
+  }
 
 }

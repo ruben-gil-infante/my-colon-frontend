@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Nota } from 'src/interfaces/interfaces';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-notes',
@@ -14,10 +13,7 @@ export class NotesPage implements OnInit {
   constructor(public alertCtrl : AlertController, private dataService : DataService,
               private loadingController : LoadingController) {}
 
-  // FIXME: AÑADIR LO DE CARGAR DINAMICAMENTE LA LISTA CUANDO HAY MUCHOS ELEMENTOS
   notes : Nota [] = [];
-
-  // FIXME:  Es necessar l'id del usuari
   endpoint : string;
   usuariId : number;
 
@@ -94,7 +90,6 @@ export class NotesPage implements OnInit {
 
   }
 
-  // ELIMINAR NOTA
   async alertEliminarNota( position ){
 
     const confirmarEliminarAlert = await this.alertCtrl.create({
@@ -119,8 +114,6 @@ export class NotesPage implements OnInit {
 
   }
 
-
-  // FIXME: Fer lo dels canvis dels noms
   async eliminarNota( position ) {
     let endpoint = this.endpoint + this.notes[position].id;
     (await this.dataService.delete<Nota>(endpoint)).subscribe(

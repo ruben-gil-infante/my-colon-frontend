@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Medicacio } from 'src/interfaces/interfaces';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
 import { DataService } from 'src/app/services/data.service';
 import { fromEventPattern } from 'rxjs';
@@ -16,14 +16,13 @@ export class MedicacioPage implements OnInit {
 
   // FIXME: Afegir constants per indicar la franja de la medicina que s'esta guardant
 
-  endpoint : string = '/api/v1/medicacio';
+  endpoint : string = '/api/v1/medicacio/';
 
   medicacions : Medicacio [] = [];
 
 
-  constructor(private modalController : ModalController,
-              private alertController : AlertController,
-              private dataService : DataService) { }
+  constructor(private modalController : ModalController, private alertController : AlertController,
+              private dataService : DataService, private loadingController : LoadingController) { }
 
   ngOnInit() {
   }
@@ -42,7 +41,7 @@ export class MedicacioPage implements OnInit {
     }
   }
 
-  async afegirMedicacio() {
+  async alertGuardarMedicacio() {
     const modal = await this.modalController.create({
       component: FormulariMedicacioPage,
     });
@@ -58,13 +57,23 @@ export class MedicacioPage implements OnInit {
       forma: data.forma,
       franja: 1,
       data: new Date().toISOString()
-    }
+    };
 
-    this.dataService.submit(this.endpoint, post_medicacio);
+    (await this.dataService.submit<Medicacio>(this.endpoint, post_medicacio)).subscribe(
+      data => {
+        this.loadingController.dismiss();
+        this.medicacions.push(data);
+        this.dataService.presentToast('Guardat amb èxit');
+      },
+      error => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Error guardant...');
+      }
+    )
     
   }
 
-  async eliminarMedicacio( position ){
+  async alertEliminarMedicacio( position ){
 
     const confirmarEliminarAlert = await this.alertController.create({
       header: 'Estas segur?',
@@ -75,14 +84,11 @@ export class MedicacioPage implements OnInit {
           text: 'No',
           role: 'cancel',
           handler: () => {
-            console.log('Confirm Cancel');
           }
         }, {
           text: 'Si',
           handler: ( data ) => {
-            console.log('Confirm Ok', data);
-            this.medicacions.splice(position, 1);
-            this.dataService.delete(`${this.endpoint}/1`)
+            this.eliminarMedicacio(position);
           }
         }
       ]
@@ -90,6 +96,22 @@ export class MedicacioPage implements OnInit {
 
     await confirmarEliminarAlert.present();
 
+  }
+
+  async eliminarMedicacio(position){
+    let endpoint = this.endpoint + this.medicacions[position].id;
+    
+    (await this.dataService.delete<Medicacio>(endpoint)).subscribe(
+      data => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Eliminat amb èxit...');
+        this.medicacions.splice(position, 1);
+      },
+      error => {
+        this.loadingController.dismiss();
+        this.dataService.presentToast('Error eliminant...');
+      }
+    )
   }
   
 
