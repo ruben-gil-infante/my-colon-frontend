@@ -6,8 +6,8 @@
   <ion-list *ngFor="let nota of notes; let i = index;">
     <ion-card mode="ios">
       <ion-card-header class="right-align">
-        <ion-button (click)="alertEliminarNota(i)" size="small" color="transparent">
-          <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+        <ion-button (click)="alertEliminarNota(i)" size="large" color="transparent">
+          <ion-icon name="trash-outline" color="danger"></ion-icon>
         </ion-button>
       </ion-card-header>
       <ion-card-content>
