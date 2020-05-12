@@ -11,10 +11,10 @@
   </ion-card>
 
 
-  <app-range-bar nom="Esmorzar" min="0" max="100"></app-range-bar>
-  <app-range-bar nom="Dinar" min="0" max="100"></app-range-bar>
-  <app-range-bar nom="Berenar" min="0" max="100"></app-range-bar>
-  <app-range-bar nom="Sopar" min="0" max="100"></app-range-bar>
+  <app-range-bar nom="Esmorzar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 1)"></app-range-bar>
+  <app-range-bar nom="Dinar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 2)"></app-range-bar>
+  <app-range-bar nom="Berenar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 3)"></app-range-bar>
+  <app-range-bar nom="Sopar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 4)"></app-range-bar>
 
   <ion-card>
     <ion-card-header class="ion-card-header">
@@ -23,10 +23,10 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Gots</ion-label>
-        <ion-input type="number" min="0"></ion-input>
+        <ion-input type="number" [(ngModel)]="gotsAigua" min="0"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
 
-  <app-save-button></app-save-button>
+  <app-save-button (guardar)="enviarDades()"></app-save-button>
 </ion-content>
