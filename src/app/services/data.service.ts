@@ -80,10 +80,10 @@ export class DataService {
     return this.http.delete<T>(endpoint);
   } 
 
+
+  // TOAST
   async presentToast(msg) {
 
-    this.loadingController.dismiss();
-    
     const toast = await this.toastController.create({
       message: msg,
       duration: 2000
@@ -91,6 +91,11 @@ export class DataService {
 
     toast.present();
   
+  }
+
+  // LOADING CONTROLLER
+  async loadingControllerDismiss(){
+    this.loadingController.dismiss();
   }
 
 }

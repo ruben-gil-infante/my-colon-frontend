@@ -17,29 +17,51 @@ export class MedicacioPage implements OnInit {
   // FIXME: Afegir constants per indicar la franja de la medicina que s'esta guardant
 
   endpoint : string = '/api/v1/medicacio/';
-
   medicacions : Medicacio [] = [];
+  franjaMedicacio : number = 1;  
+  usuari : number;
 
 
   constructor(private modalController : ModalController, private alertController : AlertController,
-              private dataService : DataService, private loadingController : LoadingController) { }
+              private dataService : DataService) { }
 
   ngOnInit() {
+    this.usuari = this.dataService.getUsuariId();
   }
 
   segmentChanged(event){
     switch (event.detail.value){
       case 'mati': 
-        console.log("Mostrar medicacions mati..."); 
+        this.recuperarMedicacions(1);
         break;
       case 'tarda':
-        console.log("Mostrar medicacions tarda...");
+        this.recuperarMedicacions(2);
         break;
       case 'nit':
-        console.log("Mostrar medicacions nit...");
+        this.recuperarMedicacions(3);
         break;
     }
   }
+
+  async recuperarMedicacions( franja ){
+    this.franjaMedicacio = franja;
+    
+    let recuperarEndpoint = this.endpoint + `${this.usuari}`;
+    
+    (await this.dataService.request<Medicacio[]>(recuperarEndpoint)).subscribe(
+      data => {
+        this.dataService.loadingControllerDismiss();
+        this.medicacions = [];
+        this.medicacions.push(...data);
+      },
+      error => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Error carregant...');
+      }
+    )
+  }
+
+  
 
   async alertGuardarMedicacio() {
     const modal = await this.modalController.create({
@@ -55,18 +77,18 @@ export class MedicacioPage implements OnInit {
       dosi: data.dosi,
       nom: data.nom,
       forma: data.forma,
-      franja: 1,
+      franja: this.franjaMedicacio,
       data: new Date().toISOString()
     };
 
     (await this.dataService.submit<Medicacio>(this.endpoint, post_medicacio)).subscribe(
       data => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.medicacions.push(data);
         this.dataService.presentToast('Guardat amb èxit');
       },
       error => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Error guardant...');
       }
     )
@@ -103,12 +125,12 @@ export class MedicacioPage implements OnInit {
     
     (await this.dataService.delete<Medicacio>(endpoint)).subscribe(
       data => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Eliminat amb èxit...');
         this.medicacions.splice(position, 1);
       },
       error => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Error eliminant...');
       }
     )

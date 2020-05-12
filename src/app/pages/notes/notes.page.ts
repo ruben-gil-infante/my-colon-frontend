@@ -10,8 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class NotesPage implements OnInit {
 
-  constructor(public alertCtrl : AlertController, private dataService : DataService,
-              private loadingController : LoadingController) {}
+  constructor(public alertCtrl : AlertController, private dataService : DataService) {}
 
   notes : Nota [] = [];
   endpoint : string;
@@ -28,11 +27,11 @@ export class NotesPage implements OnInit {
 
     (await this.dataService.request<Nota[]>(carregarEndpoint)).subscribe(
       data => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.notes.push(...data);
       },  
       error => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Error carregant les dades...');
       }
     )
@@ -78,12 +77,12 @@ export class NotesPage implements OnInit {
 
     (await this.dataService.submit<Nota>(this.endpoint, notaAuxiliar)).subscribe(
       data => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.notes.push(data);
         this.dataService.presentToast('Guardat amb èxit');
       },
       error => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Error guardant...');
       }
     );
@@ -118,12 +117,12 @@ export class NotesPage implements OnInit {
     let endpoint = this.endpoint + this.notes[position].id;
     (await this.dataService.delete<Nota>(endpoint)).subscribe(
       data => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.notes.splice(position, 1);
         this.dataService.presentToast('Eliminat amb èxit');
       },
       error => {
-        this.loadingController.dismiss();
+        this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Error eliminant...');
       }
     )

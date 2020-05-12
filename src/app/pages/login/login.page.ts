@@ -3,6 +3,7 @@ import { ModalController, ToastController, LoadingController } from '@ionic/angu
 import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/services/data.service';
 import { HOST_PREFIX } from '../../helpers/constants';
+import { Usuari } from 'src/interfaces/interfaces';
  
 @Component({
   selector: 'app-login',
@@ -13,35 +14,29 @@ export class LoginPage implements OnInit {
 
   usuari : string;
   password : string;
+  endpoint : string = '/api/v1/usuari/';
 
-  constructor(private modalController : ModalController, private httpClient : HttpClient,
-              private dataService : DataService, private loadingController: LoadingController) { }
+  constructor(private modalController : ModalController, private dataService : DataService) { }
 
   ngOnInit() {
   }
 
   async login( event ){
-    const loading = await this.loadingController.create({
-      message: 'Autenticant...',
-    });
 
-    await loading.present();
+    let usuariEndpoint = this.endpoint + `${this.usuari}/${this.password}`;
 
-    let endpoint = `${HOST_PREFIX}/api/v1/usuari/${this.usuari}/${this.password}`
-  
-    this.httpClient.get<any>(endpoint).subscribe({
-      next: data => {
-        this.loadingController.dismiss();
+    (await this.dataService.request<Usuari>(usuariEndpoint)).subscribe(
+      data => {
+        this.dataService.loadingControllerDismiss();
         this.dataService.setInformacioUsuari(data.id, data.password);
         this.modalController.dismiss({
           nomPacient: `${data.nom} ${data.primerCognom}`
         })
       },
-      error: error => {
-        this.dataService.presentToast('Usuari o contrasenya incorrectes');
+      error => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Dades incorrectes...');
       }
-    })
-  
+    );
   }
-
 }
