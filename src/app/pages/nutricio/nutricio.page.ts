@@ -48,7 +48,8 @@ export class NutricioPage implements OnInit {
       berenar: this.berenar,
       sopar: this.sopar,
       gotsAigua: this.gotsAigua,
-      usuari: this.usuari
+      usuari: this.usuari,
+      data: this.dataService.getData()
     };
     
     (await this.dataService.submit(this.endpoint, nutricio)).subscribe(

@@ -98,4 +98,8 @@ export class DataService {
     this.loadingController.dismiss();
   }
 
+  getData(){
+    return new Date().toISOString();
+  }
+
 }

@@ -32,7 +32,8 @@ export class FatigaPage implements OnInit {
     let fatigaForm = {
       usuari: this.usuari,
       puntuacio: this.valorFatiga,
-      afirmatiu: this.afirmatiu
+      afirmatiu: this.afirmatiu,
+      data: this.dataService.getData()
     } 
 
     ;(await this.dataService.submit(this.endpoint, fatigaForm)).subscribe(

@@ -71,7 +71,8 @@ export class NotesPage implements OnInit {
   async guardarNota( nota ){
     let notaAuxiliar = {
       usuari: this.usuariId,
-      descripcio : nota
+      descripcio : nota,
+      data: this.dataService.getData()
     };
 
     (await this.dataService.submit<Nota>(this.endpoint, notaAuxiliar)).subscribe(
