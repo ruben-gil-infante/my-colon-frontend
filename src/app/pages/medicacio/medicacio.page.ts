@@ -27,6 +27,7 @@ export class MedicacioPage implements OnInit {
 
   ngOnInit() {
     this.usuari = this.dataService.getUsuariId();
+    this.recuperarMedicacions(1);
   }
 
   segmentChanged(event){
@@ -46,8 +47,8 @@ export class MedicacioPage implements OnInit {
   async recuperarMedicacions( franja ){
     this.franjaMedicacio = franja;
     
-    let recuperarEndpoint = this.endpoint + `${this.usuari}`;
-    
+    let recuperarEndpoint = this.endpoint + `${this.franjaMedicacio}/${this.usuari}`;
+
     (await this.dataService.request<Medicacio[]>(recuperarEndpoint)).subscribe(
       data => {
         this.dataService.loadingControllerDismiss();
@@ -73,7 +74,7 @@ export class MedicacioPage implements OnInit {
     const { data } = await modal.onDidDismiss();
 
     let post_medicacio = {
-      usuari: 1,
+      usuari: this.usuari,
       dosi: data.dosi,
       nom: data.nom,
       forma: data.forma,
