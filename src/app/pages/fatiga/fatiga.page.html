@@ -3,7 +3,7 @@
 <ion-content>
   
   <app-si-no-selector pregunta="Et sents fatigat?"></app-si-no-selector>
-  <app-range-bar nom="Puntua la teva fatiga" min="1" max="10"></app-range-bar>
-  <app-save-button></app-save-button>
+  <app-range-bar nom="Puntua la teva fatiga" min="1" max="10" (rangeValueChange)="valorFatigaSeleccionat($event)"></app-range-bar>
+  <app-save-button (guardar)="guardar()"></app-save-button>
 
 </ion-content>

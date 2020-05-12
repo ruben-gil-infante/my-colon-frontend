@@ -1,11 +1,5 @@
 [
     {
-        "name" :"Manca d'apetit",
-        "redirectTo": "/manca-apetit",
-        "image" : "/assets/icon/food.svg"
-
-    },
-    {
         "name" : "Restrenyiment",
         "redirectTo" : "/reestrenyiment",
         "image" : "/assets/icon/toilet.svg"

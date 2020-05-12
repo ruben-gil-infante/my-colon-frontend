@@ -48,7 +48,6 @@ export class NutricioPage implements OnInit {
       berenar: this.berenar,
       sopar: this.sopar,
       gotsAigua: this.gotsAigua,
-      data: new Date().toISOString(),
       usuari: this.usuari
     };
     

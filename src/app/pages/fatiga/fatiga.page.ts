@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-fatiga',
@@ -7,15 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FatigaPage implements OnInit {
 
-  valorSeleccionat : number;
+  usuari: number;
+  endpoint: string = '/api/v1/fatiga';
+  valorFatiga: number = 0;
+  afirmatiu: boolean = true;
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
+    this.usuari = this.dataService.getUsuariId();
   }
 
-  pruebaCapturaValor ( event ){
-    this.valorSeleccionat = event;
+  valorFatigaSeleccionat(event){
+    this.valorFatiga = event;
+  }
+
+  async guardar(){
+    let fatigaForm = {
+      usuari: this.usuari,
+      puntuacio: this.valorFatiga,
+      afirmatiu: this.afirmatiu
+    } 
+
+    ;(await this.dataService.submit(this.endpoint, fatigaForm)).subscribe(
+      data => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Guardat amb èxit...');
+      },
+      error => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Error guardant...');
+      }
+    );
+
   }
 
 }

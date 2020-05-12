@@ -16,8 +16,6 @@ export class CanvisBucalsPage implements OnInit {
     {id: 3, text: 'Canvis en el gust', checked: false}
   ]
 
-  form : CanvisBucals;
-
   endpoint : string = '';
 
   constructor(private dataService : DataService) { }
@@ -33,7 +31,7 @@ export class CanvisBucalsPage implements OnInit {
     this.simptomes[id].checked = false;
   }
 
-  enviarFormulari (){
+  async enviarFormulari (){
     let simptomesEscollits = '';
     this.simptomes.forEach(simptoma => {
       if(simptoma.checked){
@@ -42,15 +40,23 @@ export class CanvisBucalsPage implements OnInit {
     })
 
 
-    this.form = {
+    let canvisBucalsForm = {
       id: null,
       afirmatiu: false,
       simptomes: simptomesEscollits,
-      usuari: 1,
-      data: new Date().toISOString()
-    }
+      usuari: 1
+    };
 
-    this.dataService.submit(this.endpoint, this.form);
+    (await this.dataService.submit(this.endpoint, canvisBucalsForm)).subscribe(
+      data => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Guardat amb èxit...');
+      },
+      error => {
+        this.dataService.loadingControllerDismiss();
+        this.dataService.presentToast('Error guardant...');s
+      }
+    )
     
   }
 

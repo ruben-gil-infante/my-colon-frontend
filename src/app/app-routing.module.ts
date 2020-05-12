@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/registre-simptomes/registre-simptomes.module').then( m => m.RegistreSimptomesPageModule)
   },
   {
-    path: 'manca-apetit',
-    loadChildren: () => import('./pages/manca-apetit/manca-apetit.module').then( m => m.MancaApetitPageModule)
-  },
-  {
     path: 'reestrenyiment',
     loadChildren: () => import('./pages/reestrenyiment/reestrenyiment.module').then( m => m.ReestrenyimentPageModule)
   },

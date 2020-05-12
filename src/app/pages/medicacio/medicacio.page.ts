@@ -78,8 +78,7 @@ export class MedicacioPage implements OnInit {
       dosi: data.dosi,
       nom: data.nom,
       forma: data.forma,
-      franja: this.franjaMedicacio,
-      data: new Date().toISOString()
+      franja: this.franjaMedicacio
     };
 
     (await this.dataService.submit<Medicacio>(this.endpoint, post_medicacio)).subscribe(
