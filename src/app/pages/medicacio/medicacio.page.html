@@ -7,29 +7,30 @@
     <ion-list *ngFor="let medicacio of medicacions; let i = index;">
       <ion-item>
         <ion-card mode="ios" class="width-100">
-          <ion-card-header class="right-align">
-            <ion-button color="transparent" size="large" (click)="alertEliminarMedicacio (i)">
-              <ion-icon name="trash-outline" color="danger"></ion-icon>
-            </ion-button>
-          </ion-card-header>
           <ion-card-content>
+            <div class="bottom-10 right-align">
+              <ion-button color="transparent" size="medium" (click)="alertEliminarMedicacio (i)">
+                <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+              </ion-button>
+            </div>
+            
             <ion-item>
               <ion-grid>
-                <ion-row><ion-label class="bold bottom-10" color="primary" type="fixed">Nom </ion-label></ion-row>
+                <ion-row><ion-label class="bold bottom-10" type="fixed">Nom </ion-label></ion-row>
                 <ion-row><ion-label>{{ medicacio.nom }}</ion-label></ion-row>
               </ion-grid>  
             </ion-item>
             
             <ion-item class="top-20">
               <ion-grid>
-                <ion-row><ion-label class="bold bottom-10" color="primary" type="fixed">Forma </ion-label></ion-row>
+                <ion-row><ion-label class="bold bottom-10" type="fixed">Forma </ion-label></ion-row>
                 <ion-row><ion-label>{{ medicacio.forma }}</ion-label></ion-row>
               </ion-grid>
             </ion-item>
             
             <ion-item class="top-20">
               <ion-grid>
-                <ion-row><ion-label class="bold bottom-10" color="primary" type="fixed">Dosi </ion-label></ion-row>
+                <ion-row><ion-label class="bold bottom-10" type="fixed">Dosi </ion-label></ion-row>
                 <ion-row><ion-label>{{ medicacio.dosi }}</ion-label></ion-row>
               </ion-grid>
             </ion-item>
