@@ -24,6 +24,10 @@ export class FatigaPage implements OnInit {
     this.valorFatiga = event;
   }
 
+  afirmatiuSeleccionat(event){
+    this.afirmatiu = event;
+  }
+
   async guardar(){
     let fatigaForm = {
       usuari: this.usuari,

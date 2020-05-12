@@ -4,18 +4,14 @@
  </ion-card-header>
  <ion-card-content>
    <ion-grid>
-     <ion-row>
-       <ion-col size="6">
-         <ion-item id="siButton" [class]="binaryCheckboxMarked" (click)="si( $event )">
-           <ion-label>SI</ion-label>
-         </ion-item>
-       </ion-col>
-       <ion-col>
-        <ion-item id="noButton" [class]="binaryCheckbox" (click)="no( $event )">
-          <ion-label>NO</ion-label>
-        </ion-item>
-       </ion-col>
-     </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button [fill]=fillSiButton class="width-100" (click)="seleccionat(true)">SI</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button [fill]="fillNoButton" class="width-100" (click)="seleccionat(false)">NO</ion-button>
+      </ion-col>
+    </ion-row>
    </ion-grid>
  </ion-card-content>
 </ion-card>

@@ -54,7 +54,7 @@ export class CanvisBucalsPage implements OnInit {
       },
       error => {
         this.dataService.loadingControllerDismiss();
-        this.dataService.presentToast('Error guardant...');s
+        this.dataService.presentToast('Error guardant...');
       }
     )
     

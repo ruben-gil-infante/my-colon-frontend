@@ -10,16 +10,28 @@ export class SiNoSelectorComponent implements OnInit {
 
   @Input() pregunta : string;
   @Output() resposta = new EventEmitter<boolean>();
+
+  fillSiButton: string = "outline"
+  fillNoButton: string = "solid"
+  valor: boolean = true;
   
   constructor() { }
 
   ngOnInit() {
   }
 
-  si( event ){
-  }
-
-  no( event ){
+  seleccionat(si){
+    if(si){
+      this.valor = true;
+      this.fillSiButton = "solid";
+      this.fillNoButton = "outline";
+      this.resposta.emit(true);
+    }else{
+      this.valor = false;
+      this.fillSiButton = "outline";
+      this.fillNoButton  = "solid";
+      this.resposta.emit(false);
+    }
   }
 
 }
