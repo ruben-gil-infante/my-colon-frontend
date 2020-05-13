@@ -30,6 +30,15 @@ export interface Nutricio {
     usuari : number;
 }
 
+export interface Vomits {
+    id: number;
+    usuari: number;
+    afirmatiu: boolean;
+    cops: number;
+    descripcio: string;
+    avui: boolean;
+}
+
 export interface Apetit {
     id: number;
     afirmatiu : boolean;

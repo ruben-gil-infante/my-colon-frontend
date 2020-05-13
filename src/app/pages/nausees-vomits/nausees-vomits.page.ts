@@ -25,8 +25,12 @@ export class NauseesVomitsPage implements OnInit {
   ngOnInit() {
   }
 
-  itemSeleccionat(item){
-    console.log("Nausees page, item seleccionat", this.nausees[item.id]);
+  nauseesSeleccionat(event){
+    console.log("Nausees seleccionat", event);
+  }
+
+  descripcioVomitSeleccionat(event){
+    console.log("Descripcio vomit seleccionat", event);
   }
 
 }
