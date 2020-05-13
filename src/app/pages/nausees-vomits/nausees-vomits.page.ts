@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-nausees-vomits',

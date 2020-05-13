@@ -1,6 +1,7 @@
 <ion-card mode="ios">
   <ion-card-header class="ion-card-header">
     <ion-card-title class="ion-card-title-form">{{ nom }}</ion-card-title>
+    <ion-card-subtitle>El mínim és {{ min }} i el máxim és {{ max }}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
     <ion-list mode="ios">
@@ -11,6 +12,7 @@
                    pin="true"
                    step="1"
                    snaps="true"
+                   ticks="true"
                    color="success">
           <ion-label slot="start">{{ min }}</ion-label>
           <ion-label slot="end">{{ max }}</ion-label>

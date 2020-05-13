@@ -71,7 +71,7 @@ export interface Dolor {
     id: number;
     afirmatiu : boolean;
     localitzacio : string;
-    fatiga : number;
+    valor : number;
     descripcio : string;
     quanApareix : string;
     data : string;

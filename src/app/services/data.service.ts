@@ -10,7 +10,7 @@ import { HOST_PREFIX } from "../helpers/constants";
 export class DataService {
 
 
-  usuariId : number = 34; // FIXME: Eliminar, nomes per proves
+  usuariId : number; 
   password : string;
   
 
