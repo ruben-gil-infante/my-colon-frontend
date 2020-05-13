@@ -13,7 +13,7 @@ export class NauseesVomitsPage implements OnInit {
     {id: 1, text: 'Més de dos cops al dia', checked: false}
   ];
   
-    descripcioVomit : OptionItem [] = [
+  descripcioVomit : OptionItem [] = [
     {id: 0, text: 'Contingut alimentici', checked: false},
     {id: 1, text: 'Mucós', checked: false},
     {id: 2, text: 'Biliós (tonalitat verda)', checked: false},
@@ -23,6 +23,10 @@ export class NauseesVomitsPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  itemSeleccionat(item){
+    console.log("Nausees page, item seleccionat", this.nausees[item.id]);
   }
 
 }

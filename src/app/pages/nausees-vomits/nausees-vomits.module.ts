@@ -19,7 +19,7 @@ import { DefaultHeaderComponent } from 'src/app/components/default-header/defaul
     OpcionsSelectorComponent, 
     OpcionsSelectorComponent,
     DefaultHeaderComponent,
-    SaveButtonComponent
+    SaveButtonComponent,
   ],
   imports: [
     CommonModule,

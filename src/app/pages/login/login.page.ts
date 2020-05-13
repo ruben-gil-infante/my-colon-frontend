@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  async login( event ){
+  async login(){
 
     let usuariEndpoint = this.endpoint + `${this.usuari}/${this.password}`;
 

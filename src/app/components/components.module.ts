@@ -11,6 +11,7 @@ import { DefaultHeaderComponent } from './default-header/default-header.componen
 import { SaveButtonComponent } from './save-button/save-button.component';
 import { DefaultFooterComponent } from './default-footer/default-footer.component';
 import { FavButtonComponent } from './fav-button/fav-button.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,11 +25,12 @@ import { FavButtonComponent } from './fav-button/fav-button.component';
     DefaultHeaderComponent,
     SaveButtonComponent,
     DefaultFooterComponent,
-    FavButtonComponent
+    FavButtonComponent,
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    FormsModule
   ],
   exports: [FemtaPopoverComponent,
     RangeBarComponent, 
@@ -39,7 +41,7 @@ import { FavButtonComponent } from './fav-button/fav-button.component';
     DefaultHeaderComponent,
     SaveButtonComponent,
     DefaultFooterComponent,
-    FavButtonComponent
+    FavButtonComponent,
   ]
 })
 export class ComponentsModule { }

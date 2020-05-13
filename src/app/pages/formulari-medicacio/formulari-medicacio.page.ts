@@ -56,6 +56,7 @@ export class FormulariMedicacioPage implements OnInit {
     console.log("Forma medicacio selector")
     const alert = await this.alertController.create({
       header: 'Forma Medicació',
+      mode: 'md',
       inputs: [
         {
           name: FORMA_MEDICACIO.CAPSULA.text,

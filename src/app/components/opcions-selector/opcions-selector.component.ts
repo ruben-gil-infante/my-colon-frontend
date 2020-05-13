@@ -11,7 +11,6 @@ export class OpcionsSelectorComponent implements OnInit {
   @Input() items : OptionItem [];
   @Input() titol : string;
   @Output() itemSeleccionat = new EventEmitter<number>();
-  @Output() itemDesSeleccionat = new EventEmitter<number>();
 
   constructor() {
   }
@@ -19,14 +18,8 @@ export class OpcionsSelectorComponent implements OnInit {
   ngOnInit() {
   }
 
-  elementSeleccionat (item, event) {
-    if(event.toElement.checked){
-      // deseleccionat
-      this.itemDesSeleccionat.emit(item.id);
-    }else{
-      // seleccionat
-      this.itemSeleccionat.emit(item.id);
-    }
+  elementSeleccionat(item) {
+    this.itemSeleccionat.emit(item);
   }
 
 }
