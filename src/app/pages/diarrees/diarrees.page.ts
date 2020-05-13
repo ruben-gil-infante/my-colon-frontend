@@ -9,11 +9,11 @@ import { OptionItem } from 'src/interfaces/interfaces';
 export class DiarreesPage implements OnInit {
 
   vegades : OptionItem [] = [
-    {id: 0, text: '1', checked: false},
-    {id: 1, text: '2', checked: false},
-    {id: 2, text: '3', checked: false},
-    {id: 3, text: '4', checked: false},
-    {id: 4, text:'Més de 5', checked: false}
+    {id: 0, text: '1', notChecked: true},
+    {id: 1, text: '2', notChecked: true},
+    {id: 2, text: '3', notChecked: true},
+    {id: 3, text: '4', notChecked: true},
+    {id: 4, text:'Més de 5', notChecked: true}
   ]
 
   constructor() { }

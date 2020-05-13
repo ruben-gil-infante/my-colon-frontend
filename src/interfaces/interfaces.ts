@@ -1,7 +1,7 @@
 export interface OptionItem {
     id : number;
     text : string;
-    checked: boolean;
+    notChecked: boolean;
 }
 
 export interface MenuItem{

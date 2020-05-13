@@ -15,15 +15,15 @@ export class NauseesVomitsPage implements OnInit {
   avui: boolean = false;
 
   nausees : OptionItem [] = [
-    {id: 0, text: 'Un cop o dos al dia', checked: false}, 
-    {id: 1, text: 'Més de dos cops al dia', checked: false}
+    {id: 0, text: 'Un cop o dos al dia', notChecked: true}, 
+    {id: 1, text: 'Més de dos cops al dia', notChecked: true}
   ];
   
   descripcioVomit : OptionItem [] = [
-    {id: 0, text: 'Contingut alimentici', checked: false},
-    {id: 1, text: 'Mucós', checked: false},
-    {id: 2, text: 'Biliós (tonalitat verda)', checked: false},
-    {id: 3, text: 'Hemàtic (presència de sang)', checked: false}
+    {id: 0, text: 'Contingut alimentici', notChecked: true},
+    {id: 1, text: 'Mucós', notChecked: true},
+    {id: 2, text: 'Biliós (tonalitat verda)', notChecked: true},
+    {id: 3, text: 'Hemàtic (presència de sang)', notChecked: true}
   ]
 
   constructor(private dataService : DataService) { }
@@ -38,14 +38,6 @@ export class NauseesVomitsPage implements OnInit {
 
   avuiSeleccionat(event){
     this.avui = event;
-  }
-
-  nauseesSeleccionat(event){
-    console.log("Nausees seleccionat", event);
-  }
-
-  descripcioVomitSeleccionat(event){
-    console.log("Descripcio vomit seleccionat", event);
   }
 
   guardar(){

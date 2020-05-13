@@ -10,10 +10,10 @@ import { DataService } from 'src/app/services/data.service';
 export class CanvisBucalsPage implements OnInit {
 
   simptomes : OptionItem [] = [
-    {id: 0, text: 'Boca seca', checked: false},
-    {id: 1, text: 'Llenga enblanquida', checked: false},
-    {id: 2, text: 'Boca amb és sensibilitat o dolor', checked: false},
-    {id: 3, text: 'Canvis en el gust', checked: false}
+    {id: 0, text: 'Boca seca', notChecked: true},
+    {id: 1, text: 'Llenga enblanquida', notChecked: true},
+    {id: 2, text: 'Boca amb és sensibilitat o dolor', notChecked: true},
+    {id: 3, text: 'Canvis en el gust', notChecked: true}
   ]
 
   endpoint : string = '';
@@ -24,17 +24,17 @@ export class CanvisBucalsPage implements OnInit {
   }
 
   itemSeleccionat( id ){
-    this.simptomes[id].checked = true;
+    this.simptomes[id].notChecked = true;
   }
 
   itemDesSeleccionat( id ){
-    this.simptomes[id].checked = false;
+    this.simptomes[id].notChecked = false;
   }
 
   async enviarFormulari (){
     let simptomesEscollits = '';
     this.simptomes.forEach(simptoma => {
-      if(simptoma.checked){
+      if(simptoma.notChecked){
         simptomesEscollits += simptoma.id + ';';
       }
     })

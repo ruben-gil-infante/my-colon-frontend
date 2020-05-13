@@ -5,7 +5,7 @@
   <ion-card-content>
     <ion-list>
       <ion-item *ngFor="let item of items">
-        <ion-checkbox [(ngModel)]="item.checked" color="primary" (click)="elementSeleccionat(item)" slot="start" ></ion-checkbox>
+        <ion-checkbox [(ngModel)]="item.checked" color="primary" slot="start" [checked]="item.checked"></ion-checkbox>
         <ion-label>{{ item.text }}</ion-label>
       </ion-item>
     </ion-list>

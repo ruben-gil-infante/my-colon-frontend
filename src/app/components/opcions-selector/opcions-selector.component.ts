@@ -10,16 +10,11 @@ export class OpcionsSelectorComponent implements OnInit {
 
   @Input() items : OptionItem [];
   @Input() titol : string;
-  @Output() itemSeleccionat = new EventEmitter<number>();
 
   constructor() {
   }
 
   ngOnInit() {
-  }
-
-  elementSeleccionat(item) {
-    this.itemSeleccionat.emit(item);
   }
 
 }
