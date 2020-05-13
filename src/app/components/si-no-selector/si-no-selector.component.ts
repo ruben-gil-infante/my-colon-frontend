@@ -9,15 +9,17 @@ import { IonItem } from '@ionic/angular';
 export class SiNoSelectorComponent implements OnInit {
 
   @Input() pregunta : string;
-  @Output() resposta = new EventEmitter<boolean>();
+  valor: boolean;
 
   fillSiButton: string = "outline"
   fillNoButton: string = "solid"
-  valor: boolean = true;
+
+  @Output() resposta = new EventEmitter();
   
   constructor() { }
 
   ngOnInit() {
+    console.log("Valor", this.valor);
   }
 
   seleccionat(si){
@@ -25,13 +27,13 @@ export class SiNoSelectorComponent implements OnInit {
       this.valor = true;
       this.fillSiButton = "solid";
       this.fillNoButton = "outline";
-      this.resposta.emit(true);
     }else{
       this.valor = false;
       this.fillSiButton = "outline";
       this.fillNoButton  = "solid";
-      this.resposta.emit(false);
     }
+
+    this.resposta.emit(this.valor);
   }
 
 }

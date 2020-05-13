@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OptionItem } from 'src/interfaces/interfaces';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-nausees-vomits',
@@ -7,6 +8,11 @@ import { OptionItem } from 'src/interfaces/interfaces';
   styleUrls: ['./nausees-vomits.page.scss'],
 })
 export class NauseesVomitsPage implements OnInit {
+
+  usuari: number;
+  endpoint: string = 'api/v1/vomits';
+  afirmatiu: boolean = true;
+  avui: boolean = false;
 
   nausees : OptionItem [] = [
     {id: 0, text: 'Un cop o dos al dia', checked: false}, 
@@ -20,9 +26,18 @@ export class NauseesVomitsPage implements OnInit {
     {id: 3, text: 'Hemàtic (presència de sang)', checked: false}
   ]
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
+    this.usuari = this.dataService.getUsuariId();
+  }
+
+  afirmatiuSeleccionat(event){
+    this.afirmatiu = event;
+  }
+
+  avuiSeleccionat(event){
+    this.avui = event;
   }
 
   nauseesSeleccionat(event){
@@ -31,6 +46,18 @@ export class NauseesVomitsPage implements OnInit {
 
   descripcioVomitSeleccionat(event){
     console.log("Descripcio vomit seleccionat", event);
+  }
+
+  guardar(){
+    let vomit = {
+      usuari: this.usuari,
+      afirmatiu: this.afirmatiu,
+      avui: this.avui,
+      descripcio: '',
+      cops: ''
+    };
+
+    console.log("Guardar", vomit);
   }
 
 }
