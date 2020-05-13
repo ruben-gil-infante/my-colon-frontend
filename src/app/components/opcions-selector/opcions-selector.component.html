@@ -3,9 +3,9 @@
     <ion-card-title class="ion-card-title-form">{{ titol }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <ion-list>
-      <ion-item *ngFor="let item of items">
-        <ion-checkbox [(ngModel)]="item.checked" color="primary" slot="start" [checked]="item.checked"></ion-checkbox>
+    <ion-list *ngFor="let item of items">
+      <ion-item>
+        <ion-checkbox [checked]="item.checked" (click)="seleccionat(item)" [(ngModel)]="item.checked" color="primary" slot="start" ></ion-checkbox>
         <ion-label>{{ item.text }}</ion-label>
       </ion-item>
     </ion-list>

@@ -19,7 +19,6 @@ export class SiNoSelectorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("Valor", this.valor);
   }
 
   seleccionat(si){

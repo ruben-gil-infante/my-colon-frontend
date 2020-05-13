@@ -12,12 +12,12 @@ export class ReestrenyimentPage implements OnInit {
 
   ultimCopVentre : OptionItem [] = [
 
-    {id: 0, text: 'Avui', notChecked: true},
-    {id: 1, text: 'Ahir', notChecked: true},
-    {id: 2, text: 'Fa 2 dies', notChecked: true},
-    {id: 3, text: 'Fa 3 dies', notChecked: true},
-    {id: 4, text: 'Fa 4 dies', notChecked: true},
-    {id: 5, text: 'Fa més de 5 dies', notChecked: true}
+    {id: 0, text: 'Avui', checked: true},
+    {id: 1, text: 'Ahir', checked: true},
+    {id: 2, text: 'Fa 2 dies', checked: true},
+    {id: 3, text: 'Fa 3 dies', checked: true},
+    {id: 4, text: 'Fa 4 dies', checked: true},
+    {id: 5, text: 'Fa més de 5 dies', checked: true}
   ]
 
   ultimaFemtaEscalaBristol : number;

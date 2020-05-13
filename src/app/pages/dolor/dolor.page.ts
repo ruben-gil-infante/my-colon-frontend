@@ -13,17 +13,17 @@ export class DolorPage implements OnInit {
   dolor : number;
 
   descriuDolor : OptionItem [] = [
-    {id: 0, text: 'Opressiu', notChecked: true},
-    {id: 1, text: 'Constant', notChecked: true},
-    {id: 2, text: 'Ardent', notChecked: true},
-    {id: 3, text: 'Còlic', notChecked: true},
-    {id: 4, text: 'Penetrant', notChecked: true}
+    {id: 0, text: 'Opressiu', checked: true},
+    {id: 1, text: 'Constant', checked: true},
+    {id: 2, text: 'Ardent', checked: true},
+    {id: 3, text: 'Còlic', checked: true},
+    {id: 4, text: 'Penetrant', checked: true}
   ];
 
   apareixDolor : OptionItem [] = [
-    {id: 0, text: 'En repòs', notChecked: true},
-    {id: 1, text: 'En els canvis de posició', notChecked: true},
-    {id: 2, text: 'Realitzant activitat física', notChecked: true}
+    {id: 0, text: 'En repòs', checked: true},
+    {id: 1, text: 'En els canvis de posició', checked: true},
+    {id: 2, text: 'Realitzant activitat física', checked: true}
   ];
 
   constructor() { }
