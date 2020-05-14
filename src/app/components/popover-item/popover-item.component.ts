@@ -19,8 +19,8 @@ export class PopoverItemComponent implements OnInit {
 
   itemSeleccionat(event){
     this.popoverController.dismiss({
-      data: event
-    })
+      event
+    });
   }
 
 }

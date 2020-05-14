@@ -65,11 +65,11 @@
     margin: 0 auto;
 }
 
-ion-card-title{
+.ion-card-title{
     font-size: 1rem!important;
 }
 
-ion-card-header {
+.ion-card-header {
     margin-bottom: 20px !important;
     font-size: 0.9em !important;
 }
@@ -153,4 +153,10 @@ ion-card{
     border: 1px solid #81d4fa !important;
     width: 100%;
     padding: 20px;
+}
+
+
+.bristol-image{
+    width: 80%;
+    height: 80%;
 }

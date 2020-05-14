@@ -8,7 +8,6 @@ import { ReestrenyimentPageRoutingModule } from './reestrenyiment-routing.module
 
 import { ReestrenyimentPage } from './reestrenyiment.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { EscalaBristolSelectorComponent } from 'src/app/components/escala-bristol-selector/escala-bristol-selector.component';
 import { SiNoSelectorComponent } from 'src/app/components/si-no-selector/si-no-selector.component';
 import { OpcionsSelectorComponent } from 'src/app/components/opcions-selector/opcions-selector.component';
 import { SaveButtonComponent } from 'src/app/components/save-button/save-button.component';
@@ -16,7 +15,6 @@ import { DefaultHeaderComponent } from 'src/app/components/default-header/defaul
 
 @NgModule({
   entryComponents: [
-    EscalaBristolSelectorComponent,
     SiNoSelectorComponent, 
     OpcionsSelectorComponent,
     DefaultHeaderComponent,

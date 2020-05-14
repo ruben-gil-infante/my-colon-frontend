@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Escala Bristol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">Selecciona un tipus</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let element of elements; let i = index;">
+        <ion-item class="bottom-20" detail (click)="femtaSeleccionada(i + 1)">
+          <img class="bristol-image" [src]="element.image">
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

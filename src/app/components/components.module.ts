@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RangeBarComponent } from './range-bar/range-bar.component';
-import { EscalaBristolSelectorComponent } from './escala-bristol-selector/escala-bristol-selector.component';
 import { SiNoSelectorComponent } from './si-no-selector/si-no-selector.component';
 import { OpcionsSelectorComponent } from './opcions-selector/opcions-selector.component';
 import { DefaultHeaderComponent } from './default-header/default-header.component';
@@ -17,7 +16,6 @@ import { PopoverItemComponent } from './popover-item/popover-item.component';
 @NgModule({
   declarations: [
     RangeBarComponent, 
-    EscalaBristolSelectorComponent, 
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,
@@ -33,7 +31,6 @@ import { PopoverItemComponent } from './popover-item/popover-item.component';
   ],
   exports: [
     RangeBarComponent, 
-    EscalaBristolSelectorComponent, 
     SiNoSelectorComponent, 
     OpcionsSelectorComponent, 
     DefaultHeaderComponent,

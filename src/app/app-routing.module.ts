@@ -86,7 +86,11 @@ const routes: Routes = [
   {
     path: 'formulari-medicacio',
     loadChildren: () => import('./pages/formulari-medicacio/formulari-medicacio.module').then( m => m.FormulariMedicacioPageModule)
+  },  {
+    path: 'bristol',
+    loadChildren: () => import('./pages/bristol/bristol.module').then( m => m.BristolPageModule)
   },
+
 
 
 ];

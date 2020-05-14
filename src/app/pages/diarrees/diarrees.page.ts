@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { OptionItem, PopoverItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { ThrowStmt } from '@angular/compiler';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController, ModalController } from '@ionic/angular';
 import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
+import { PopoverItem } from 'src/interfaces/interfaces';
+import { BristolPage } from '../bristol/bristol.page';
 
 @Component({
   selector: 'app-diarrees',
@@ -14,7 +14,7 @@ export class DiarreesPage implements OnInit {
 
   endpoint: string = '/api/v1/diarrees'
   afirmatiu: boolean;
-  escalaBristol: number; // Fer un modal per seleccionar l'escala de bristol
+  escalaBristol: number;
   color: number = 1;
   vegades: number = 0;
 
@@ -27,7 +27,8 @@ export class DiarreesPage implements OnInit {
     {id: 6, text: 'Negre'}
   ];
 
-  constructor(private dataService : DataService, private popoverController : PopoverController) { }
+  constructor(private dataService : DataService, private popoverController : PopoverController,
+              private modalController : ModalController) { }
 
   ngOnInit() {
   }
@@ -38,6 +39,21 @@ export class DiarreesPage implements OnInit {
 
   colorSeleccionat(event){
     this.color = event;
+    this.dataService.presentToast("Color seleccionat correctament...");
+  }
+
+  async seleccionarEscalaBristol(event){
+    const modal = await this.modalController.create({
+      component: BristolPage,
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onDidDismiss();
+
+    this.escalaBristol = data.bristol;
+    
+    this.dataService.presentToast("Esacala seleccionada correctament...");
   }
 
   async seleccionarColorFemta(event){
@@ -53,7 +69,7 @@ export class DiarreesPage implements OnInit {
 
     const { data } = await popover.onWillDismiss();
 
-    this.color = data.id;
+    this.color = data.event.id;
   }
 
 

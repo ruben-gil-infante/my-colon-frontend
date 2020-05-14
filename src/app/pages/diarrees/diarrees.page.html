@@ -3,26 +3,32 @@
 <ion-content padding>
   <app-si-no-selector pregunta="Tens diarrees?" (resposta)="resposta($event)"></app-si-no-selector>
 
-  <!-- diarrees en les ultimes 24h-->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title></ion-card-title>
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">Quantes vegades has anat de diarrea en les últimes 24 hores?</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>
-        <ion-label>Vegades</ion-label>
-        <ion-input type="number" placeholder="1"></ion-input>
+        <ion-label position="fixed">Vegades</ion-label>
+        <ion-input [(ngModel)]="vegades" type="number" placeholder="1"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
 
-  <app-escala-bristol-selector></app-escala-bristol-selector>
-  
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>titol</ion-card-title>
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">Quin número en l'escala de Bristol era la teva última femta?</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content class="center-element">
+      <ion-button (click)="seleccionarEscalaBristol($event)">Seleccionar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">De quin color era la teva última femta?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="center-element">
       <ion-button (click)="seleccionarColorFemta($event)">Seleccionar</ion-button>
     </ion-card-content>
   </ion-card>
