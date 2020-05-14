@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController, LoadingController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from 'src/app/services/data.service';
-import { HOST_PREFIX } from '../../helpers/constants';
 import { Usuari } from 'src/interfaces/interfaces';
  
 @Component({
@@ -23,7 +21,7 @@ export class LoginPage implements OnInit {
 
   async login(){
 
-    this.dataService.setCredentialsHeaders(this.correuElectronic, this.password, -1);
+    this.dataService.setCredentialsHeaders(this.correuElectronic, this.password);
 
     (await this.dataService.request<Usuari>(this.endpoint)).subscribe(
       data => {

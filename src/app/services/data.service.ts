@@ -67,7 +67,7 @@ export class DataService {
 
     await loading.present();
 
-    return this.http.post<T>(endpoint, {headers: this.headers}, object);
+    return this.http.post<T>(endpoint, object, {headers: this.headers});
   }
 
   // DELETE 
