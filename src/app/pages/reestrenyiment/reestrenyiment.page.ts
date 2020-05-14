@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, PopoverController } from '@ionic/angular';
-import { FemtaPopoverComponent } from 'src/app/components/femta-popover/femta-popover.component';
 import { OptionItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 

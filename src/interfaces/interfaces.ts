@@ -59,12 +59,12 @@ export interface CanvisBucals {
 
 export interface Diarrees {
     id: number;
+    usuari: number,
     afirmatiu : boolean;
     vegades : number;
     escalaBristol : number;
-    color : string;
+    color : number;
     data : string;
-    userId : string;
 }
 
 export interface Dolor {
@@ -109,4 +109,9 @@ export interface Nota {
     usuari : number;
     data : string;
     descripcio : string;
+}
+
+export interface PopoverItem {
+    id: number;
+    text: string;
 }

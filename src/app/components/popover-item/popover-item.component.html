@@ -1,0 +1,10 @@
+<ion-list>
+
+  <ion-item *ngFor="let item of items; let i = index;"
+            (click)="itemSeleccionat(item)"
+            detail>
+    <ion-label>{{ item.text }}</ion-label>
+  </ion-item>
+
+
+</ion-list>

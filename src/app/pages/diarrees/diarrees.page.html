@@ -1,12 +1,18 @@
 <app-default-header titol="Diarres" icon="/assets/icon/shit.svg" defaultHref="/registre-simptomes"></app-default-header>
 
 <ion-content padding>
-  <app-si-no-selector pregunta="Tens diarrees?"></app-si-no-selector>
+  <app-si-no-selector pregunta="Tens diarrees?" (resposta)="resposta($event)"></app-si-no-selector>
 
   <app-opcions-selector titol="Quantes vegades has anat de diarrea en les últimes 24h?" [items]="vegades"></app-opcions-selector>
 
   <app-escala-bristol-selector></app-escala-bristol-selector>
   
-  <app-color-femta-selector></app-color-femta-selector>
-  <app-save-button></app-save-button>
+  <!-- Implementar el color seleccionat -->
+  <ion-card>
+    <ion-card-content>
+      <ion-button (click)="seleccionarColorFemta($event)">Seleccionar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <app-save-button (guardar)="guardar()"></app-save-button>
 </ion-content>
