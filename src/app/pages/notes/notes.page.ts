@@ -13,17 +13,14 @@ export class NotesPage implements OnInit {
   constructor(public alertCtrl : AlertController, private dataService : DataService) {}
 
   notes : Nota [] = [];
-  endpoint : string;
-  usuariId : number;
+  endpoint : string = '/api/v1/notes/';
 
   ngOnInit() {
-    this.usuariId = this.dataService.getUsuariId();
-    this.endpoint = `/api/v1/notes/`
     this.carregarNotes();
   }
 
   async carregarNotes (){
-    let carregarEndpoint = this.endpoint + `${this.usuariId}`;
+    let carregarEndpoint = this.endpoint + `${this.dataService.getUsuariId()}`;
 
     (await this.dataService.request<Nota[]>(carregarEndpoint)).subscribe(
       data => {
@@ -70,9 +67,9 @@ export class NotesPage implements OnInit {
 
   async guardarNota( nota ){
     let notaAuxiliar = {
-      usuari: this.usuariId,
+      usuari: this.dataService.getUsuariId(),
       descripcio : nota,
-      data: this.dataService.getData()
+      data: this.dataService.getCurrentDate()
     };
 
     (await this.dataService.submit<Nota>(this.endpoint, notaAuxiliar)).subscribe(

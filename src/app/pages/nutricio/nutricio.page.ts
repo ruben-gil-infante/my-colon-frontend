@@ -8,7 +8,6 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class NutricioPage implements OnInit {
 
-  usuari : number;
   endpoint : string = "/api/v1/nutricio";
   esmorzar : number = 0;
   dinar : number = 0;
@@ -21,7 +20,6 @@ export class NutricioPage implements OnInit {
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.usuari = this.dataService.getUsuariId();
   }
 
   guardarValorNutricio(event, tipus){
@@ -48,8 +46,8 @@ export class NutricioPage implements OnInit {
       berenar: this.berenar,
       sopar: this.sopar,
       gotsAigua: this.gotsAigua,
-      usuari: this.usuari,
-      data: this.dataService.getData()
+      usuari: this.dataService.getUsuariId(),
+      data: this.dataService.getCurrentDate()
     };
     
     (await this.dataService.submit(this.endpoint, nutricio)).subscribe(

@@ -3,7 +3,6 @@ import { Medicacio } from 'src/interfaces/interfaces';
 import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
 import { DataService } from 'src/app/services/data.service';
-import { fromEventPattern } from 'rxjs';
 
 @Component({
   selector: 'app-medicacio',
@@ -19,14 +18,11 @@ export class MedicacioPage implements OnInit {
   endpoint : string = '/api/v1/medicacio/';
   medicacions : Medicacio [] = [];
   franjaMedicacio : number = 1;  
-  usuari : number;
-
 
   constructor(private modalController : ModalController, private alertController : AlertController,
               private dataService : DataService) { }
 
   ngOnInit() {
-    this.usuari = this.dataService.getUsuariId();
     this.recuperarMedicacions(1);
   }
 
@@ -47,7 +43,7 @@ export class MedicacioPage implements OnInit {
   async recuperarMedicacions( franja ){
     this.franjaMedicacio = franja;
     
-    let recuperarEndpoint = this.endpoint + `${this.franjaMedicacio}/${this.usuari}`;
+    let recuperarEndpoint = this.endpoint + `${this.franjaMedicacio}/${this.dataService.getUsuariId()}`;
 
     (await this.dataService.request<Medicacio[]>(recuperarEndpoint)).subscribe(
       data => {
@@ -74,12 +70,12 @@ export class MedicacioPage implements OnInit {
     const { data } = await modal.onDidDismiss();
 
     let post_medicacio = {
-      usuari: this.usuari,
+      usuari: this.dataService.getUsuariId(),
       dosi: data.dosi,
       nom: data.nom,
       forma: data.forma,
       franja: this.franjaMedicacio,
-      data: this.dataService.getData()
+      data: this.dataService.getCurrentDate()
     };
 
     (await this.dataService.submit<Medicacio>(this.endpoint, post_medicacio)).subscribe(

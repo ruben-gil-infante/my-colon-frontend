@@ -9,11 +9,13 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class CanvisBucalsPage implements OnInit {
 
+  afirmatiu: boolean;
+  
   simptomes : OptionItem [] = [
-    {id: 0, text: 'Boca seca', checked: true},
-    {id: 1, text: 'Llenga enblanquida', checked: true},
-    {id: 2, text: 'Boca amb és sensibilitat o dolor', checked: true},
-    {id: 3, text: 'Canvis en el gust', checked: true}
+    {id: 0, text: 'Boca seca', checked: false},
+    {id: 1, text: 'Llenga enblanquida', checked: false},
+    {id: 2, text: 'Boca amb és sensibilitat o dolor', checked: false},
+    {id: 3, text: 'Canvis en el gust', checked: false}
   ]
 
   endpoint : string = '';
@@ -41,10 +43,10 @@ export class CanvisBucalsPage implements OnInit {
 
 
     let canvisBucalsForm = {
-      id: null,
       afirmatiu: false,
       simptomes: simptomesEscollits,
-      usuari: 1
+      usuari: this.dataService.getUsuariId(),
+      data: this.dataService.getCurrentDate()
     };
 
     (await this.dataService.submit(this.endpoint, canvisBucalsForm)).subscribe(

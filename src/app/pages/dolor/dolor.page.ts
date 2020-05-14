@@ -11,7 +11,6 @@ import { DataService } from 'src/app/services/data.service';
 export class DolorPage implements OnInit {
 
   endpoint: string = '/api/v1/dolor';
-  usuari : number;
   valor : number;
   localitzacio : string;
   afirmatiu: boolean = false;
@@ -33,7 +32,6 @@ export class DolorPage implements OnInit {
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.usuari = this.dataService.getUsuariId();
   }
 
   afirmatiuSeleccionat(event){
@@ -61,8 +59,8 @@ export class DolorPage implements OnInit {
       valor: this.valor,
       descripcioDolor: auxDescripcio,
       quanApareixDolor: auxQuanApareix,
-      data: this.dataService.getData(),
-      usuari: this.usuari
+      data: this.dataService.getCurrentDate(),
+      usuari: this.dataService.getUsuariId()
     };
 
 

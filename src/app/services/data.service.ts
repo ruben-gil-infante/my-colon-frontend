@@ -98,7 +98,8 @@ export class DataService {
     this.loadingController.dismiss();
   }
 
-  getData(){
+  // GET THE CURRENT DATE
+  getCurrentDate(){
     return new Date().toISOString();
   }
 

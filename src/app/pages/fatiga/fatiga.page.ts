@@ -9,7 +9,6 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class FatigaPage implements OnInit {
 
-  usuari: number;
   endpoint: string = '/api/v1/fatiga';
   valorFatiga: number = 0;
   afirmatiu: boolean = true;
@@ -17,7 +16,6 @@ export class FatigaPage implements OnInit {
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.usuari = this.dataService.getUsuariId();
   }
 
   valorFatigaSeleccionat(event){
@@ -30,10 +28,10 @@ export class FatigaPage implements OnInit {
 
   async guardar(){
     let fatigaForm = {
-      usuari: this.usuari,
+      usuari: this.dataService.getUsuariId(),
       puntuacio: this.valorFatiga,
       afirmatiu: this.afirmatiu,
-      data: this.dataService.getData()
+      data: this.dataService.getCurrentDate()
     } 
 
     ;(await this.dataService.submit(this.endpoint, fatigaForm)).subscribe(
