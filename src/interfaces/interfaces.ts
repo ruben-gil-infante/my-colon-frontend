@@ -102,7 +102,6 @@ export interface Usuari {
     primerCognom : string;
     segonCognom : string;
     correuElectronic : string;
-    password : string;
 }
 
 export interface Nota {

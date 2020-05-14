@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MenuItem } from 'src/interfaces/interfaces';
+import { MenuItem, Usuari } from 'src/interfaces/interfaces';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HOST_PREFIX } from "../helpers/constants";
 
@@ -10,21 +10,24 @@ import { HOST_PREFIX } from "../helpers/constants";
 export class DataService {
 
 
-  usuariId : number; 
-  password : string;
+  headers: HttpHeaders;
+  usuari: Usuari;
   
 
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) { }
 
              
-  setInformacioUsuari(usuariId, password){
-    this.usuariId = usuariId;
-    this.password = password;
+  setCredentialsHeaders(correuElectronic, password){
+    this.headers = new HttpHeaders({Authorization: 'Basic '+btoa(correuElectronic + ':' + password)});
+  }
+
+  setUsuari(usuari){
+    this.usuari = usuari;
   }
 
   getUsuariId(){
-    return this.usuariId;
+    return this.usuari.id;
   }
 
   // FIXME: IMPLEMENTAR => local data service
@@ -50,7 +53,7 @@ export class DataService {
     endpoint = HOST_PREFIX + endpoint;
 
 
-    return this.http.get<T>(endpoint); 
+    return this.http.get<T>(endpoint, {headers: this.headers}); 
   }
 
 
@@ -64,7 +67,7 @@ export class DataService {
 
     await loading.present();
 
-    return this.http.post<T>(endpoint, object);
+    return this.http.post<T>(endpoint, {headers: this.headers}, object);
   }
 
   // DELETE 
@@ -77,7 +80,7 @@ export class DataService {
   
     await loading.present();
   
-    return this.http.delete<T>(endpoint);
+    return this.http.delete<T>(endpoint, {headers: this.headers});
   } 
 
 

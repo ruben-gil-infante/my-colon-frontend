@@ -12,9 +12,9 @@ import { Usuari } from 'src/interfaces/interfaces';
 })
 export class LoginPage implements OnInit {
 
-  usuari : string;
+  correuElectronic: string;
   password : string;
-  endpoint : string = '/api/v1/usuari/';
+  endpoint : string = '/api/v1/login/';
 
   constructor(private modalController : ModalController, private dataService : DataService) { }
 
@@ -23,17 +23,18 @@ export class LoginPage implements OnInit {
 
   async login(){
 
-    let usuariEndpoint = this.endpoint + `${this.usuari}/${this.password}`;
+    this.dataService.setCredentialsHeaders(this.correuElectronic, this.password, -1);
 
-    (await this.dataService.request<Usuari>(usuariEndpoint)).subscribe(
+    (await this.dataService.request<Usuari>(this.endpoint)).subscribe(
       data => {
         this.dataService.loadingControllerDismiss();
-        this.dataService.setInformacioUsuari(data.id, data.password);
+        this.dataService.setUsuari(data);
         this.modalController.dismiss({
-          nomPacient: `${data.nom} ${data.primerCognom}`
+          nomPacient: `${data.nom} ${data.primerCognom} ${data.segonCognom}`
         })
       },
       error => {
+        console.log(error);
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Dades incorrectes...');
       }
