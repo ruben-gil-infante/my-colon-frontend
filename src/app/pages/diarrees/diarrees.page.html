@@ -3,12 +3,25 @@
 <ion-content padding>
   <app-si-no-selector pregunta="Tens diarrees?" (resposta)="resposta($event)"></app-si-no-selector>
 
-  <app-opcions-selector titol="Quantes vegades has anat de diarrea en les últimes 24h?" [items]="vegades"></app-opcions-selector>
+  <!-- diarrees en les ultimes 24h-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Vegades</ion-label>
+        <ion-input type="number" placeholder="1"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 
   <app-escala-bristol-selector></app-escala-bristol-selector>
   
-  <!-- Implementar el color seleccionat -->
   <ion-card>
+    <ion-card-header>
+      <ion-card-title>titol</ion-card-title>
+    </ion-card-header>
     <ion-card-content>
       <ion-button (click)="seleccionarColorFemta($event)">Seleccionar</ion-button>
     </ion-card-content>

@@ -16,22 +16,15 @@ export class DiarreesPage implements OnInit {
   afirmatiu: boolean;
   escalaBristol: number; // Fer un modal per seleccionar l'escala de bristol
   color: number = 1;
+  vegades: number = 0;
 
-  popoverItems: PopoverItem [] = [
+  colorFemta: PopoverItem [] = [
     {id: 1, text: 'Marró'},
     {id: 2, text: 'Groc'},
     {id: 3, text: 'Verd'},
     {id: 4, text: 'Gris'},
     {id: 5, text: 'Vermell'},
     {id: 6, text: 'Negre'}
-  ];
-
-  vegades : OptionItem [] = [
-    {id: 0, text: '1', checked: false},
-    {id: 1, text: '2', checked: false},
-    {id: 2, text: '3', checked: false},
-    {id: 3, text: '4', checked: false},
-    {id: 4, text:'Més de 5', checked: false}
   ];
 
   constructor(private dataService : DataService, private popoverController : PopoverController) { }
@@ -53,30 +46,23 @@ export class DiarreesPage implements OnInit {
       event: event,
       mode: 'ios',
       backdropDismiss: false,
-      componentProps: {items: this.popoverItems}
+      componentProps: {items: this.colorFemta}
     });
 
     await popover.present();
 
-    // const { data } = await popover.onDidDismiss();
     const { data } = await popover.onWillDismiss();
 
-    console.log("Popover data", data);
+    this.color = data.id;
   }
 
 
   async guardar(){
-    let auxiliarVegades = 0;
-    this.vegades.forEach(vegada => {
-      if(vegada.checked){
-        auxiliarVegades = vegada.id + 1;
-      }
-    });
 
     let diarreesForm = {
       usuari: this.dataService.getUsuariId(),
       afirmatiu: this.afirmatiu,
-      vegades: auxiliarVegades,
+      vegades: this.vegades,
       escalaBristol: this.escalaBristol,
       data: this.dataService.getCurrentDate(),
       color: this.color
