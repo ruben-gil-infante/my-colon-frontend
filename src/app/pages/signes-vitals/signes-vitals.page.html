@@ -3,6 +3,6 @@
 
 <ion-content padding>
   <div *ngFor="let signeVital of signesVitals">
-    <app-signe-vital-item [item]="signeVital"></app-signe-vital-item>
+    <app-signe-vital-item [item]="signeVital" (guardarSigneVital)="guardarSigneVital($event)"></app-signe-vital-item>
   </div>
 </ion-content>
