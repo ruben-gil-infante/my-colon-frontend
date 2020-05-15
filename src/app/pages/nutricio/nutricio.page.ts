@@ -9,11 +9,11 @@ import { DataService } from 'src/app/services/data.service';
 export class NutricioPage implements OnInit {
 
   endpoint : string = "/api/v1/nutricio";
-  esmorzar : number = 0;
-  dinar : number = 0;
-  berenar : number = 0;
-  sopar : number = 0;
-  gotsAigua : number = 0;
+  esmorzar : number;
+  dinar : number;
+  berenar : number;
+  sopar : number;
+  gotsAigua : number;
 
 
 

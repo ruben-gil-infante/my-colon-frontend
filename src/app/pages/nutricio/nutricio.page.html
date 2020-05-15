@@ -2,9 +2,9 @@
 
 <ion-content padding>
 
-  <ion-card>
+  <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
-      <ion-card-title class="ion-card-title-form">
+      <ion-card-title class="ion-card-title">
         Quina quantitat de cada apat he menjat avui?
       </ion-card-title>
     </ion-card-header>
@@ -16,9 +16,9 @@
   <app-range-bar nom="Berenar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 3)"></app-range-bar>
   <app-range-bar nom="Sopar" min="0" max="100" (rangeValueChange)="guardarValorNutricio($event, 4)"></app-range-bar>
 
-  <ion-card>
+  <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
-      <ion-card-title class="ion-card-title-form">Quants gots d'aigua has begut?</ion-card-title>
+      <ion-card-title class="ion-card-title">Quants gots d'aigua has begut?</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item>

@@ -1,9 +1,24 @@
 <app-default-header icon="/assets/icon/electrocardiogram.svg" titol="Signes vitals"></app-default-header>
 
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-    </ion-card-header>
+<ion-content padding>
+  <!--Activitat-->
+  <ion-card mode="ios">
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-icon src="../../../assets/icon/person-run.svg"></ion-icon>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item>
+              <ion-label position="floating">Activitat</ion-label>
+              <ion-input type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
   </ion-card>
+  
 </ion-content>
