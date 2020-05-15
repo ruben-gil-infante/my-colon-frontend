@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MenuItem, Usuari } from 'src/interfaces/interfaces';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { HOST_PREFIX } from "../helpers/constants";
+import { HOST_PREFIX, DEV_PREFIX } from "../helpers/constants";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,7 @@ export class DataService {
 
   headers: HttpHeaders;
   usuari: Usuari;
+  prefix: string;
   
 
   constructor( private http : HttpClient, private toastController : ToastController,
@@ -24,6 +25,10 @@ export class DataService {
 
   setUsuari(usuari){
     this.usuari = usuari;
+  }
+
+  setPrefix(develop){
+    develop ? this.prefix = DEV_PREFIX : this.prefix = HOST_PREFIX;
   }
 
   getUsuariId(){
@@ -50,7 +55,7 @@ export class DataService {
 
     await loading.present();
 
-    endpoint = HOST_PREFIX + endpoint;
+    endpoint = this.prefix + endpoint;
 
 
     return this.http.get<T>(endpoint, {headers: this.headers}); 
@@ -59,7 +64,7 @@ export class DataService {
 
   // POST
   async submit <T> (endpoint = '', object){
-    endpoint = HOST_PREFIX + endpoint;
+    endpoint = this.prefix + endpoint;
 
     const loading = await this.loadingController.create({
       message: 'Guardant...',
@@ -72,7 +77,7 @@ export class DataService {
 
   // DELETE 
   async delete <T>(endpoint = ''){
-    endpoint = HOST_PREFIX + endpoint;
+    endpoint = this.prefix + endpoint;
      
     const loading = await this.loadingController.create({
       message: 'Eliminant...',

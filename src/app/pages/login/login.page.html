@@ -15,6 +15,22 @@
         </div>
     </ion-card-content>
   </ion-card>
+  
+  <!--Eliminar de la versio final, utilitzat per probar l'app fora de casa-->
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">Develop options</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="center-element"><ion-button (click)="setHerokuPrefix(false)">HEROKU</ion-button></ion-col>
+          <ion-col class="center-element"><ion-button (click)="setHerokuPrefix(true)">DEVELOP</ion-button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
 
 <app-default-footer></app-default-footer>

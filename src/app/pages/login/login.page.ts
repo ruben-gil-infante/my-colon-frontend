@@ -38,4 +38,13 @@ export class LoginPage implements OnInit {
       }
     );
   }
+
+  setHerokuPrefix(develop){
+    if(develop)
+      this.dataService.presentToast("Mode de desenolupadors");
+    else
+      this.dataService.presentToast("Mode client");
+      
+    this.dataService.setPrefix(develop);
+  }
 }
