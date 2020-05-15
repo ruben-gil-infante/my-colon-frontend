@@ -25,6 +25,7 @@ export class DataService {
 
   setUsuari(usuari){
     this.usuari = usuari;
+    this.prefix = DEV_PREFIX; // Per defecte s'utilitza l'ordinador
   }
 
   setPrefix(develop){
