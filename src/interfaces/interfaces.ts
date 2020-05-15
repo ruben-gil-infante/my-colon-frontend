@@ -115,3 +115,11 @@ export interface PopoverItem {
     id: number;
     text: string;
 }
+
+export interface SigneVitalItem {
+    tipus: number;
+    nom: string;
+    descripcio: string;
+    valor: number;
+    img: string;
+}

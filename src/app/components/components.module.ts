@@ -10,6 +10,7 @@ import { DefaultFooterComponent } from './default-footer/default-footer.componen
 import { FavButtonComponent } from './fav-button/fav-button.component';
 import { FormsModule } from '@angular/forms';
 import { PopoverItemComponent } from './popover-item/popover-item.component';
+import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.component';
 
 
 
@@ -22,7 +23,8 @@ import { PopoverItemComponent } from './popover-item/popover-item.component';
     SaveButtonComponent,
     DefaultFooterComponent,
     FavButtonComponent,
-    PopoverItemComponent
+    PopoverItemComponent,
+    SigneVitalItemComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { PopoverItemComponent } from './popover-item/popover-item.component';
     SaveButtonComponent,
     DefaultFooterComponent,
     FavButtonComponent,
-    PopoverItemComponent
+    PopoverItemComponent,
+    SigneVitalItemComponent
   ]
 })
 export class ComponentsModule { }
