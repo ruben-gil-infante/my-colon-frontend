@@ -12,20 +12,24 @@ import { SiNoSelectorComponent } from 'src/app/components/si-no-selector/si-no-s
 import { OpcionsSelectorComponent } from 'src/app/components/opcions-selector/opcions-selector.component';
 import { SaveButtonComponent } from 'src/app/components/save-button/save-button.component';
 import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
+import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
+import { BristolPageModule } from '../bristol/bristol.module';
 
 @NgModule({
   entryComponents: [
     SiNoSelectorComponent, 
     OpcionsSelectorComponent,
     DefaultHeaderComponent,
-    SaveButtonComponent
+    SaveButtonComponent,
+    PopoverItemComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ReestrenyimentPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    BristolPageModule
   ],
   declarations: [ReestrenyimentPage]
 })

@@ -2,15 +2,32 @@
 
 <ion-content padding>
   
-  <app-si-no-selector pregunta="Tens reestrenyiment?"></app-si-no-selector>
+  <app-si-no-selector pregunta="Tens reestrenyiment?" (resposta)="resposta($event)"></app-si-no-selector>
 
   <app-opcions-selector [items]="ultimCopVentre" titol="Quan va ser l'últim cop que vas anar de ventre?"></app-opcions-selector>
 
   
-  <app-color-femta-selector></app-color-femta-selector>
+  <!--Implementar el color de la femta-->
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">De quin color és la femta?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="center-element">
+      <ion-button (click)="seleccionarColorFemta()">Seleccionar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
 
   <!-- Implementar escala bristol-->
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">Escolleix el tipus de femta a l'escala bristol</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="center-element">
+      <ion-button (click)="seleccionarEscalaBristol()">Seleccionar</ion-button>
+    </ion-card-content>
+  </ion-card>
 
-  <app-save-button></app-save-button>
+  <app-save-button (guardar)="guardar()"></app-save-button>
 
 </ion-content>

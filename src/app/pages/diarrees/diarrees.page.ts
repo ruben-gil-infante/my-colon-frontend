@@ -15,8 +15,8 @@ export class DiarreesPage implements OnInit {
   endpoint: string = '/api/v1/diarrees'
   afirmatiu: boolean;
   escalaBristol: number;
-  color: number = 1;
-  vegades: number = 0;
+  color: number;
+  vegades: number;
 
   colorFemta: PopoverItem [] = [
     {id: 1, text: 'Marró'},
@@ -39,7 +39,6 @@ export class DiarreesPage implements OnInit {
 
   colorSeleccionat(event){
     this.color = event;
-    this.dataService.presentToast("Color seleccionat correctament...");
   }
 
   async seleccionarEscalaBristol(event){
@@ -53,7 +52,6 @@ export class DiarreesPage implements OnInit {
 
     this.escalaBristol = data.bristol;
     
-    this.dataService.presentToast("Esacala seleccionada correctament...");
   }
 
   async seleccionarColorFemta(event){
