@@ -26,7 +26,11 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .menuIonList{
-    margin: 4%
+    margin: 4%;
+}
+
+.ionListItem {
+    border-bottom: none!important;
 }
 
 .homeToolbar{

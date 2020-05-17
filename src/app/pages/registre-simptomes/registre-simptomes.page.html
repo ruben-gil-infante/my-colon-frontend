@@ -3,11 +3,12 @@
 
 <ion-content padding >
   <ion-list class="menuIonList">
-    <ion-item detail *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo">
+    <ion-item *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo">
       <ion-icon [src]="item.image" slot="start" name="person-circle-outline"></ion-icon>
       <ion-label>
         {{ item.name }}
       </ion-label>
+      <ion-icon slot="end" name="arrow-forward-outline" color="primary"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>

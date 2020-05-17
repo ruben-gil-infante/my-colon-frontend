@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Medicacio } from 'src/interfaces/interfaces';
 import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
@@ -21,7 +21,7 @@ export class MedicacioPage implements OnInit {
   franjaMedicacio : number = 1;  
 
   constructor(private modalController : ModalController, private alertController : AlertController,
-              private dataService : DataService) { }
+              private dataService : DataService, private renderer : Renderer) { }
 
   ngOnInit() {
     this.recuperarMedicacions(1);
@@ -95,8 +95,7 @@ export class MedicacioPage implements OnInit {
     )
   }
   
-  async alertEliminarMedicacio( position ){
-
+  async alertEliminarMedicacio(event, position ){
     const confirmarEliminarAlert = await this.alertController.create({
       header: 'Estas segur?',
       subHeader: 'Confirma que vols eliminar la medicació',
