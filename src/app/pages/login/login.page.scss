@@ -1,0 +1,23 @@
+ion-content.background{
+    --background: #6CB8FF;
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.login-form{
+    text-align: center;
+    margin-top: 50%;
+}
+
+.input-form{
+    width: 70%;
+    background: #FFFFFF;
+    margin: 0 auto;
+    margin-top: 3%;
+
+    border-radius: 78px 78px 78px 78px;
+    -moz-border-radius: 78px 78px 78px 78px;
+    -webkit-border-radius: 78px 78px 78px 78px;
+    border: 0px solid #000000;
+}
