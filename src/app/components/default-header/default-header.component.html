@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title class="ion-label-wrap"> <ion-icon [src]="icon" size="large"></ion-icon>{{ titol }}</ion-title>
+    <ion-title size="md" class="center-element ion-label-wrap"><ion-label class="ion-label-wrap">{{ titol }}</ion-label></ion-title>
+    <ion-icon class="right-20" slot="end" [src]="icon" size="large"></ion-icon>
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
     </ion-buttons>
