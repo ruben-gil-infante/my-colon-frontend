@@ -1,5 +1,17 @@
 <app-default-header titol="Dades Registrades" icon="/assets/icon/notebook.svg">
 
-<ion-content>
+<ion-content padding >
+  <ion-list class="menuIonList">
+    <ion-item detail *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo">
+      <ion-icon [src]="item.image" slot="start" name="person-circle-outline"></ion-icon>
+      <ion-label>
+        {{ item.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-</ion-content>
+  <ion-card mode="ios">
+    <ion-button (click)="generarReport()">GENERAR INFORME</ion-button>
+  </ion-card>
+</ion-content>  
+      

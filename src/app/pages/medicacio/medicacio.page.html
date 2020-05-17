@@ -24,7 +24,7 @@
             <ion-item class="top-20">
               <ion-grid>
                 <ion-row><ion-label class="bold bottom-10" type="fixed">Forma </ion-label></ion-row>
-                <ion-row><ion-label>{{ medicacio.forma }}</ion-label></ion-row>
+                <ion-row><ion-label>{{ mapForma(medicacio.forma) }}</ion-label></ion-row>
               </ion-grid>
             </ion-item>
             
@@ -42,7 +42,7 @@
   </div>
 
 
-  <ion-segment class="segment" color="primary" mode="ios" (ionChange)="segmentChanged($event)">
+  <ion-segment value="mati" class="segment" color="primary" mode="ios" (ionChange)="segmentChanged($event)">
     <ion-segment-button color="primary" value="mati">
       <ion-icon name="sunny-outline"></ion-icon>
       <ion-label>Mati</ion-label>

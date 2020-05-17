@@ -16,7 +16,11 @@ export class DataService {
   
 
   constructor( private http : HttpClient, private toastController : ToastController,
-               private loadingController : LoadingController) { }
+               private loadingController : LoadingController) { 
+                 
+                this.prefix = DEV_PREFIX;
+
+               }
 
              
   setCredentialsHeaders(correuElectronic, password){
@@ -25,11 +29,10 @@ export class DataService {
 
   setUsuari(usuari){
     this.usuari = usuari;
-    this.prefix = DEV_PREFIX; // Per defecte s'utilitza l'ordinador
-  }
+    this.prefix = DEV_PREFIX;
 
-  setPrefix(develop){
-    develop ? this.prefix = DEV_PREFIX : this.prefix = HOST_PREFIX;
+    // FIXME: Nomes per desenvolupar, eliminar del codi final
+    window.localStorage['usuari'] = this.usuari;
   }
 
   getUsuariId(){

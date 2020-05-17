@@ -10,7 +10,6 @@
 </ion-header>
 
 <ion-content padding>
-
   <ion-list class="menuIonList">
     <ion-item *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo" detail>
       <ion-icon [src]="item.image" slot="start"></ion-icon>

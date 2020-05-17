@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
   constructor(private modalController : ModalController, private dataService : DataService) { }
 
   ngOnInit() {
+    
   }
 
   async login(){
@@ -37,14 +38,5 @@ export class LoginPage implements OnInit {
         this.dataService.presentToast('Dades incorrectes...');
       }
     );
-  }
-
-  setHerokuPrefix(develop){
-    if(develop)
-      this.dataService.presentToast("Mode de desenolupadors");
-    else
-      this.dataService.presentToast("Mode client");
-      
-    this.dataService.setPrefix(develop);
   }
 }

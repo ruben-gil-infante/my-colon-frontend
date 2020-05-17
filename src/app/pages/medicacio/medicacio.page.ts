@@ -3,6 +3,7 @@ import { Medicacio } from 'src/interfaces/interfaces';
 import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { FormulariMedicacioPage } from '../formulari-medicacio/formulari-medicacio.page';
 import { DataService } from 'src/app/services/data.service';
+import { mapMedicacioForma } from 'src/app/helpers/utils';
 
 @Component({
   selector: 'app-medicacio',
@@ -58,7 +59,10 @@ export class MedicacioPage implements OnInit {
     )
   }
 
-  
+
+  mapForma(valorForma){
+    return mapMedicacioForma(valorForma);
+  }
 
   async alertGuardarMedicacio() {
     const modal = await this.modalController.create({
@@ -89,9 +93,8 @@ export class MedicacioPage implements OnInit {
         this.dataService.presentToast('Error guardant...');
       }
     )
-    
   }
-
+  
   async alertEliminarMedicacio( position ){
 
     const confirmarEliminarAlert = await this.alertController.create({

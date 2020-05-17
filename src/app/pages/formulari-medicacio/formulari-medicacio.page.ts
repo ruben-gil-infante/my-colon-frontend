@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController, ToastController } from '@ionic/angular';
-import {FORMA_MEDICACIO} from '../../helpers/constants.js';
+import { FORMA_MEDICACIO } from '../../helpers/constants';
+import { mapMedicacioForma } from 'src/app/helpers/utils';
 
 @Component({
   selector: 'app-formulari-medicacio',
@@ -13,9 +14,10 @@ export class FormulariMedicacioPage implements OnInit {
               private alertController : AlertController,
               private toastController : ToastController) { }
 
-  forma : string = '';
-  dosi : string = '';
-  nom : string = '';
+  formaText: string = 'Pastilla'; 
+  forma: string = '';
+  dosi: string = '';
+  nom: string = '';
 
   ngOnInit() {
   }
@@ -114,6 +116,7 @@ export class FormulariMedicacioPage implements OnInit {
           text: 'Seleccionar',
           handler: ( data ) => {
             this.forma = data;
+            this.formaText = mapMedicacioForma(data);
           }
         }
       ]

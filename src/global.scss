@@ -34,6 +34,7 @@
     font-size: 1.2em!important;
 }
 
+
 .top-20{
     margin-top: 20px;
 }
@@ -75,7 +76,7 @@
 }
 
 .header-toolbar{
-    height: 15%!important;
+    background: red !important;
 }
 
 .center-element {
@@ -164,4 +165,13 @@ ion-card{
 .vital-img{
     height: 70%;
     width: 70%;
+}
+
+ion-content{
+    background: #80CEE1 !important;
+}
+
+.height-90{
+    height: 90%!important;
+    border: none!important;
 }
