@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
   }
 
   async login(){
-
     this.dataService.setCredentialsHeaders(this.correuElectronic, this.password);
 
     (await this.dataService.request<Usuari>(this.endpoint)).subscribe(
@@ -37,5 +36,9 @@ export class LoginPage implements OnInit {
         this.dataService.presentToast('Dades incorrectes...');
       }
     );
+  };
+
+  registrarse(event){
+    this.router.navigateByUrl('registrarse');
   }
 }

@@ -19,6 +19,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.nomPacient = `${this.dataService.getUsuari().nom} ${this.dataService.getUsuari().primerCognom} ${this.dataService.getUsuari().segonCognom}`;
+    this.menuItems = this.dataService.getHomeMenuItems();
   }
   
 }

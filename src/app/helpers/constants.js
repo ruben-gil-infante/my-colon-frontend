@@ -8,6 +8,3 @@ export const FORMA_MEDICACIO = {
     PASTILLA: {id: 7, text: 'Pastilla'}
 }
 
-export const DEV_PREFIX = 'http://192.168.1.207:8080';
-export const HOST_PREFIX = 'https://my-colon.herokuapp.com';
- 

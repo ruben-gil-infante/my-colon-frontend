@@ -8,9 +8,18 @@
         <ion-input class="input-form" [(ngModel)]="password" placeholder="Contrasenya" type="password"></ion-input>
       </div>
   
-      <div class="center-element">
-        <ion-button color="danger" (click)="login( $event )" class="top-20">ENTRAR</ion-button>
+      <div class="margin-auto width-80">
+        <ion-button size="md" color="primary" (click)="login( $event )" class="top-20">ENTRAR</ion-button>
       </div>
+
+      <div class="no-tens-compte">
+        <ion-label class="no-tens-compte">No tens un compte?</ion-label>
+
+        <div class="center-element top-20">
+          <ion-button size="medium" color="primary" (click)="registrarse($event)">REGISTRA'T</ion-button>
+        </div>
+      </div>
+
     </div>
 
 </ion-content>

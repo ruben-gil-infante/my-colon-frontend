@@ -90,7 +90,11 @@ const routes: Routes = [
   {
     path: 'bristol',
     loadChildren: () => import('./pages/bristol/bristol.module').then( m => m.BristolPageModule)
+  },  {
+    path: 'registrarse',
+    loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },
+
 
 
 

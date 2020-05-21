@@ -1,5 +1,5 @@
 ion-content.background{
-    --background: #6CB8FF;
+    --background: white;
     height: 100%;
     width: 100%;
     opacity: 0.8;
@@ -7,17 +7,22 @@ ion-content.background{
 
 .login-form{
     text-align: center;
-    margin-top: 50%;
+    margin-top: 30%;
+}
+
+.no-tens-compte{
+    margin-top: 30%;
 }
 
 .input-form{
-    width: 70%;
-    background: #FFFFFF;
+    width: 80%;
+    background: #f5f5f5;
     margin: 0 auto;
     margin-top: 3%;
+    border: 1px solid #D5DBDB ; 
 
-    border-radius: 78px 78px 78px 78px;
-    -moz-border-radius: 78px 78px 78px 78px;
-    -webkit-border-radius: 78px 78px 78px 78px;
-    border: 0px solid #000000;
+    border-radius: 14px 14px 14px 14px;
+    -moz-border-radius: 14px 14px 14px 14px;
+    -webkit-border-radius: 14px 14px 14px 14px;
+
 }
