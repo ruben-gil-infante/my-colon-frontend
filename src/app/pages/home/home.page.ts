@@ -18,24 +18,8 @@ export class HomePage implements OnInit {
   constructor( private dataService : DataService, private modalController : ModalController) { }
 
   ngOnInit() {
-    this.login();
+    this.nomPacient = `${this.dataService.getUsuari().nom} ${this.dataService.getUsuari().primerCognom} ${this.dataService.getUsuari().segonCognom}`;
   }
-
-  async login (){
-    const modal = await this.modalController.create({
-      component: LoginPage,
-      backdropDismiss: false
-    });
-
-    await modal.present();
-
-    const { data } = await modal.onDidDismiss();
-
-    this.nomPacient = data.nomPacient;
-
-    this.menuItems = this.dataService.getHomeMenuItems();
-  }
-
   
 }
 

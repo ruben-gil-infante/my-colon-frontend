@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MenuItem, Usuari } from 'src/interfaces/interfaces';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { HOST_PREFIX, DEV_PREFIX } from "../helpers/constants";
+import { DEV_PREFIX } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +31,10 @@ export class DataService {
   setUsuari(usuari){
     this.usuari = usuari;
     this.prefix = DEV_PREFIX;
-
-    // FIXME: Nomes per desenvolupar, eliminar del codi final
-    window.localStorage['usuari'] = this.usuari;
+  }
+  
+  getUsuari(){
+    return this.usuari;
   }
 
   getUsuariId(){

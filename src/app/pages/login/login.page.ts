@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController, LoadingController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { Usuari } from 'src/interfaces/interfaces';
+import { Router } from '@angular/router';
  
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginPage implements OnInit {
   password : string;
   endpoint : string = '/api/v1/login/';
 
-  constructor(private modalController : ModalController, private dataService : DataService) { }
+  constructor(private router : Router, private modalController : ModalController, private dataService : DataService) { }
 
   ngOnInit() {
     
@@ -28,9 +29,7 @@ export class LoginPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.setUsuari(data);
-        this.modalController.dismiss({
-          nomPacient: `${data.nom} ${data.primerCognom} ${data.segonCognom}`
-        })
+        this.router.navigateByUrl('home');
       },
       error => {
         console.log(error);
