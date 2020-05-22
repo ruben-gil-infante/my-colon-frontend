@@ -9,10 +9,12 @@ import { RegistrarsePageRoutingModule } from './registrarse-routing.module';
 import { RegistrarsePage } from './registrarse.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
+import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
 
 @NgModule({
   entryComponents: [
-    DefaultHeaderComponent
+    DefaultHeaderComponent,
+    PopoverItemComponent
   ],
   imports: [
     CommonModule,

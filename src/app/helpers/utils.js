@@ -18,3 +18,18 @@ export function mapMedicacioForma(forma){
             return FORMA_MEDICACIO.PASTILLA.text;
     }
 }
+
+export function emptyString(msg){
+    if(msg === undefined)
+        return false;
+
+    return msg.trim().length === 0;
+}
+
+export function validateEmail(email) {
+    if(email == undefined)
+        return false;
+
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
