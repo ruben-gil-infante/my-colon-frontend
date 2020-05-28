@@ -26,7 +26,8 @@
         </ion-item>
         
         <ion-item (click)="seleccionarGenere($event)">
-          <ion-label position="usuariForm.floating">Gènere</ion-label>
+          <ion-label position="floating">Gènere</ion-label>
+          <ion-input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="displayGenere"></ion-input>
         </ion-item>
         
         <ion-item>
