@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SigneVitalItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
+import { getCurrentDate } from 'src/app/helpers/utils';
+
 
 @Component({
   selector: 'app-signes-vitals',
@@ -29,7 +31,7 @@ export class SignesVitalsPage implements OnInit {
       usuari: this.dataSerivce.getUsuariId(),
       valor: event.valor,
       tipus: event.tipus,
-      data: this.dataSerivce.getCurrentDate(),
+      data: getCurrentDate(),
     };
     
     (await this.dataSerivce.submit(this.endpoint, signeVitalForm)).subscribe(

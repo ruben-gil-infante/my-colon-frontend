@@ -1,8 +1,6 @@
 <ion-header >
   <ion-toolbar color="primary" class="homeToolbar">
-    <ion-avatar slot="start" >
-      <img src="/assets/icon/avatar.svg">
-    </ion-avatar>
+    <ion-icon slot="end" class="right-20" name="log-out-outline" size="large" (click)="logout()"></ion-icon>
     <ion-label class="left-20">
       {{ nomPacient }}
     </ion-label>

@@ -9,31 +9,31 @@ const routes: Routes = [
   },
   {
     path: 'registre-simptomes',
-    loadChildren: () => import('./pages/registre-simptomes/registre-simptomes.module').then( m => m.RegistreSimptomesPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/registre-simptomes/registre-simptomes.module').then( m => m.RegistreSimptomesPageModule)
   },
   {
     path: 'reestrenyiment',
-    loadChildren: () => import('./pages/reestrenyiment/reestrenyiment.module').then( m => m.ReestrenyimentPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/reestrenyiment/reestrenyiment.module').then( m => m.ReestrenyimentPageModule)
   },
   {
     path: 'diarrees',
-    loadChildren: () => import('./pages/diarrees/diarrees.module').then( m => m.DiarreesPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/diarrees/diarrees.module').then( m => m.DiarreesPageModule)
   },
   {
     path: 'fatiga',
-    loadChildren: () => import('./pages/fatiga/fatiga.module').then( m => m.FatigaPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/fatiga/fatiga.module').then( m => m.FatigaPageModule)
   },
   {
     path: 'canvis-bucals',
-    loadChildren: () => import('./pages/canvis-bucals/canvis-bucals.module').then( m => m.CanvisBucalsPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/canvis-bucals/canvis-bucals.module').then( m => m.CanvisBucalsPageModule)
   },
   {
     path: 'nausees-vomits',
-    loadChildren: () => import('./pages/nausees-vomits/nausees-vomits.module').then( m => m.NauseesVomitsPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/nausees-vomits/nausees-vomits.module').then( m => m.NauseesVomitsPageModule)
   },
   {
     path: 'dolor',
-    loadChildren: () => import('./pages/dolor/dolor.module').then( m => m.DolorPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/dolor/dolor.module').then( m => m.DolorPageModule)
   },
   {
     path: 'nutricio',
@@ -69,7 +69,7 @@ const routes: Routes = [
   },
   {
     path: 'medicacio',
-    loadChildren: () => import('./pages/medicacio/medicacio.module').then( m => m.MedicacioPageModule)
+    loadChildren: () => import('./pages/medicacio-pages/medicacio/medicacio.module').then( m => m.MedicacioPageModule)
   },
   {
     path: 'registre-usuari',
@@ -85,12 +85,13 @@ const routes: Routes = [
   },
   {
     path: 'formulari-medicacio',
-    loadChildren: () => import('./pages/formulari-medicacio/formulari-medicacio.module').then( m => m.FormulariMedicacioPageModule)
+    loadChildren: () => import('./pages/medicacio-pages/formulari-medicacio/formulari-medicacio.module').then( m => m.FormulariMedicacioPageModule)
   },
   {
     path: 'bristol',
     loadChildren: () => import('./pages/bristol/bristol.module').then( m => m.BristolPageModule)
-  },  {
+  },
+  {
     path: 'registrarse',
     loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },

@@ -31,9 +31,12 @@ export class LoginPage implements OnInit {
         this.router.navigateByUrl('home');
       },
       error => {
-        console.log(error);
         this.dataService.loadingControllerDismiss();
-        this.dataService.presentToast('Dades incorrectes...');
+        if(error.status === 401){
+          this.dataService.presentToast('Dades incorrectes...');
+        }else{
+          this.dataService.presentToast('Error de connexió');
+        }
       }
     );
   };

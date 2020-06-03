@@ -1,0 +1,26 @@
+<app-default-header defaultHref="/registre-simptomes" titol="Dolor" icon="/assets/icon/pain.svg"></app-default-header>
+
+<ion-content>
+
+  <app-si-no-selector pregunta="Tens dolor?" (resposta)="afirmatiuSeleccionat($event)"></app-si-no-selector>
+  
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">A on està localitzat el dolor?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="center-element">
+      <ion-item>
+        <ion-textarea class="textarea-border" [(ngModel)]="localitzacio" placeholder="Escriu on esta localitzat el dolor.."></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <app-range-bar nom="Valora el dolor" min="1" max="10" (rangeValueChange)="valorDolorSeleccionat($event)"></app-range-bar>
+
+
+  <app-opcions-selector titol="Descriu el dolor" [items]="descriuDolor"></app-opcions-selector>
+  <app-opcions-selector titol="Quan apareix el dolor?" [items]="apareixDolor"></app-opcions-selector>
+
+  <app-save-button (guardar)="guardar()"></app-save-button>
+
+</ion-content>

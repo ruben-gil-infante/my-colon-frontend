@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nota } from 'src/interfaces/interfaces';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
+import { getCurrentDate } from 'src/app/helpers/utils';
 
 @Component({
   selector: 'app-notes',
@@ -69,7 +70,7 @@ export class NotesPage implements OnInit {
     let notaAuxiliar = {
       usuari: this.dataService.getUsuariId(),
       descripcio : nota,
-      data: this.dataService.getCurrentDate()
+      data: getCurrentDate()
     };
 
     (await this.dataService.submit<Nota>(this.endpoint, notaAuxiliar)).subscribe(

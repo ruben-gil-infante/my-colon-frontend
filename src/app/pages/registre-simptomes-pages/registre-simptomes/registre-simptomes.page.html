@@ -1,0 +1,14 @@
+<app-default-header icon="/assets/icon/eye.svg" titol="Símptomes"></app-default-header>
+
+<ion-content padding >
+  <ion-list class="menuIonList">
+    <ion-item detail="false" *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo">
+      <ion-icon [src]="item.image" slot="start" name="person-circle-outline"></ion-icon>
+      <ion-label class="ion-label-wrap">
+        {{ item.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<app-default-footer></app-default-footer>

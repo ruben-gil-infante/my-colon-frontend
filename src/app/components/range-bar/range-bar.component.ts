@@ -10,7 +10,6 @@ export class RangeBarComponent implements OnInit {
   @Input() min : number;
   @Input() max : number;
   @Input() nom : string;
-  @Input() valor : number;
 
   @Output() rangeValueChange = new EventEmitter();
 
@@ -19,7 +18,7 @@ export class RangeBarComponent implements OnInit {
   ngOnInit() {}
 
   valorSeleccionat(event){
-    this.valor = event.detail.value;
+    this.rangeValueChange.emit(event.detail.value);
   }
 
 }

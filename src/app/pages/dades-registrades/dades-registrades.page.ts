@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { Observable } from 'rxjs';
-import { makePdf } from '../../helpers/report';
+
 
 @Component({
   selector: 'app-dades-registrades',
@@ -11,16 +9,10 @@ import { makePdf } from '../../helpers/report';
 })
 export class DadesRegistradesPage implements OnInit {
 
-  menuItems : Observable<MenuItem[]>;
-
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.menuItems = this.dataService.getRegistreSimpotomesMenuItems();
-  }
 
-  generarInforme(){
-    makePdf();
   }
 
 }
