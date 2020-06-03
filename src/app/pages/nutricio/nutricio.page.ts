@@ -24,7 +24,6 @@ export class NutricioPage implements OnInit {
   }
 
   guardarValorNutricio(event, tipus){
-    console.log("Tipus: "+tipus);
     switch(tipus){
       case 1:
         this.esmorzar = event;
