@@ -35,8 +35,6 @@ export class ReestrenyimentPage implements OnInit {
     {id: 6, text: 'Negre'}
   ];
 
-
-
   constructor(private dataService: DataService, private popoverController : PopoverController,
               private modalController: ModalController) { }
 
