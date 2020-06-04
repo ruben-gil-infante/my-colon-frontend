@@ -110,6 +110,10 @@ const routes: Routes = [
     path: 'canvis-bucals-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/canvis-bucals-registre/canvis-bucals-registre.module').then( m => m.CanvisBucalsRegistrePageModule)
   },
+  {
+    path: 'dolor-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/dolor-registre/dolor-registre.module').then( m => m.DolorRegistrePageModule)
+  },
 
 
 

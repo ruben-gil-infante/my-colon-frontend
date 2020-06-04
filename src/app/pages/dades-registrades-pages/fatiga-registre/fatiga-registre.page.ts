@@ -19,11 +19,12 @@ export class FatigaRegistrePage implements OnInit {
   labels: string [] = [];
 
   constructor(private dataService : DataService, private chartService : ChartService) { 
-    this.endpoint = `/api/v1/fatiga/${this.dataService.getUsuariId()}`;
-    this.loadData();
+    
   }
 
   ngOnInit() {
+    this.endpoint = `/api/v1/fatiga/${this.dataService.getUsuariId()}`;
+    this.loadData();
   }
 
   async loadData(){

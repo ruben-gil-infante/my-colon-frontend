@@ -1,0 +1,39 @@
+<app-default-header titol="Dolor" icon="/assets/icon/pain.svg"></app-default-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let dada of dades">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Nivell dolor</ion-col>
+            <ion-col>{{ dada.valor }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Localització</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> ▪ {{ dada.localitzacio }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Aparició</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let aparcicio of dada.quanApareixDolor.split(';')">
+            <ion-col>{{ mapAparicioDolor(aparicio) }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Descripció</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let descripcio of dada.descripcioDolor.split(';')">
+            <ion-col>{{ mapDescripcioDolor(descripcio) }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Data</ion-col>
+            <ion-col>{{ dada.data }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

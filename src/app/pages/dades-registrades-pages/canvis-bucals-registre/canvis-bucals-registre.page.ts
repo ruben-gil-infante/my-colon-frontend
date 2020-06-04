@@ -15,11 +15,12 @@ export class CanvisBucalsRegistrePage implements OnInit {
   dades: CanvisBucals [];
 
   constructor(private dataService : DataService) { 
-    this.endpoint = `/api/v1/canvisbucals/${this.dataService.getUsuariId()}`;
-    this.loadData();
+    
   }
 
   ngOnInit() {
+    this.endpoint = `/api/v1/canvisbucals/${this.dataService.getUsuariId()}`;
+    this.loadData();
   }
 
   async loadData(){
