@@ -106,6 +106,10 @@ const routes: Routes = [
     path: 'fatiga-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/fatiga-registre/fatiga-registre.module').then( m => m.FatigaRegistrePageModule)
   },
+  {
+    path: 'canvis-bucals-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/canvis-bucals-registre/canvis-bucals-registre.module').then( m => m.CanvisBucalsRegistrePageModule)
+  },
 
 
 

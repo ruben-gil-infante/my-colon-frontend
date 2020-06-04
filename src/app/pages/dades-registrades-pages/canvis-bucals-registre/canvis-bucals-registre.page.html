@@ -1,0 +1,24 @@
+<app-default-header titol="Canvis Bucals" icon="/assets/icon/lips.svg"></app-default-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let dada of dades" mode="ios">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Símptomes</ion-col>
+          </ion-row>
+          <ion-row *ngFor="let simptomaIndex of dada.simptomes.split(';')">
+            <ion-col>
+              {{ mapSimptoma(simptomaIndex) }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Data</ion-col>
+            <ion-col>{{ dada.data }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
