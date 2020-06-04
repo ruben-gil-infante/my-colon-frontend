@@ -96,6 +96,14 @@ export interface Reestrenyiment {
     usuari : number;
 }
 
+export interface SigneVital {
+    id: number;
+    data: string;
+    usuari: number;
+    valor: number;
+    tipus: number;
+}
+
 export interface Usuari {
     id: number;
     nom : string;

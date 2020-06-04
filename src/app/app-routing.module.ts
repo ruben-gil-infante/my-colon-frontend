@@ -98,6 +98,14 @@ const routes: Routes = [
     path: 'nutricio-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/nutricio-registre/nutricio-registre.module').then( m => m.NutricioRegistrePageModule)
   },
+  {
+    path: 'signes-vitals-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/signes-vitals-registre/signes-vitals-registre.module').then( m => m.SignesVitalsRegistrePageModule)
+  },
+  {
+    path: 'fatiga-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/fatiga-registre/fatiga-registre.module').then( m => m.FatigaRegistrePageModule)
+  },
 
 
 

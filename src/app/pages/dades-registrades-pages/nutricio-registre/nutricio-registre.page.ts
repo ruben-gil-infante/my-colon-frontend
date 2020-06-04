@@ -19,6 +19,7 @@ export class NutricioRegistrePage implements OnInit {
   chartSelected: string = "esmorzar";
 
   dades: Nutricio[];
+  
 
   endpoint: string;
 

@@ -1,7 +1,7 @@
 [
     {
         "name" : "Signes Vitals",
-        "redirectTo" : "/signes-vitals",
+        "redirectTo" : "/signes-vitals-registre",
         "image" : "/assets/icon/electrocardiogram.svg"
 
     },
@@ -25,7 +25,7 @@
     },
     {
         "name" : "Fatiga",
-        "redirectTo" : "/fatiga",
+        "redirectTo" : "/fatiga-registre",
         "image" : "/assets/icon/bed.svg"
 
     },
