@@ -123,3 +123,8 @@ export interface SigneVitalItem {
     valor: number;
     img: string;
 }
+
+export interface ChartData {
+    valor: number;
+    label: string;
+}

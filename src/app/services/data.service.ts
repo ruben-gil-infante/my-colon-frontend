@@ -52,6 +52,10 @@ export class DataService {
     return this.http.get<MenuItem []>('/assets/data/RegistreSimptomesMenuItems.json');
   }
 
+  getDadesRegistradesMenuItems () {
+    return this.http.get<MenuItem[]>('/assets/data/DadesRegistradesMenuItems.json');
+  }
+
 
   // GET
   async request <T> (endpoint){

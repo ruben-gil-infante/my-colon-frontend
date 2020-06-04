@@ -94,7 +94,11 @@ const routes: Routes = [
   {
     path: 'registrarse',
     loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
+  },  {
+    path: 'nutricio-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/nutricio-registre/nutricio-registre.module').then( m => m.NutricioRegistrePageModule)
   },
+
 
 
 

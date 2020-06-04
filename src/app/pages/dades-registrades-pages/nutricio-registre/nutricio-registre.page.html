@@ -1,0 +1,53 @@
+<app-default-header titol="Nutrició" icon="/assets/icon/apple.svg"></app-default-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Dades de la gràfica</ion-label>
+    <ion-select value="esmorzar" interface="action-sheet" (ionChange)="canviarDadesGrafica($event)">
+      <ion-select-option value="esmorzar">Esmorzar</ion-select-option>
+      <ion-select-option value="dinar">Dinar</ion-select-option>
+      <ion-select-option value="berenar">Berenar</ion-select-option>
+      <ion-select-option value="sopar">Sopar</ion-select-option>
+      <ion-select-option value="gotsAigua">Gots d'aigua</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <canvas #chart></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-card mode="ios" *ngFor="let item of dades">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Esmorzar</ion-col>
+            <ion-col>{{ item.esmorzar }}%</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Dinar</ion-col>
+            <ion-col>{{ item.dinar }}%</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Berenar</ion-col>
+            <ion-col>{{ item.berenar }}%</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Sopar</ion-col>
+            <ion-col>{{ item.sopar }}%</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Gots d'aigua</ion-col>
+            <ion-col>{{ item.gotsAigua }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Data</ion-col>
+            <ion-col>{{ item.data }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

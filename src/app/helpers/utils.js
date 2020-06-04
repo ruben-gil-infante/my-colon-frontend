@@ -36,4 +36,5 @@ export function validateEmail(email) {
 
 export function getCurrentDate(){
     return new Date().toISOString();
-  }
+}
+

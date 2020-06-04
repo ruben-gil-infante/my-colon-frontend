@@ -24,7 +24,7 @@ import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.com
     DefaultFooterComponent,
     FavButtonComponent,
     PopoverItemComponent,
-    SigneVitalItemComponent
+    SigneVitalItemComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +40,7 @@ import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.com
     DefaultFooterComponent,
     FavButtonComponent,
     PopoverItemComponent,
-    SigneVitalItemComponent
+    SigneVitalItemComponent,
   ]
 })
 export class ComponentsModule { }

@@ -1,4 +1,14 @@
 <app-default-header titol="Dades Registrades" icon="/assets/icon/notebook.svg"></app-default-header>
 
 <ion-content>
+    <ion-content padding>
+        <ion-list class="menuIonList">
+          <ion-item detail="false" *ngFor="let item of menuItems | async" [routerLink]="item.redirectTo">
+            <ion-icon [src]="item.image" slot="start"></ion-icon>
+            <ion-label class="ion-label-wrap">
+              {{ item.name }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
 </ion-content>  
