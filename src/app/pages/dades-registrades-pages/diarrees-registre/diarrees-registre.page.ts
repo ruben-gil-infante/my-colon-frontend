@@ -3,6 +3,8 @@ import { Diarrees } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 import { COLORS } from 'src/app/helpers/constants';
 import { ChartService } from 'src/app/services/chart.service';
+import { mapBooleanToString } from 'src/app/helpers/utils';
+
 
 @Component({
   selector: 'app-diarrees-registre',
@@ -58,6 +60,10 @@ export class DiarreesRegistrePage implements OnInit {
       case COLORS.NEGRE:
         return "Negre";
     }
+  }
+
+  mapBoolean(valor){
+    return mapBooleanToString(valor);
   }
 
 }

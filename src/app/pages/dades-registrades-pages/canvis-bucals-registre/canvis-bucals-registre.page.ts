@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { CanvisBucals } from 'src/interfaces/interfaces';
 import { CANVIS_BUCALS_OPCIONS } from 'src/app/helpers/constants';
-
+import { mapBooleanToString } from 'src/app/helpers/utils';
  
 @Component({
   selector: 'app-canvis-bucals-registre',
@@ -49,4 +49,9 @@ export class CanvisBucalsRegistrePage implements OnInit {
         return " ▪ Canvis en el gust";
     }
   }
+
+  mapBoolean(valor){
+    return mapBooleanToString(valor);
+  }
+
 }

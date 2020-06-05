@@ -38,3 +38,9 @@ export function getCurrentDate(){
     return new Date().toISOString();
 }
 
+export function mapBooleanToString(value){
+    if(value)
+        return "Sí";
+    return "No";
+}
+
