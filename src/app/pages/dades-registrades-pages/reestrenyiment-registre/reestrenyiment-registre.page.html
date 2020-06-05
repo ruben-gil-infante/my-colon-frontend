@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>reestrenyiment-registre</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-default-header titol="Reestrenyiment" icon="/assets/icon/toilet.svg"></app-default-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-card mode="ios" *ngFor="let dada of dades">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Reestrenyiment?</ion-col>
+            <ion-col>{{ mapBoolean(dada.afirmatiu) }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Últim cop</ion-col>
+            <ion-col>{{ mapUltimCop(dada.ultimCop) }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Color femta</ion-col>
+            <ion-col>{{ mapColor(dada.color)}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Data</ion-col>
+            <ion-col>{{ dada.data }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

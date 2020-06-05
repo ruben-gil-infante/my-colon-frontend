@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Diarrees } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { COLORS } from 'src/app/helpers/constants';
 import { ChartService } from 'src/app/services/chart.service';
-import { mapBooleanToString } from 'src/app/helpers/utils';
+import { mapBooleanToString, mapColorToString } from 'src/app/helpers/utils';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class DiarreesRegistrePage implements OnInit {
   endpoint: string;
   dades: Diarrees[] = [];
   chartData: number [] = [];
-  chartLabels: number [] = [];
+  chartLabels: string [] = [];
 
   constructor(private dataService : DataService, private chartService : ChartService) { }
 
@@ -45,25 +44,12 @@ export class DiarreesRegistrePage implements OnInit {
     );
   }
 
-  mapColor(color){
-    switch(color){
-      case COLORS.MARRO:
-        return "Marró";
-      case COLORS.GROC:
-        return "Groc";
-      case COLORS.VERD:
-        return "Verd";
-      case COLORS.GRIS:
-        return "Gris";
-      case COLORS.VERMELL:
-        return "Vermell";
-      case COLORS.NEGRE:
-        return "Negre";
-    }
-  }
-
   mapBoolean(valor){
     return mapBooleanToString(valor);
+  }
+
+  mapColor(color){
+    return mapColorToString(color);
   }
 
 }

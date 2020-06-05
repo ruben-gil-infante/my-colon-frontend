@@ -44,3 +44,22 @@ export function mapBooleanToString(value){
     return "No";
 }
 
+
+import { COLORS } from './constants';
+
+export function mapColorToString(color){
+    switch(color){
+        case COLORS.MARRO:
+            return "Marró";
+        case COLORS.GROC:
+            return "Groc";
+        case COLORS.VERD:
+            return "Verd";
+        case COLORS.GRIS:
+            return "Gris";
+        case COLORS.VERMELL:
+            return "Vermell";
+        case COLORS.NEGRE:
+            return "Negre";
+    }
+}
