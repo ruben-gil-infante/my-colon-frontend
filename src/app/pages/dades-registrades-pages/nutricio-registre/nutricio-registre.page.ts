@@ -57,10 +57,8 @@ export class NutricioRegistrePage implements OnInit {
   }
 
   canviarDadesGrafica(event){
-    if(event.detail.value === this.chartSelected)
-      return;
-
     this.chartData = [];  
+
     switch(event.detail.value){
       case 'esmorzar':
         this.dades.forEach(dada => {

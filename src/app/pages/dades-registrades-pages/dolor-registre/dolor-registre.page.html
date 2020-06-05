@@ -1,11 +1,14 @@
 <app-default-header titol="Dolor" icon="/assets/icon/pain.svg"></app-default-header>
 
-
 <ion-content>
   <ion-list>
     <ion-card *ngFor="let dada of dades">
       <ion-card-content>
         <ion-grid>
+          <ion-row>
+            <ion-col>Tens dolor?</ion-col>
+            <ion-col>{{ dada.afirmatiuString }}</ion-col>
+          </ion-row>
           <ion-row>
             <ion-col>Nivell dolor</ion-col>
             <ion-col>{{ dada.valor }}</ion-col>

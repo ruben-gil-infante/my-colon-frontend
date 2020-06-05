@@ -20,15 +20,6 @@ export class DiarreesPage implements OnInit {
   color: number;
   vegades: number;
 
-  colorFemta: PopoverItem [] = [
-    {id: 1, text: 'Marró'},
-    {id: 2, text: 'Groc'},
-    {id: 3, text: 'Verd'},
-    {id: 4, text: 'Gris'},
-    {id: 5, text: 'Vermell'},
-    {id: 6, text: 'Negre'}
-  ];
-
   constructor(private dataService : DataService, private popoverController : PopoverController,
               private modalController : ModalController) { }
 
@@ -55,23 +46,6 @@ export class DiarreesPage implements OnInit {
     this.escalaBristol = data.bristol;
     
   }
-
-  async seleccionarColorFemta(event){
-    const popover = await this.popoverController.create({
-      component: PopoverItemComponent,
-      event: event,
-      mode: 'ios',
-      backdropDismiss: false,
-      componentProps: {items: this.colorFemta}
-    });
-
-    await popover.present();
-
-    const { data } = await popover.onWillDismiss();
-
-    this.color = data.event.id;
-  }
-
 
   async guardar(){
 

@@ -26,35 +26,11 @@ export class ReestrenyimentPage implements OnInit {
     {id: 4, text: 'Fa 4 dies', checked: false},
     {id: 5, text: 'Fa més de 5 dies', checked: false}
   ];
-  colorFemta: PopoverItem [] = [
-    {id: 1, text: 'Marró'},
-    {id: 2, text: 'Groc'},
-    {id: 3, text: 'Verd'},
-    {id: 4, text: 'Gris'},
-    {id: 5, text: 'Vermell'},
-    {id: 6, text: 'Negre'}
-  ];
 
   constructor(private dataService: DataService, private popoverController : PopoverController,
               private modalController: ModalController) { }
 
   ngOnInit() {
-  }
-
-  async seleccionarColorFemta(){
-    const popover = await this.popoverController.create({
-      component: PopoverItemComponent,
-      event: event,
-      mode: 'ios',
-      backdropDismiss: false,
-      componentProps: {items: this.colorFemta}
-    });
-
-    await popover.present();
-
-    const { data } = await popover.onWillDismiss();
-
-    this.color = data.event.id;
   }
 
   async seleccionarEscalaBristol(){

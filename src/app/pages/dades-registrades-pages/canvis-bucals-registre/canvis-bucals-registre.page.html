@@ -6,6 +6,10 @@
       <ion-card-content>
         <ion-grid>
           <ion-row>
+            <ion-col>Canvis patits?</ion-col>
+            <ion-col>{{ dada.afirmatiuString }}</ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col>Símptomes</ion-col>
           </ion-row>
           <ion-row *ngFor="let simptomaIndex of dada.simptomes.split(';')">

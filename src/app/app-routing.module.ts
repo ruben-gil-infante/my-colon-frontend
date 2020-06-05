@@ -94,7 +94,8 @@ const routes: Routes = [
   {
     path: 'registrarse',
     loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
-  },  {
+  },
+  {
     path: 'nutricio-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/nutricio-registre/nutricio-registre.module').then( m => m.NutricioRegistrePageModule)
   },
@@ -113,10 +114,18 @@ const routes: Routes = [
   {
     path: 'dolor-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/dolor-registre/dolor-registre.module').then( m => m.DolorRegistrePageModule)
+  },  {
+    path: 'diarrees-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/diarrees-registre/diarrees-registre.module').then( m => m.DiarreesRegistrePageModule)
   },
-
-
-
+  {
+    path: 'reestrenyiment-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/reestrenyiment-registre/reestrenyiment-registre.module').then( m => m.ReestrenyimentRegistrePageModule)
+  },
+  {
+    path: 'nausees-vomits-registre',
+    loadChildren: () => import('./pages/dades-registrades-pages/nausees-vomits-registre/nausees-vomits-registre.module').then( m => m.NauseesVomitsRegistrePageModule)
+  }
 
 
 ];

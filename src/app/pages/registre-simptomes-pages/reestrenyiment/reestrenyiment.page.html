@@ -7,18 +7,26 @@
   <app-opcions-selector [items]="ultimCopVentre" titol="Quan va ser l'últim cop que vas anar de ventre?"></app-opcions-selector>
 
   
-  <!--Implementar el color de la femta-->
   <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
       <ion-card-title class="ion-card-title">De quin color és la femta?</ion-card-title>
     </ion-card-header>
     <ion-card-content class="center-element">
-      <ion-button (click)="seleccionarColorFemta()">Seleccionar</ion-button>
+      <ion-item>
+        <ion-label>Color</ion-label>
+        <ion-select [(ngModel)]="color" value="-1" interface="action-sheet" mode="md">
+          <ion-select-option value="1">Marró</ion-select-option>
+          <ion-select-option value="2">Groc</ion-select-option>
+          <ion-select-option value="3">Verd</ion-select-option>
+          <ion-select-option value="4">Gris</ion-select-option>
+          <ion-select-option value="5">Vermell</ion-select-option>
+          <ion-select-option value="6">Negre</ion-select-option>
+        </ion-select>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 
 
-  <!-- Implementar escala bristol-->
   <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
       <ion-card-title class="ion-card-title">Escolleix el tipus de femta a l'escala bristol</ion-card-title>

@@ -5,38 +5,38 @@
     <ion-card-content class="center-element">
       <form (ngSubmit)="registrarse()" novalidate>
         <ion-item>
-          <ion-label position="floating">Nom</ion-label>
+          <ion-label position="stacked">Nom</ion-label>
           <ion-input requried [ngModelOptions]="{standalone: true}" [(ngModel)]="usuariForm.nom" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Primer Cognom</ion-label>
+          <ion-label position="stacked">Primer Cognom</ion-label>
           <ion-input required [ngModelOptions]="{standalone: true}" [(ngModel)]="usuariForm.primerCognom" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Segon Cognom</ion-label>
+          <ion-label position="stacked">Segon Cognom</ion-label>
           <ion-input [ngModelOptions]="{standalone: true}" [(ngModel)]="usuariForm.segonCognom" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Correu Electrònic</ion-label>
+          <ion-label position="stacked">Correu Electrònic</ion-label>
           <ion-input [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.correuElectronic" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Edat</ion-label>
+          <ion-label position="stacked">Edat</ion-label>
           <ion-input [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.edat" type="number"></ion-input>
         </ion-item>
         
         <ion-item (click)="seleccionarGenere($event)">
-          <ion-label position="floating">Gènere</ion-label>
-          <ion-input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="displayGenere"></ion-input>
+          <ion-label position="stacked">Gènere</ion-label>
+          <ion-input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="displayGenere" placeholder="Toca per seleccionar"></ion-input>
         </ion-item>
         
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label position="stacked">Password</ion-label>
           <ion-input [ngModelOptions]="{standalone: true}" required type="password" [(ngModel)]="usuariForm.password"></ion-input>
         </ion-item>
   
         <ion-item class="bottom-20">
-          <ion-label position="floating">Confirmació password</ion-label>
+          <ion-label position="stacked">Confirmació password</ion-label>
           <ion-input [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.confirmacioPassword" type="password"></ion-input>
         </ion-item>
         

@@ -13,13 +13,13 @@
     },
     {
         "name" : "Restrenyiment",
-        "redirectTo" : "/reestrenyiment",
+        "redirectTo" : "/reestrenyiment-registre",
         "image" : "/assets/icon/toilet.svg"
 
     },
     {
         "name" : "Diarrees",
-        "redirectTo" : "/diarrees",
+        "redirectTo" : "/diarrees-registre",
         "image" : "/assets/icon/shit.svg"
 
     },
@@ -37,7 +37,7 @@
     },
     {
         "name" : "Nàuseas i vòmits",
-        "redirectTo" : "/nausees-vomits",
+        "redirectTo" : "/nausees-vomits-registre",
         "image" : "/assets/icon/vomiting.svg"
 
     },

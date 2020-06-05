@@ -16,6 +16,6 @@ export const environment = {
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
 
-export const DEV_PREFIX = 'http://192.168.1.211:8080';
+export const DEV_PREFIX = 'http://localhost:8080';
 export const HOST_PREFIX = 'https://my-colon.herokuapp.com';
  
