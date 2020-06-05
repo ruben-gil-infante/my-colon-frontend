@@ -34,8 +34,10 @@ export function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+import moment from 'moment';
+
 export function getCurrentDate(){
-    return new Date().toISOString();
+    return moment(new Date().toISOString()).format("DD-MM-yyyy").toString();  
 }
 
 export function mapBooleanToString(value){

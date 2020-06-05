@@ -60,7 +60,7 @@ export class ReestrenyimentPage implements OnInit {
       afirmatiu: this.afirmatiu,
       usuari: this.dataService.getUsuariId(),
       data: getCurrentDate(),
-      bristol: this.bristol,
+      escalaBristol: this.bristol,
       color: this.color,
       ultimCop: ultimCop
     };

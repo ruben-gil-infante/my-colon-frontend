@@ -1,11 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "src/app/services/data.service";
-import { emptyString, validateEmail } from "src/app/helpers/utils";
-import { PopoverController, AlertController } from "@ionic/angular";
-import { PopoverItemComponent } from "src/app/components/popover-item/popover-item.component";
-import { PopoverItem } from "src/interfaces/interfaces";
+import { validateEmail } from "src/app/helpers/utils";
+import { AlertController } from "@ionic/angular";
 import { Router } from "@angular/router";
-import { NgSwitchDefault } from '@angular/common';
+
 
 @Component({
   selector: "app-registrarse",
@@ -22,16 +20,12 @@ export class RegistrarsePage implements OnInit {
     segonCognom: "",
     correuElectronic: "",
     genere: "",
-    edat: "",
+    dataNaixement: "",
     password: "",
     confirmacioPassword: "",
   };
 
-  constructor(
-    private dataService: DataService,
-    private alertController: AlertController,
-    private router: Router
-  ) {}
+  constructor( private dataService: DataService, private alertController: AlertController, private router: Router) {}
 
   ngOnInit() {}
 
@@ -99,7 +93,7 @@ export class RegistrarsePage implements OnInit {
       (data) => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast("Usuari registrat correctament");
-        this.router.navigateByUrl("home");
+        this.router.navigateByUrl("login");
       },
       (error) => {
         this.dataService.loadingControllerDismiss();
@@ -123,8 +117,8 @@ export class RegistrarsePage implements OnInit {
       return false;
     }
     
-    if(parseInt(this.usuariForm.edat) <= 0){
-      this.dataService.presentToast("L'edat introduïda no es vàlida");
+    if(this.usuariForm.dataNaixement == ""){
+      this.dataService.presentToast("Introdueix la teva edat");
       return false;
     }
 
@@ -144,7 +138,7 @@ export class RegistrarsePage implements OnInit {
     }
 
     if(this.usuariForm.confirmacioPassword !== this.usuariForm.password){
-      this.dataService.presentToast("Les contrasenyes introduïdes no coincideixe");
+      this.dataService.presentToast("Les contrasenyes introduïdes no coincideixen");
       return false;
     }
 

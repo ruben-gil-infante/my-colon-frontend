@@ -32,22 +32,19 @@ export class DataService {
     this.usuari = usuari;
     this.prefix = DEV_PREFIX;
   }
-  
+
   getUsuari(){
     return this.usuari;
   }
-
+  
   getUsuariId(){
     return this.usuari.id;
   }
 
-  // FIXME: IMPLEMENTAR => local data service
-  // TODO: Treure aquest metode
   getHomeMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/HomeMenuItems.json');
   }
 
-  // TODO: Treure aquest metode
   getRegistreSimpotomesMenuItems () {
     return this.http.get<MenuItem []>('/assets/data/RegistreSimptomesMenuItems.json');
   }

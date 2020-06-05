@@ -21,8 +21,9 @@
           <ion-input [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.correuElectronic" type="text"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Edat</ion-label>
-          <ion-input [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.edat" type="number"></ion-input>
+          <ion-label position="stacked">Data naixement</ion-label>
+          <ion-datetime [ngModelOptions]="{standalone: true}" required [(ngModel)]="usuariForm.dataNaixement" 
+                      placeholder="Toca per seleccionar" display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD"></ion-datetime>
         </ion-item>
         
         <ion-item (click)="seleccionarGenere($event)">

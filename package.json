@@ -25,6 +25,7 @@
     "@babel/plugin-proposal-numeric-separator": "^7.10.1",
     "@ionic-native/calendar": "^5.23.0",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/date-picker": "^4.20.0",
     "@ionic-native/diagnostic": "^5.23.0",
     "@ionic-native/email-composer": "^5.23.0",
     "@ionic-native/splash-screen": "^5.0.0",
