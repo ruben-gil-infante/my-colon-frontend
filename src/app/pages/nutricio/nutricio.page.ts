@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { getCurrentDate } from 'src/app/helpers/utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nutricio',
@@ -18,7 +19,7 @@ export class NutricioPage implements OnInit {
 
 
 
-  constructor(private dataService : DataService) { }
+  constructor(private dataService : DataService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -55,6 +56,7 @@ export class NutricioPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Guardat amb èxit');
+        this.router.navigateByUrl("home");
       },
       error => {
         this.dataService.loadingControllerDismiss();

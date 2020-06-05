@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { ThrowStmt } from '@angular/compiler';
 import { getCurrentDate } from 'src/app/helpers/utils';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class FatigaPage implements OnInit {
   valorFatiga: number = 0;
   afirmatiu: boolean = true;
 
-  constructor(private dataService : DataService) { }
+  constructor(private dataService : DataService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -40,6 +40,7 @@ export class FatigaPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast('Guardat amb èxit...');
+        this.router.navigateByUrl("registre-simptomes");
       },
       error => {
         this.dataService.loadingControllerDismiss();

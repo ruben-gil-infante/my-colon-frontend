@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { PopoverController, ModalController } from '@ionic/angular';
-import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
-import { PopoverItem } from 'src/interfaces/interfaces';
+import { ModalController } from '@ionic/angular';
 import { BristolPage } from '../../bristol/bristol.page';
 import { getCurrentDate } from 'src/app/helpers/utils';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +19,7 @@ export class DiarreesPage implements OnInit {
   color: number;
   vegades: number;
 
-  constructor(private dataService : DataService, private popoverController : PopoverController,
+  constructor(private dataService : DataService, private router : Router,
               private modalController : ModalController) { }
 
   ngOnInit() {
@@ -62,6 +61,7 @@ export class DiarreesPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast("Guardat amb èxit...");
+        this.router.navigateByUrl("registre-simptomes");
       },
       error => {
         this.dataService.loadingControllerDismiss();

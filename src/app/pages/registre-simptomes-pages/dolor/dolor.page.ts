@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { RangeBarComponent } from 'src/app/components/range-bar/range-bar.component';
+import { Component, OnInit} from '@angular/core';
 import { OptionItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 import { getCurrentDate } from 'src/app/helpers/utils';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class DolorPage implements OnInit {
     {id: 2, text: 'Realitzant activitat física', checked: false}
   ];
 
-  constructor(private dataService : DataService) { }
+  constructor(private dataService : DataService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -74,6 +74,7 @@ export class DolorPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast("Guardat amb èxit...");
+        this.router.navigateByUrl("registre-simptomes");
       },
       error => {
         this.dataService.loadingControllerDismiss();

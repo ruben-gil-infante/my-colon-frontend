@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, PopoverController, ModalController } from '@ionic/angular';
-import { OptionItem, PopoverItem } from 'src/interfaces/interfaces';
+import { ModalController } from '@ionic/angular';
+import { OptionItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
 import { BristolPage } from '../../bristol/bristol.page';
 import { getCurrentDate } from 'src/app/helpers/utils';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class ReestrenyimentPage implements OnInit {
     {id: 5, text: 'Fa més de 5 dies', checked: false}
   ];
 
-  constructor(private dataService: DataService, private popoverController : PopoverController,
+  constructor(private dataService: DataService, private router : Router,
               private modalController: ModalController) { }
 
   ngOnInit() {
@@ -69,6 +69,7 @@ export class ReestrenyimentPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast("Guardat amb èxit...");
+        this.router.navigateByUrl("registre-simptomes");
       },
       error => {
         this.dataService.loadingControllerDismiss();
