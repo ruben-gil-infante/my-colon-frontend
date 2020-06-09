@@ -10,7 +10,7 @@
       <ion-list>
         <ion-item *ngFor="let colostomia of tipusColostomia">
           <ion-label class="ion-text-wrap">{{ colostomia.text }}</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
+          <ion-checkbox slot="start" (click)="tipusColostomiaSeleccionada(colostomia)" [(ngModel)]="colostomia.checked"></ion-checkbox>
         </ion-item>
       </ion-list>
     </ion-card-content>

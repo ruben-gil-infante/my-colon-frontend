@@ -10,7 +10,10 @@ export class OpcionsSelectorComponent implements OnInit {
 
   @Input() items : OptionItem [];
   @Input() titol : string;
+  @Input() unique: boolean = false;
   @Output() itemSeleccionat = new EventEmitter();
+
+  itemActual : OptionItem = undefined;
 
   constructor() {
   }
@@ -20,6 +23,20 @@ export class OpcionsSelectorComponent implements OnInit {
 
   seleccionat(event){
     this.itemSeleccionat.emit(event);
+    
+    if(this.unique){
+      this.desSeleccionar(event);
+    }
+  
+  }
+
+  desSeleccionar(event){
+    if(this.itemActual == undefined){
+      this.itemActual = event;
+    }else{
+      this.itemActual.checked = false;
+      this.itemActual = event;
+    }
   }
 
 }

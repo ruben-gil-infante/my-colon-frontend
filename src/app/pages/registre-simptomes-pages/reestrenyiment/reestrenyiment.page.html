@@ -4,7 +4,7 @@
   
   <app-si-no-selector pregunta="Tens reestrenyiment?" (resposta)="resposta($event)"></app-si-no-selector>
 
-  <app-opcions-selector [items]="ultimCopVentre" titol="Quan va ser l'últim cop que vas anar de ventre?"></app-opcions-selector>
+  <app-opcions-selector [unique]="true" [items]="ultimCopVentre" titol="Quan va ser l'últim cop que vas anar de ventre?"></app-opcions-selector>
 
   
   <ion-card mode="ios">

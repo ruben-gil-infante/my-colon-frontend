@@ -53,7 +53,7 @@ const routes: Routes = [
   },
   {
     path: 'comunitat',
-    loadChildren: () => import('./pages/comunitat/comunitat.module').then( m => m.ComunitatPageModule)
+    loadChildren: () => import('./pages/comunitat-pages/comunitat/comunitat.module').then( m => m.ComunitatPageModule)
   },
   {
     path: 'login',
@@ -81,7 +81,7 @@ const routes: Routes = [
   },
   {
     path: 'esdeveniments',
-    loadChildren: () => import('./pages/esdeveniments/esdeveniments.module').then( m => m.EsdevenimentsPageModule)
+    loadChildren: () => import('./pages/comunitat-pages/esdeveniments/esdeveniments.module').then( m => m.EsdevenimentsPageModule)
   },
   {
     path: 'formulari-medicacio',
@@ -89,7 +89,7 @@ const routes: Routes = [
   },
   {
     path: 'bristol',
-    loadChildren: () => import('./pages/bristol/bristol.module').then( m => m.BristolPageModule)
+    loadChildren: () => import('./pages/registre-simptomes-pages/bristol/bristol.module').then( m => m.BristolPageModule)
   },
   {
     path: 'registrarse',
@@ -114,7 +114,8 @@ const routes: Routes = [
   {
     path: 'dolor-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/dolor-registre/dolor-registre.module').then( m => m.DolorRegistrePageModule)
-  },  {
+  },
+  {
     path: 'diarrees-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/diarrees-registre/diarrees-registre.module').then( m => m.DiarreesRegistrePageModule)
   },

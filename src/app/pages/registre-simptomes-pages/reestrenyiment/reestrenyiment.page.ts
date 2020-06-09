@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { OptionItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
-import { BristolPage } from '../../bristol/bristol.page';
+import { BristolPage } from '../bristol/bristol.page';
 import { getCurrentDate } from 'src/app/helpers/utils';
 import { Router } from '@angular/router';
 

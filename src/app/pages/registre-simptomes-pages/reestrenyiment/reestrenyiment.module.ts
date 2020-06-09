@@ -13,7 +13,7 @@ import { OpcionsSelectorComponent } from 'src/app/components/opcions-selector/op
 import { SaveButtonComponent } from 'src/app/components/save-button/save-button.component';
 import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
-import { BristolPageModule } from '../../bristol/bristol.module';
+import { BristolPageModule } from '../bristol/bristol.module';
 
 @NgModule({
   entryComponents: [
