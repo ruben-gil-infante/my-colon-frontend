@@ -3,7 +3,7 @@ import { MenuItem } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 import { Observable } from 'rxjs';
 import { ModalController, AlertController } from '@ionic/angular';
-import { LoginPage } from '../login/login.page';
+import { LoginPage } from '../user-pages/login/login.page';
 import { Router } from '@angular/router';
 
 @Component({

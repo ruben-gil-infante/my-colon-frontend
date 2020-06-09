@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RegistreUsuariPageRoutingModule } from './registre-usuari-routing.module';
+import { LoginPageRoutingModule } from './login-routing.module';
 
-import { RegistreUsuariPage } from './registre-usuari.page';
+import { LoginPage } from './login.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegistreUsuariPageRoutingModule,
+    LoginPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [RegistreUsuariPage]
+  declarations: [LoginPage]
 })
-export class RegistreUsuariPageModule {}
+export class LoginPageModule {}

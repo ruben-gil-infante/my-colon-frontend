@@ -85,7 +85,6 @@ export class RegistrarsePage implements OnInit {
     await alert.present();
   }
 
-  // FIXME: Mostrar errors correctament quan l'usuari no es pot registrar
   async registrarse() {
     if (!this.checkForm()) return;
 

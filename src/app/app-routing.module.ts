@@ -57,7 +57,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/user-pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'missatges',
@@ -65,15 +65,11 @@ const routes: Routes = [
   },
   {
     path: 'dades-registrades',
-    loadChildren: () => import('./pages/dades-registrades/dades-registrades.module').then( m => m.DadesRegistradesPageModule)
+    loadChildren: () => import('./pages/dades-registrades-pages/dades-registrades/dades-registrades.module').then( m => m.DadesRegistradesPageModule)
   },
   {
     path: 'medicacio',
     loadChildren: () => import('./pages/medicacio-pages/medicacio/medicacio.module').then( m => m.MedicacioPageModule)
-  },
-  {
-    path: 'registre-usuari',
-    loadChildren: () => import('./pages/registre-usuari/registre-usuari.module').then( m => m.RegistreUsuariPageModule)
   },
   {
     path: 'notes',
@@ -93,7 +89,7 @@ const routes: Routes = [
   },
   {
     path: 'registrarse',
-    loadChildren: () => import('./pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
+    loadChildren: () => import('./pages/user-pages/registrarse/registrarse.module').then( m => m.RegistrarsePageModule)
   },
   {
     path: 'nutricio-registre',

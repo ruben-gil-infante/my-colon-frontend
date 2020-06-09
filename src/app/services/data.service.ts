@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MenuItem, Usuari } from 'src/interfaces/interfaces';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { DEV_PREFIX } from 'src/environments/environment';
+import { DEV_ENDPOINT, HEROKU_ENDPOINT } from 'src/environments/environment';
 
 
 @Injectable({
@@ -13,15 +13,12 @@ export class DataService {
 
   headers: HttpHeaders;
   usuari: Usuari;
-  prefix: string;
   
+  prefix: string = DEV_ENDPOINT;
+  // prefix: string = HEROKU_ENDPOINT;
 
   constructor( private http : HttpClient, private toastController : ToastController,
-               private loadingController : LoadingController) { 
-                 
-                this.prefix = DEV_PREFIX;
-
-               }
+               private loadingController : LoadingController) {   }
 
              
   setCredentialsHeaders(correuElectronic, password){
@@ -30,7 +27,6 @@ export class DataService {
 
   setUsuari(usuari){
     this.usuari = usuari;
-    this.prefix = DEV_PREFIX;
   }
 
   getUsuari(){

@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { LoginPageModule } from '../login/login.module';
+import { LoginPageModule } from '../user-pages/login/login.module';
 
 @NgModule({
   imports: [
