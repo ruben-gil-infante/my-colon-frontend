@@ -1,35 +1,14 @@
-export interface OptionItem {
-    id : number;
-    text : string;
-    checked: boolean;
-}
 
-export interface MenuItem{
-    name : string;
-    redirectTo : string;
-}
-
-export interface Medicacio {
-    id : number;
-    nom : string;
-    forma : number;
-    dosi : string;
-    usuari : number;
-    franja : number;
-    data : string;
-}
-
-export interface Nutricio {
+// !Usuari
+export interface Usuari {
     id: number;
-    esmorzar : number;
-    dinar : number;
-    berenar : number;
-    sopar : number;
-    gotsAigua : number;
-    data : string;
-    usuari : number;
+    nom : string;
+    primerCognom : string;
+    segonCognom : string;
+    correuElectronic : string;
 }
 
+// * Registre Simptomes Interfaces
 export interface Vomits {
     id: number;
     usuari: number;
@@ -38,17 +17,6 @@ export interface Vomits {
     descripcio: string;
     avui: boolean;
 }
-
-export interface Apetit {
-    id: number;
-    afirmatiu : boolean;
-    esmorzarAcabat : number;
-    dinarAcabat : number;
-    soparAcabat : number;
-    data : string;
-    usuari : number;
-}
-
 export interface CanvisBucals {
     id: number;
     afirmatiu : boolean;
@@ -96,34 +64,8 @@ export interface Reestrenyiment {
     usuari : number;
 }
 
-export interface SigneVital {
-    id: number;
-    data: string;
-    usuari: number;
-    valor: number;
-    tipus: number;
-}
 
-export interface Usuari {
-    id: number;
-    nom : string;
-    primerCognom : string;
-    segonCognom : string;
-    correuElectronic : string;
-}
-
-export interface Nota {
-    id: number;
-    usuari : number;
-    data : string;
-    descripcio : string;
-}
-
-export interface PopoverItem {
-    id: number;
-    text: string;
-}
-
+// * Signes vitals
 export interface SigneVitalItem {
     tipus: number;
     nom: string;
@@ -132,7 +74,83 @@ export interface SigneVitalItem {
     img: string;
 }
 
+export interface SigneVital {
+    id: number;
+    data: string;
+    usuari: number;
+    valor: number;
+    tipus: number;
+}
+
+
+// * Notes
+export interface Nota {
+    id: number;
+    usuari : number;
+    data : string;
+    descripcio : string;
+}
+
+
+// * Nutricio
+export interface Nutricio {
+    id: number;
+    esmorzar : number;
+    dinar : number;
+    berenar : number;
+    sopar : number;
+    gotsAigua : number;
+    data : string;
+    usuari : number;
+}
+
+
+// * Medicacio
+export interface Medicacio {
+    id : number;
+    nom : string;
+    forma : number;
+    dosi : string;
+    usuari : number;
+    franja : number;
+    data : string;
+}
+
+
+// * Others
+export interface OptionItem {
+    id : number;
+    text : string;
+    checked: boolean;
+}
+
+export interface MenuItem{
+    name : string;
+    redirectTo : string;
+}
+
 export interface ChartData {
     valor: number;
     label: string;
 }
+
+export interface PopoverItem {
+    id: number;
+    text: string;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

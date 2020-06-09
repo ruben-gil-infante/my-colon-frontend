@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EsdevenimentsPage implements OnInit {
 
+  endpoint: string = '/api/v1/esdeveniments';
+
   constructor() { }
 
   ngOnInit() {
