@@ -1,4 +1,3 @@
-
 // !Usuari
 export interface Usuari {
     id: number;
@@ -116,6 +115,14 @@ export interface Medicacio {
     data : string;
 }
 
+// * Comunitat
+export interface Esdeveniment{
+    id : number;
+    data : Date;
+    numeroTelefon : string;
+    ubicacio : string;
+    descripcio : string;
+}
 
 // * Others
 export interface OptionItem {

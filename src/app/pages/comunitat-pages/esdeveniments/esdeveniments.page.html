@@ -1,5 +1,27 @@
 <app-default-header titol="Esdeveniments" icon="/assets/icon/team.svg" defaultHref="comunitat"></app-default-header>
 
 <ion-content>
-
+    <ion-list>
+        <ion-card mode="ios" *ngFor="let esdeveniment of esdeveniments">
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>{{ esdeveniment.descripcio }}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="ion-text-wrap">Contacte: </ion-col>
+                        <ion-col class="ion-text-wrap">{{ esdeveniment.numeroTelefon }}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="ion-text-wrap">Ubicació</ion-col>
+                        <ion-col class="ion-text-wrap">{{ esdeveniment.ubicacio }}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="ion-text-wrap">Data</ion-col>
+                        <ion-col class="ion-text-wrap">{{ esdeveniment.data }}</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
 </ion-content>
