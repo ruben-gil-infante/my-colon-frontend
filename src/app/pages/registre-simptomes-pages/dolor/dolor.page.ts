@@ -14,7 +14,7 @@ export class DolorPage implements OnInit {
 
   endpoint: string = '/api/v1/dolor';
   valor : number;
-  localitzacio : string;
+  localitzacio : string = "";
   afirmatiu: boolean = false;
 
   descriuDolor : OptionItem [] = [
