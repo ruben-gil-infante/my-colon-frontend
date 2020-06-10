@@ -14,8 +14,8 @@ export class DataService {
   headers: HttpHeaders;
   usuari: Usuari;
   
-  prefix: string = DEV_ENDPOINT;
-  // prefix: string = HEROKU_ENDPOINT;
+  // prefix: string = DEV_ENDPOINT;
+  prefix: string = HEROKU_ENDPOINT;
 
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) {   }
