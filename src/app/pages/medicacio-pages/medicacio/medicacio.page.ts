@@ -74,6 +74,9 @@ export class MedicacioPage implements OnInit {
 
     const { data } = await modal.onDidDismiss();
 
+    if(data == undefined)
+      return;
+
     let post_medicacio = {
       usuari: this.dataService.getUsuariId(),
       dosi: data.dosi,

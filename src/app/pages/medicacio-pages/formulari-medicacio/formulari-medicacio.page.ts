@@ -33,6 +33,10 @@ export class FormulariMedicacioPage implements OnInit {
     }
   }
 
+  cancelarRegistreMedicacio(){
+    this.modalController.dismiss(undefined);
+  }
+
   validarDades () {
     if (this.dosi == ''){
       this.showToastMessage('Introdueix la dosi');
