@@ -103,7 +103,6 @@ export class MedicacioPage implements OnInit {
     const confirmarEliminarAlert = await this.alertController.create({
       header: 'Estas segur?',
       subHeader: 'Confirma que vols eliminar la medicació',
-      mode: "ios",
       buttons: [
         {
           text: 'No',
