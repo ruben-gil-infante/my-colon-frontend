@@ -91,15 +91,14 @@ export class RegistrarsePage implements OnInit {
     (await this.dataService.submit(this.endpoint, this.usuariForm)).subscribe(
       (data) => {
         this.dataService.loadingControllerDismiss();
-        this.dataService.presentToast("Usuari registrat correctament");
         this.router.navigateByUrl("login");
       },
       (error) => {
         this.dataService.loadingControllerDismiss();
         if(error.status === 403){
-          this.dataService.presentToast("Correu electrònic prèviament registrat");
+          this.dataService.presentToast("Usuari prèviament registrat");
         }else{
-          this.dataService.presentToast("Error Registrant...");
+          this.dataService.presentToast("Error Registrant");
         }
       }
     );

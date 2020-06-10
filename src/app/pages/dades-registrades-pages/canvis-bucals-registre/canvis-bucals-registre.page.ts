@@ -31,7 +31,7 @@ export class CanvisBucalsRegistrePage implements OnInit {
       },
       error => {
         this.dataService.loadingControllerDismiss();
-        this.dataService.presentToast("Error carregant...");
+        this.dataService.presentToast("Error carregant");
       }
     );
   }

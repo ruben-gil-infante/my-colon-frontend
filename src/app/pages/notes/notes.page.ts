@@ -30,7 +30,7 @@ export class NotesPage implements OnInit {
       },  
       error => {
         this.dataService.loadingControllerDismiss();
-        this.dataService.presentToast('Error carregant les dades...');
+        this.dataService.presentToast('Error carregant');
       }
     )
   }

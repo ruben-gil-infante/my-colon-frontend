@@ -28,7 +28,7 @@ export class NauseesVomitsRegistrePage implements OnInit {
         this.dataService.loadingControllerDismiss();
       },
       error => {
-        this.dataService.presentToast("Error carregant...");
+        this.dataService.presentToast("Error carregant");
         this.dataService.loadingControllerDismiss();
       }
     );
