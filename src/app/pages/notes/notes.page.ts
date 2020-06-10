@@ -91,7 +91,6 @@ export class NotesPage implements OnInit {
     const confirmarEliminarAlert = await this.alertCtrl.create({
       header: 'Estas segur?',
       subHeader: 'Confirma que vols eliminar la nota',
-      mode: "ios",
       buttons: [
         {
           text: 'No',
