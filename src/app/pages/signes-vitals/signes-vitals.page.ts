@@ -13,12 +13,12 @@ export class SignesVitalsPage implements OnInit {
 
   endpoint: string = '/api/v1/signesvitals';
   signesVitals: SigneVitalItem [] = [
-    {tipus: 1, nom: 'Activitat', descripcio: 'Passos', valor: 0, img: "../../../assets/icon/person-run.svg"},
-    {tipus: 2, nom: 'Tensió arterial', descripcio: 'mmHg', valor: 0, img: "../../../assets/icon/blood-pressure.svg"},
+    {tipus: 1, nom: 'Activitat', descripcio: 'Passos', valor: undefined, img: "../../../assets/icon/person-run.svg"},
+    {tipus: 2, nom: 'Tensió arterial', descripcio: 'mmHg', valor: undefined, img: "../../../assets/icon/blood-pressure.svg"},
     {tipus: 3, nom: 'Glicèmies', descripcio: 'mg/dl', valor: 0, img: "../../../assets/icon/hemoglobin-test-meter.svg"},
-    {tipus: 4, nom: 'Freqüència cardiaca', descripcio: 'bpm', valor: 0, img: "../../../assets/icon/heart-frequency.svg"},
-    {tipus: 5, nom: 'Temperatura', descripcio: 'ºC', valor: 0, img: "../../../assets/icon/thermometer.svg"},
-    {tipus: 6, nom: 'Pes', descripcio: 'Kg', valor: 0, img: "../../../assets/icon/balance.svg"},
+    {tipus: 4, nom: 'Freqüència cardiaca', descripcio: 'bpm', valor: undefined, img: "../../../assets/icon/heart-frequency.svg"},
+    {tipus: 5, nom: 'Temperatura', descripcio: 'ºC', valor: undefined, img: "../../../assets/icon/thermometer.svg"},
+    {tipus: 6, nom: 'Pes', descripcio: 'Kg', valor: undefined, img: "../../../assets/icon/balance.svg"},
   ];
 
   constructor(private dataSerivce : DataService) { }

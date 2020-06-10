@@ -2,4 +2,37 @@
 
 <ion-content>
 
+    <ion-list>
+        <ion-card mode="ios" *ngFor="let dada of dades">
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>Pateixes nàusees o vòmits?</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col> ▪ {{ mapBoolean(dada.afirmatiu) }}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>Cops</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>{{ mapCops(dada.cops) }}</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>Descripció</ion-col>
+                    </ion-row>
+                    <ion-row *ngFor="let descripcio of dada.descripcio.split(';')">
+                        <ion-col>{{ mapDescripcioVomit(descripcio) }}</ion-col>                        
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>Data</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col> ▪ {{ dada.data }}</ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
+
 </ion-content>

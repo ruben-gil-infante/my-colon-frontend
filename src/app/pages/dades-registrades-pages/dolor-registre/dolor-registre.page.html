@@ -2,16 +2,20 @@
 
 <ion-content>
   <ion-list>
-    <ion-card *ngFor="let dada of dades">
+    <ion-card mode="ios" *ngFor="let dada of dades">
       <ion-card-content>
         <ion-grid>
           <ion-row>
             <ion-col>Tens dolor?</ion-col>
+          </ion-row>
+          <ion-row>
             <ion-col>{{ mapBoolean(dada.afirmatiu) }}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Nivell dolor</ion-col>
-            <ion-col>{{ dada.valor }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> ▪ {{ dada.valor }}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Localització</ion-col>
@@ -33,7 +37,9 @@
           </ion-row>
           <ion-row>
             <ion-col>Data</ion-col>
-            <ion-col>{{ dada.data }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> ▪ {{ dada.data }}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-card-content>

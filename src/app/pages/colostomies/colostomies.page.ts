@@ -8,7 +8,7 @@ import { OptionItem } from 'src/interfaces/interfaces';
 })
 export class ColostomiesPage implements OnInit {
   tipusColostomia : OptionItem [] = [
-    {id: 0, text: 'Colòstomia transversal', checked: false},
+    {id: 0, text: 'Colòstomia transversal', checked: true},
     {id: 1, text: 'Colòstomia ascendent', checked: false},
     {id: 2, text: 'Colòstomia descendent i sigmoide', checked: false},
   ];

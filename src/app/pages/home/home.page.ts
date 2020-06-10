@@ -27,7 +27,6 @@ export class HomePage implements OnInit {
   async logout() {
     const alert = await this.alertController.create({
       header: 'Tancar la sessió?',
-      mode: "ios",
       buttons: [
         {
           text: 'No',

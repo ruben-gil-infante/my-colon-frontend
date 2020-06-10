@@ -40,7 +40,6 @@ export class NotesPage implements OnInit {
     const input = await this.alertCtrl.create({
       header: 'Nota',
       subHeader: 'Afegeixi el text per la nota:',
-      mode: "ios",
       inputs: [
         {
           name: 'descripcio',

@@ -45,18 +45,17 @@ export class NauseesVomitsPage implements OnInit {
 
 
   async guardar(){
-    if(this.nausees[0].checked && this.nausees[1].checked){
-      this.dataService.presentToast("Nomes pots escollir una opcio a la pregunta 2...");
-      return;
-    }
+    let auxNausees = -1;
 
-    let auxNausees;
-    this.nausees[0].checked ? auxNausees = 0 : auxNausees = 1;
+    this.nausees.forEach(opcion => {
+      if(opcion.checked)
+        auxNausees = opcion.id;
+    });
 
     let auxDescripcioVomit = "";
 
     this.descripcioVomit.forEach(descripcio => {
-      if(!descripcio.checked)
+      if(descripcio.checked)
         auxDescripcioVomit += `${descripcio.id};`;
     });
 
