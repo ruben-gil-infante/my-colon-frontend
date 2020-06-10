@@ -22,3 +22,4 @@ describe('FormulariMedicacioPage', () => {
     expect(component).toBeTruthy();
   });
 });
+
