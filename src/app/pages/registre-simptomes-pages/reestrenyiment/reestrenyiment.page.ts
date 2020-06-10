@@ -46,7 +46,6 @@ export class ReestrenyimentPage implements OnInit {
   }
 
   resposta(event){
-    console.log("resposta")
     this.afirmatiu = event;
   }
 
