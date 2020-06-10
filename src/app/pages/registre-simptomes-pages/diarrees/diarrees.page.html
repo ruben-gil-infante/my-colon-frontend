@@ -10,38 +10,32 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="fixed">Vegades</ion-label>
-        <ion-input [(ngModel)]="vegades" type="number" placeholder="Escriu aquí el número"></ion-input>
+        <ion-input [(ngModel)]="vegades" type="number" placeholder="Toca aquí"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
+
+  <app-color-selector (colorSeleccionat)="colorSeleccionat($event)"></app-color-selector>
 
   <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
       <ion-card-title class="ion-card-title">Quin número en l'escala de Bristol era la teva última femta?</ion-card-title>
     </ion-card-header>
     <ion-card-content class="center-element">
-      <ion-button (click)="seleccionarEscalaBristol($event)">Seleccionar</ion-button>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngIf="escalaBristol != undefined">{{ escalaBristol }}</ion-col>
+          <ion-col *ngIf="escalaBristol == undefined">Cap valor seleccionat</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="seleccionarEscalaBristol($event)">Seleccionar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 
-  <ion-card mode="ios">
-    <ion-card-header class="ion-card-header">
-      <ion-card-title class="ion-card-title">De quin color és la femta?</ion-card-title>
-    </ion-card-header>
-    <ion-card-content class="center-element">
-      <ion-item>
-        <ion-label>Color</ion-label>
-        <ion-select [(ngModel)]="color" value="-1" interface="action-sheet" mode="md">
-          <ion-select-option value="1">Marró</ion-select-option>
-          <ion-select-option value="2">Groc</ion-select-option>
-          <ion-select-option value="3">Verd</ion-select-option>
-          <ion-select-option value="4">Gris</ion-select-option>
-          <ion-select-option value="5">Vermell</ion-select-option>
-          <ion-select-option value="6">Negre</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
 
   <app-save-button (guardar)="guardar()"></app-save-button>
 </ion-content>

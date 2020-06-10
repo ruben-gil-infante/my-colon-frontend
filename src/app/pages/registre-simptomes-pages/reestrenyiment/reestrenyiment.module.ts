@@ -14,6 +14,7 @@ import { SaveButtonComponent } from 'src/app/components/save-button/save-button.
 import { DefaultHeaderComponent } from 'src/app/components/default-header/default-header.component';
 import { PopoverItemComponent } from 'src/app/components/popover-item/popover-item.component';
 import { BristolPageModule } from '../bristol/bristol.module';
+import { ColorSelectorComponent } from 'src/app/components/color-selector/color-selector.component';
 
 @NgModule({
   entryComponents: [
@@ -21,7 +22,8 @@ import { BristolPageModule } from '../bristol/bristol.module';
     OpcionsSelectorComponent,
     DefaultHeaderComponent,
     SaveButtonComponent,
-    PopoverItemComponent
+    PopoverItemComponent,
+    ColorSelectorComponent
   ],
   imports: [
     CommonModule,

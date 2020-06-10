@@ -11,6 +11,7 @@ import { FavButtonComponent } from './fav-button/fav-button.component';
 import { FormsModule } from '@angular/forms';
 import { PopoverItemComponent } from './popover-item/popover-item.component';
 import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.component';
+import { ColorSelectorComponent } from './color-selector/color-selector.component';
 
 
 
@@ -25,6 +26,7 @@ import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.com
     FavButtonComponent,
     PopoverItemComponent,
     SigneVitalItemComponent,
+    ColorSelectorComponent
   ],
   imports: [
     CommonModule,
@@ -41,6 +43,7 @@ import { SigneVitalItemComponent } from './signe-vital-item/signe-vital-item.com
     FavButtonComponent,
     PopoverItemComponent,
     SigneVitalItemComponent,
+    ColorSelectorComponent
   ]
 })
 export class ComponentsModule { }

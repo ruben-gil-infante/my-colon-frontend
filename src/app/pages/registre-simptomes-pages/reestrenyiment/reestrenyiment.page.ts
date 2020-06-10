@@ -46,16 +46,22 @@ export class ReestrenyimentPage implements OnInit {
   }
 
   resposta(event){
+    console.log("resposta")
     this.afirmatiu = event;
   }
 
+  colorSeleccionat(event){
+    this.color = event;
+  }
+
   async guardar (){
-    let ultimCop = 0;
+    let ultimCop = -1;
     this.ultimCopVentre.forEach(ultim => {
       if(ultim.checked){
         ultimCop = ultim.id;
       }
-    })
+    });
+
     let reestrenyimentForm = {
       afirmatiu: this.afirmatiu,
       usuari: this.dataService.getUsuariId(),

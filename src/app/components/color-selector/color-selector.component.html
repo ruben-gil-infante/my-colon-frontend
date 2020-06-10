@@ -1,0 +1,19 @@
+
+  <ion-card mode="ios">
+    <ion-card-header class="ion-card-header">
+      <ion-card-title class="ion-card-title">De quin color és la femta?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="center-element">
+      <ion-item>
+        <ion-label>Color</ion-label>
+        <ion-select (ionChange)="enviarColorSeleccionat($event)" value="-1" interface="action-sheet" mode="md">
+          <ion-select-option value="1">Marró</ion-select-option>
+          <ion-select-option value="2">Groc</ion-select-option>
+          <ion-select-option value="3">Verd</ion-select-option>
+          <ion-select-option value="4">Gris</ion-select-option>
+          <ion-select-option value="5">Vermell</ion-select-option>
+          <ion-select-option value="6">Negre</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>

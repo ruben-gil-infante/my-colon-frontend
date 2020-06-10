@@ -17,7 +17,7 @@ export class DiarreesPage implements OnInit {
   afirmatiu: boolean;
   escalaBristol: number;
   color: number;
-  vegades: number;
+  vegades: number = undefined;
 
   constructor(private dataService : DataService, private router : Router,
               private modalController : ModalController) { }
@@ -47,6 +47,14 @@ export class DiarreesPage implements OnInit {
   }
 
   async guardar(){
+    if(this.vegades < 0){
+      this.dataService.presentToast("El número de vegades introduït no és vàlid");
+      return;
+    }
+
+    if(this.vegades == undefined){
+      this.vegades = 0;
+    }
 
     let diarreesForm = {
       usuari: this.dataService.getUsuariId(),

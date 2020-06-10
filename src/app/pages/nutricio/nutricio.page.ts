@@ -15,7 +15,7 @@ export class NutricioPage implements OnInit {
   dinar : number;
   berenar : number;
   sopar : number;
-  gotsAigua : number;
+  gotsAigua : number = undefined;
 
 
 
@@ -42,6 +42,12 @@ export class NutricioPage implements OnInit {
   }
 
   async enviarDades (){
+
+    if(this.gotsAigua < 0 || this.gotsAigua == undefined){
+      this.dataService.presentToast("El número de gots d'aigua introduïts no és vàlid");
+      return;
+    }
+
     let nutricio = {
       esmorzar: this.esmorzar,
       dinar: this.dinar,
