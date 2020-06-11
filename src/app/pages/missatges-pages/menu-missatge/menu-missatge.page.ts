@@ -26,6 +26,7 @@ export class MenuMissatgePage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.usuaris = data;
+        this.usuaris = this.usuaris.filter(usuari => usuari.id != this.dataService.getUsuariId());
       },
       error => {
         this.dataService.loadingControllerDismiss();

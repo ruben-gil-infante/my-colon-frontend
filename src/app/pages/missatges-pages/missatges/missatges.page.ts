@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { PagecomunicationService } from 'src/app/services/pagecomunication.service';
 import { Usuari } from 'src/interfaces/interfaces';
+import { IonList, IonContent } from '@ionic/angular';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-missatges',
@@ -10,6 +12,8 @@ import { Usuari } from 'src/interfaces/interfaces';
   styleUrls: ['./missatges.page.scss'],
 })
 export class MissatgesPage implements OnInit {
+
+  @ViewChild('content', {static: false}) content: IonContent;
 
   textMissatge: string;
   requestEndpoint: string;
@@ -38,7 +42,10 @@ export class MissatgesPage implements OnInit {
   async loadData(){
     (await this.dataService.requestWihtoutLoadingModal<Message[]>(this.requestEndpoint)).subscribe(
       data => {
-        this.missatges = data;
+        if(this.missatges.length !== data.length){
+          this.missatges = data;
+          this.content.scrollToBottom();
+        }
       },
       error => {
         this.dataService.presentToast("Error carregant els missatges");
@@ -58,7 +65,7 @@ export class MissatgesPage implements OnInit {
       data => {
         this.dataService.loadingControllerDismiss();
         this.textMissatge = "";
-        this.missatges.push(data);
+        this.content.scrollToBottom();
       },
       error => {
         this.dataService.loadingControllerDismiss();
