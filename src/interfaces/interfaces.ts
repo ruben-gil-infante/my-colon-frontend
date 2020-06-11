@@ -152,6 +152,7 @@ export interface Message {
     text: string;
     emisorId: number;
     receptorId: number;
+    codiConversa: string;
 }
 
 

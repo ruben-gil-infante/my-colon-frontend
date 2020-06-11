@@ -1,13 +1,11 @@
-<app-default-header titol="Missatges" icon="/assets/icon/message.svg" defaultHref="/menu-missatge"></app-default-header>
+<app-default-header [titol]="messageReceiverUser.nom" icon="/assets/icon/message.svg" defaultHref="/menu-missatge"></app-default-header>
 
 <ion-content padding>
-    <div>
-        <ion-list>
-            <ion-item *ngFor="let missatge of missatges">
-                <ion-label>{{ missatge.text }}</ion-label>
-            </ion-item>
-        </ion-list>
-    </div>
+    <ion-list class="missatges">
+        <ion-item *ngFor="let missatge of missatges" class="bubble" lines="none">
+            <p [slot]="missatgeClass(missatge, true)" [class]="missatgeClass(missatge)">{{ missatge.text }}</p>
+        </ion-item>
+    </ion-list>
 
     <div class="chat-bar">
         <ion-item>

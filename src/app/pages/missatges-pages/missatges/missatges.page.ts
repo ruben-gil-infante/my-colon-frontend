@@ -16,13 +16,23 @@ export class MissatgesPage implements OnInit {
   postEndpoint: string = '/api/v1/message';
   missatges: Message[] = [];
   messageReceiverUser: Usuari = undefined;
+  codiConversa: string = undefined;
 
   constructor(private dataService : DataService, private pageComunicationService : PagecomunicationService) { }
 
   ngOnInit() {
     this.messageReceiverUser = this.pageComunicationService.retrieveData<Usuari>();
-    this.requestEndpoint = `/api/v1/message/${this.dataService.getUsuariId()}/${this.messageReceiverUser.id}`;
+    this.codiConversa = this.buildCodiConversa(this.messageReceiverUser.id, this.dataService.getUsuariId());
+    this.requestEndpoint = `/api/v1/message/${this.codiConversa}`;
     setInterval(() => {this.loadData();}, 500);
+  }
+
+  buildCodiConversa(identificadorA, identificadorB){
+    let codiConversa = '';
+    
+    (identificadorA > identificadorB)? codiConversa =  `${identificadorB}-${identificadorA}` :  codiConversa = `${identificadorA}-${identificadorB}`;
+    
+    return codiConversa;
   }
 
   async loadData(){
@@ -40,20 +50,36 @@ export class MissatgesPage implements OnInit {
     let missatge = {
       text: this.textMissatge,
       emisorId: this.dataService.getUsuariId(),
-      receptorId: this.messageReceiverUser.id
+      receptorId: this.messageReceiverUser.id,
+      codiConversa: this.codiConversa
     };
 
     (await this.dataService.submit<Message>(this.postEndpoint, missatge)).subscribe(
       data => {
         this.dataService.loadingControllerDismiss();
         this.textMissatge = "";
+        this.missatges.push(data);
       },
       error => {
         this.dataService.loadingControllerDismiss();
         this.dataService.presentToast("Error enviant el missatge");
       }
     );
+  }
 
+  missatgeClass(missatge, slot=false){
+    if(slot){
+      if(missatge.emisorId == this.dataService.getUsuariId()){
+        return "end";
+      }
+      return "start";
+    }
+
+    if(missatge.emisorId == this.dataService.getUsuariId()){
+      return "missatge-emissor bubble";
+    }
+
+    return "missatge-receptor bubble";
   }
 
 }
