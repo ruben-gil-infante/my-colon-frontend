@@ -1,0 +1,32 @@
+.chat-bar{
+    width: 100%;
+    padding: 5px;
+}
+
+.missatges{
+    padding: 20px;
+    padding-bottom:3%;
+}
+
+.missatge-receptor{
+    background: #3dc2ff; 
+    color: white;
+    padding: 3%;
+    left: 0;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.missatge-emissor{
+    background: #6CB8FF;
+    color:white;
+    padding: 3%;
+    right: 0;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.bubble{
+    margin-bottom: 1%;
+}
+

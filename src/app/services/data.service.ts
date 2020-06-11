@@ -14,8 +14,8 @@ export class DataService {
   headers: HttpHeaders;
   usuari: Usuari;
   
-  // prefix: string = DEV_ENDPOINT;
-  prefix: string = HEROKU_ENDPOINT;
+  prefix: string = DEV_ENDPOINT;
+  // prefix: string = HEROKU_ENDPOINT;
 
   constructor( private http : HttpClient, private toastController : ToastController,
                private loadingController : LoadingController) {   }
@@ -60,10 +60,13 @@ export class DataService {
 
     endpoint = this.prefix + endpoint;
 
-
     return this.http.get<T>(endpoint, {headers: this.headers}); 
   }
 
+  async requestWihtoutLoadingModal<T> (endpoint){
+    endpoint = this.prefix + endpoint;
+    return this.http.get<T>(endpoint, {headers: this.headers});
+  }
 
   // POST
   async submit <T> (endpoint = '', object){

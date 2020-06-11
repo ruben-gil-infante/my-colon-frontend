@@ -17,5 +17,5 @@ export const environment = {
 
 
 export const DEV_ENDPOINT = 'http://localhost:8080';
-export const HEROKU_ENDPOINT = 'https://my-colon.herokuapp.com';
+export const HEROKU_ENDPOINT = 'https://my-colon-server.herokuapp.com';
  

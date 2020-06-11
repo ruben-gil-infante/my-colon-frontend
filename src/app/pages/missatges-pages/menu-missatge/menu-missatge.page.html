@@ -1,0 +1,23 @@
+<app-default-header titol="Usuaris" defaultHref="/home" icon="/assets/icon/message.svg"></app-default-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card mode="ios" *ngFor="let usuari of usuaris">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>Nom</ion-col>
+            <ion-col>{{ usuari.nom }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Correu</ion-col>
+            <ion-col>{{ usuari.correuElectronic }}</ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="center-element top-20">
+          <ion-button color="primary" (click)="obrirChat(usuari)">CONNECTAR</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<app-default-header [titol]="messageReceiverUser.correuElectronic" icon="/assets/icon/message.svg" defaultHref="/menu-missatge"></app-default-header>
+
+<ion-content #content padding>
+    
+    <div class="ion-list-wrapper">
+        <ion-list lines="inset" #llistaMissatges class="missatges">
+            <ion-item *ngFor="let missatge of missatges" class="bubble" lines="none">
+                <p [slot]="missatgeClass(missatge, true)" [class]="missatgeClass(missatge)">{{ missatge.text }}</p>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>
+
+<ion-footer mode="ios" class="ion-no-border">
+    <div class="chat-bar">
+        <ion-item>
+            <ion-input [(ngModel)]="textMissatge" placeholder="Introdueix aqui el missatge" type="text"></ion-input>
+            <ion-icon (click)="enviarMissatge()" color="primary" slot="end" name="send-sharp"></ion-icon>
+        </ion-item>
+    </div>
+</ion-footer>
