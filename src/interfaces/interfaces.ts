@@ -146,6 +146,13 @@ export interface PopoverItem {
     text: string;
 }
 
+// * Message
+export interface Message {
+    id: number;
+    text: string;
+    emisorId: number;
+    receptorId: number;
+}
 
 
 

@@ -61,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: 'missatges',
-    loadChildren: () => import('./pages/missatges/missatges.module').then( m => m.MissatgesPageModule)
+    loadChildren: () => import('./pages/missatges-pages/missatges/missatges.module').then( m => m.MissatgesPageModule)
   },
   {
     path: 'dades-registrades',
@@ -122,7 +122,12 @@ const routes: Routes = [
   {
     path: 'nausees-vomits-registre',
     loadChildren: () => import('./pages/dades-registrades-pages/nausees-vomits-registre/nausees-vomits-registre.module').then( m => m.NauseesVomitsRegistrePageModule)
+  },
+  {
+    path: 'menu-missatge',
+    loadChildren: () => import('./pages/missatges-pages/menu-missatge/menu-missatge.module').then( m => m.MenuMissatgePageModule)
   }
+
 
 
 ];

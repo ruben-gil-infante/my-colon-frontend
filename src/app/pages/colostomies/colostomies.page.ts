@@ -13,7 +13,7 @@ export class ColostomiesPage implements OnInit {
     {id: 2, text: 'Colòstomia descendent i sigmoide', checked: false},
   ];
 
-  tipusSeleccionat : OptionItem = undefined;
+  tipusSeleccionat : OptionItem = this.tipusColostomia[0];
 
   informacio : OptionItem [] = [
     {id: 0, text:'Cures de l`estoma', checked: false},

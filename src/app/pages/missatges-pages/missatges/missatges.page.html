@@ -1,0 +1,19 @@
+<app-default-header titol="Missatges" icon="/assets/icon/message.svg" defaultHref="/menu-missatge"></app-default-header>
+
+<ion-content padding>
+    <div>
+        <ion-list>
+            <ion-item *ngFor="let missatge of missatges">
+                <ion-label>{{ missatge.text }}</ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+
+    <div class="chat-bar">
+        <ion-item>
+            <ion-input [(ngModel)]="textMissatge" placeholder="Introdueix aqui el text" type="text"></ion-input>
+            <ion-icon (click)="enviarMissatge()" color="primary" slot="end" name="send-sharp"></ion-icon>
+        </ion-item>
+    </div>
+
+</ion-content>

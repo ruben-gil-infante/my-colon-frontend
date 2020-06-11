@@ -42,7 +42,7 @@
     },
     {
         "name" : "Missatges",
-        "redirectTo" : "/missatges",
+        "redirectTo" : "/menu-missatge",
         "image" : "/assets/icon/message.svg"
 
     },
