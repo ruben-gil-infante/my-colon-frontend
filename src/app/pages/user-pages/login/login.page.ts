@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  correuElectronic: string = "rgili@edu.tecnocampus.cat";
-  password : string = "ruben";
+  correuElectronic: string = "";
+  password : string = "";
   endpoint : string = '/api/v1/login/';
 
   constructor(private router : Router, private dataService : DataService) { }

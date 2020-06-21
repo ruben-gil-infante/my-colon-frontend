@@ -54,12 +54,14 @@ export class ReestrenyimentPage implements OnInit {
   }
 
   async guardar (){
+    let ultimCopFind = this.ultimCopVentre.find(e => e.checked === true);
     let ultimCop = -1;
-    this.ultimCopVentre.forEach(ultim => {
-      if(ultim.checked){
-        ultimCop = ultim.id;
-      }
-    });
+    
+    if(ultimCopFind === undefined){
+      ultimCop = -1;
+    }else{
+      ultimCop = ultimCopFind.id;
+    }
 
     let reestrenyimentForm = {
       afirmatiu: this.afirmatiu,

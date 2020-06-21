@@ -40,7 +40,7 @@ export class MissatgesPage implements OnInit {
   }
 
   async loadData(){
-    (await this.dataService.requestWihtoutLoadingModal<Message[]>(this.requestEndpoint)).subscribe(
+    (await this.dataService.requestWithoutLoadingModal<Message[]>(this.requestEndpoint)).subscribe(
       data => {
         if(this.missatges.length !== data.length){
           this.missatges = data;
@@ -74,7 +74,7 @@ export class MissatgesPage implements OnInit {
     );
   }
 
-  missatgeClass(missatge, slot=false){
+  missatgeCssClass(missatge, slot=false){
     if(slot){
       if(missatge.emisorId == this.dataService.getUsuariId()){
         return "end";

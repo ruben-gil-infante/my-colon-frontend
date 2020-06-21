@@ -5,7 +5,7 @@
     <div class="ion-list-wrapper">
         <ion-list lines="inset" #llistaMissatges class="missatges">
             <ion-item *ngFor="let missatge of missatges" class="bubble" lines="none">
-                <p [slot]="missatgeClass(missatge, true)" [class]="missatgeClass(missatge)">{{ missatge.text }}</p>
+                <p [slot]="missatgeCssClass(missatge, true)" [class]="missatgeCssClass(missatge)">{{ missatge.text }}</p>
             </ion-item>
         </ion-list>
     </div>

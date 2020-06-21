@@ -63,7 +63,7 @@ export class DataService {
     return this.http.get<T>(endpoint, {headers: this.headers}); 
   }
 
-  async requestWihtoutLoadingModal<T> (endpoint){
+  async requestWithoutLoadingModal<T> (endpoint){
     endpoint = this.prefix + endpoint;
     return this.http.get<T>(endpoint, {headers: this.headers});
   }

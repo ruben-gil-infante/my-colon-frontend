@@ -1,4 +1,4 @@
-<app-default-header titol="Reestrenyiment" defaultHref="/registre-simptomes" icon="/assets/icon/toilet.svg"></app-default-header>
+<app-default-header titol="Restrenyiment" defaultHref="/registre-simptomes" icon="/assets/icon/toilet.svg"></app-default-header>
 
 <ion-content padding>
   
@@ -6,16 +6,26 @@
 
   <app-opcions-selector [unique]="true" [items]="ultimCopVentre" titol="Quan va ser l'últim cop que vas anar de ventre?"></app-opcions-selector>
 
-  <app-color-selector (colorSeleccionat)="colorSeleccionat($event)"></app-color-selector>
-
   <ion-card mode="ios">
     <ion-card-header class="ion-card-header">
-      <ion-card-title class="ion-card-title">Escolleix el tipus de femta a l'escala bristol</ion-card-title>
+      <ion-card-title class="ion-card-title">Quin número en l'escala de Bristol era la teva última femta?</ion-card-title>
     </ion-card-header>
     <ion-card-content class="center-element">
-      <ion-button (click)="seleccionarEscalaBristol()">SELECCIONAR</ion-button>
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngIf="bristol != undefined">{{ bristol }}</ion-col>
+          <ion-col *ngIf="bristol == undefined">Cap valor seleccionat</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="seleccionarEscalaBristol($event)">SELECCIONAR</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
+  
+  <app-color-selector (colorSeleccionat)="colorSeleccionat($event)"></app-color-selector>
 
   <app-save-button (guardar)="guardar()"></app-save-button>
 

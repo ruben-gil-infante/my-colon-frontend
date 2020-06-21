@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-portal-informatiu',
@@ -15,9 +16,13 @@ export class PortalInformatiuPage implements OnInit {
     'Teràpies alternatives'
   ]
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
 
   ngOnInit() {
+  }
+
+  redireccionar(){
+    this.dataService.presentToast("Actualment no disponible");
   }
 
 }

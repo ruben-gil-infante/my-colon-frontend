@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 })
 export class NauseesVomitsPage implements OnInit {
 
-  usuari: number;
   endpoint: string = '/api/v1/vomits';
   afirmatiu: boolean = true;
   avui: boolean = false;
@@ -32,7 +31,6 @@ export class NauseesVomitsPage implements OnInit {
   constructor(private dataService : DataService, private router : Router) { }
 
   ngOnInit() {
-    this.usuari = this.dataService.getUsuariId();
   }
 
   afirmatiuSeleccionat(event){
@@ -60,7 +58,7 @@ export class NauseesVomitsPage implements OnInit {
     });
 
     let vomit = {
-      usuari: this.usuari,
+      usuari: this.dataService.getUsuariId(),
       afirmatiu: this.afirmatiu,
       avui: this.avui,
       descripcio: auxDescripcioVomit,

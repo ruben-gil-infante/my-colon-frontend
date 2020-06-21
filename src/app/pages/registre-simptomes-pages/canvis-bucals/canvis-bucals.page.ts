@@ -43,7 +43,6 @@ export class CanvisBucalsPage implements OnInit {
       }
     })
 
-
     let canvisBucalsForm = {
       afirmatiu: false,
       simptomes: simptomesEscollits,
