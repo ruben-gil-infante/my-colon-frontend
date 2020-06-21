@@ -3,7 +3,9 @@ import { DataService } from 'src/app/services/data.service';
 import { ChartService } from 'src/app/services/chart.service';
 import { SigneVital } from 'src/interfaces/interfaces';
 import { SIGNES_VITALS } from 'src/app/helpers/constants';
-import { THIS_EXPR, ThrowStmt } from '@angular/compiler/src/output/output_ast';
+import { IfStmt } from '@angular/compiler';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { DiarreesRegistrePageModule } from '../diarrees-registre/diarrees-registre.module';
  
 @Component({
   selector: 'app-signes-vitals-registre',
@@ -68,29 +70,60 @@ export class SignesVitalsRegistrePage implements OnInit {
       }
     });
 
-    switch(event.detail.value){
-      case SIGNES_VITALS.ACTIVITAT:
-        this.chartTitle = 'Activitat';
-        this.chartSelected = SIGNES_VITALS.ACTIVITAT;
-        break;
-      case SIGNES_VITALS.TENSIO_ARTERIAL:
-        this.chartTitle = 'Activitat';
-        this.chartSelected = SIGNES_VITALS.ACTIVITAT;
-        break;
-      case SIGNES_VITALS.GLICEMIES:
-        this.chartTitle = 'Activitat';
-        this.chartSelected = SIGNES_VITALS.ACTIVITAT;
-        break;
-      case SIGNES_VITALS.TEMPREATURA:
-        this.chartTitle = 'Activitat';
-        this.chartSelected = SIGNES_VITALS.ACTIVITAT;
-        break;
-      case SIGNES_VITALS.PES:
-        this.chartTitle = 'Activitat';
-        this.chartSelected = SIGNES_VITALS.ACTIVITAT;
-        break;
+
+    let signeVitalSeleccionat = event.detail.value;
+
+    if(signeVitalSeleccionat == SIGNES_VITALS.TENSIO_ARTERIAL){
+      this.chartTitle = "Tensió arterial";
+      this.chartSelected = SIGNES_VITALS.TENSIO_ARTERIAL;
+      this.mostrarEstadistiquesTensioArterial();
+      return;
+    
+    }else if (signeVitalSeleccionat == SIGNES_VITALS.ACTIVITAT){
+      this.chartTitle = "Activitat";
+      this.chartSelected = SIGNES_VITALS.ACTIVITAT;
+    
+    }else if (signeVitalSeleccionat == SIGNES_VITALS.GLICEMIES){
+      this.chartTitle = "Glicèmies";
+      this.chartSelected = SIGNES_VITALS.GLICEMIES;
+    
+    }else if (signeVitalSeleccionat == SIGNES_VITALS.TEMPERATURA){
+      this.chartTitle = "Temperatura";
+      this.chartSelected = SIGNES_VITALS.TEMPERATURA;
+    
+    }else{  
+      this.chartTitle = "Pes";
+      this.chartSelected = SIGNES_VITALS.PES;
     }
 
+
     this.chartService.createBarChart(this.chart, this.chartTitle, this.labels, this.chartData);
+  }
+
+  mostrarEstadistiquesTensioArterial (){
+    let sistole = [];
+    let diastole = [];
+
+    this.dades.forEach(signeVital => {
+      if(signeVital.tipus === SIGNES_VITALS.TENSIO_ARTERIAL){
+        sistole.push(signeVital.valor);
+        diastole.push(signeVital.valorSecundari);
+      }
+    })
+
+    let dataSet = [{
+      label: "Sístole",
+      data: sistole,
+      borderColor: 'rgb(38, 194, 129)',
+      borderWidth: 1
+    },
+    {
+      label: "Diástole",
+      data: diastole,
+      borderColor: 'rgb(108, 184, 255)',
+      borderWidth: 1
+    }];
+
+    this.chartService.createDoubleBarChart(this.chart, this.chartTitle, dataSet);
   }
 }

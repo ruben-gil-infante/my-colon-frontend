@@ -17,7 +17,7 @@ export class ChartService {
         datasets: [{
           label: label,
           data: data,
-          borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
+          borderColor: 'rgb(38, 194, 129)',
           borderWidth: 1
         }]
       },
@@ -31,5 +31,26 @@ export class ChartService {
         }
       }
     });
+  };
+
+
+  createDoubleBarChart(barChart, labels, dataSet){
+    let bars = new Chart(barChart.nativeElement, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: dataSet
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
   }
+
 }

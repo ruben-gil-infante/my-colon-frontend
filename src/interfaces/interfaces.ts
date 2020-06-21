@@ -70,6 +70,7 @@ export interface SigneVitalItem {
     nom: string;
     descripcio: string;
     valor: number;
+    valorSecundari: number;
     img: string;
 }
 
@@ -78,6 +79,7 @@ export interface SigneVital {
     data: string;
     usuari: number;
     valor: number;
+    valorSecundari: number;
     tipus: number;
 }
 

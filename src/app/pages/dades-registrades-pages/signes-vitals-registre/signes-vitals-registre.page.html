@@ -5,7 +5,7 @@
     <ion-label>Dades de la gràfica</ion-label>
     <ion-select value="1" interface="action-sheet" (ionChange)="canviarDadesGrafica($event)">
       <ion-select-option value="1">Activitat</ion-select-option>
-      <ion-select-option value="2">Tensió Aretrial</ion-select-option>
+      <ion-select-option value="2">Tensió arterial</ion-select-option>
       <ion-select-option value="3">Glicèmies</ion-select-option>
       <ion-select-option value="4">Freqüència cardíaca</ion-select-option>
       <ion-select-option value="5">Temperatura</ion-select-option>
@@ -14,7 +14,7 @@
   </ion-item>
 
   <ion-card class="welcome-card">
-    <ion-card-content>
+    <ion-card-content>  
       <canvas #chart></canvas>
     </ion-card-content>
   </ion-card>
@@ -24,9 +24,17 @@
     <ion-card mode="ios" *ngFor="let item of dadesMostrades">
       <ion-card-content>
         <ion-grid>
-          <ion-row>
+          <ion-row *ngIf="item.valorSecundari === -1">
             <ion-col>Valor</ion-col>
             <ion-col>{{ item.valor }} {{ item.unitat }}</ion-col>
+          </ion-row>
+          <ion-row *ngIf="item.valorSecundari !== -1">
+            <ion-col>Diàstole</ion-col>
+            <ion-col>{{ item.valor }}</ion-col>
+          </ion-row>
+          <ion-row *ngIf="item.valorSecundari !== -1">
+            <ion-col>Sístole</ion-col>
+            <ion-col>{{ item.valorSecundari }}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col>Data</ion-col>
