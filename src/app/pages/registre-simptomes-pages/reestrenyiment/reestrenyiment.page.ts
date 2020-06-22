@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class ReestrenyimentPage implements OnInit {
 
   afirmatiu: boolean;
-  endpoint: string = '/api/v1/reestrenyiment';
+  endpoint: string = '/api/v1/restrenyiment';
   bristol: number;
   color: number;
   ultimCopVentre : OptionItem [] = [

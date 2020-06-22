@@ -91,9 +91,13 @@ export class SignesVitalsRegistrePage implements OnInit {
       this.chartTitle = "Temperatura";
       this.chartSelected = SIGNES_VITALS.TEMPERATURA;
     
-    }else{  
+    }else if (signeVitalSeleccionat == SIGNES_VITALS.PES){  
       this.chartTitle = "Pes";
       this.chartSelected = SIGNES_VITALS.PES;
+    
+    }else{
+      this.chartTitle = "Freqüència cardíaca";
+      this.chartSelected = SIGNES_VITALS.FREQUENCIA_CARDIACA;
     }
 
 
@@ -124,6 +128,6 @@ export class SignesVitalsRegistrePage implements OnInit {
       borderWidth: 1
     }];
 
-    this.chartService.createDoubleBarChart(this.chart, this.chartTitle, dataSet);
+    this.chartService.createDoubleBarChart(this.chart, this.labels, dataSet);
   }
 }

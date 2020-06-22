@@ -17,7 +17,7 @@ export class ReestrenyimentRegistrePage implements OnInit {
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.endpoint = `/api/v1/reestrenyiment/${this.dataService.getUsuariId()}`;
+    this.endpoint = `/api/v1/restrenyiment/${this.dataService.getUsuariId()}`;
     this.loadData();
   }
 
