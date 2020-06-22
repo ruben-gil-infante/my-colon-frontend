@@ -148,8 +148,8 @@ export interface PopoverItem {
     text: string;
 }
 
-// * Message
-export interface Message {
+// * Missatge
+export interface Missatge {
     id: number;
     text: string;
     emisorId: number;

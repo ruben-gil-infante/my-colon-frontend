@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { PagecomunicationService } from 'src/app/services/pagecomunication.service';
-import { Usuari } from 'src/interfaces/interfaces';
+import { Usuari, Missatge } from 'src/interfaces/interfaces';
 import { IonList, IonContent } from '@ionic/angular';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -11,24 +10,30 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './missatges.page.html',
   styleUrls: ['./missatges.page.scss'],
 })
-export class MissatgesPage implements OnInit {
+export class MissatgesPage implements OnInit, OnDestroy {
 
   @ViewChild('content', {static: false}) content: IonContent;
 
   textMissatge: string;
   requestEndpoint: string;
-  postEndpoint: string = '/api/v1/message';
-  missatges: Message[] = [];
+  postEndpoint: string = '/api/v1/missatges';
+  missatges: Missatge[] = [];
   messageReceiverUser: Usuari = undefined;
   codiConversa: string = undefined;
+  loadDataFunctionActivated: Boolean;
 
   constructor(private dataService : DataService, private pageComunicationService : PagecomunicationService) { }
 
   ngOnInit() {
+    this.loadDataFunctionActivated = true;
     this.messageReceiverUser = this.pageComunicationService.retrieveData<Usuari>();
     this.codiConversa = this.buildCodiConversa(this.messageReceiverUser.id, this.dataService.getUsuariId());
-    this.requestEndpoint = `/api/v1/message/${this.codiConversa}`;
+    this.requestEndpoint = `/api/v1/missatges/${this.codiConversa}`;
     setInterval(() => {this.loadData();}, 500);
+  }
+
+  ngOnDestroy() {
+    this.loadDataFunctionActivated = false;
   }
 
   buildCodiConversa(identificadorA, identificadorB){
@@ -40,17 +45,20 @@ export class MissatgesPage implements OnInit {
   }
 
   async loadData(){
-    (await this.dataService.requestWithoutLoadingModal<Message[]>(this.requestEndpoint)).subscribe(
-      data => {
-        if(this.missatges.length !== data.length){
-          this.missatges = data;
-          this.content.scrollToBottom();
+    if(this.loadDataFunctionActivated){
+      console.log("Loading the data");
+      (await this.dataService.requestWithoutLoadingModal<Missatge[]>(this.requestEndpoint)).subscribe(
+        data => {
+          if(this.missatges.length !== data.length){
+            this.missatges = data;
+            this.content.scrollToBottom();
+          }
+        },
+        error => {
+          this.dataService.presentToast("Error carregant els missatges");
         }
-      },
-      error => {
-        this.dataService.presentToast("Error carregant els missatges");
-      }
-    );
+      );
+    }
   }
 
   async enviarMissatge(){
@@ -61,7 +69,7 @@ export class MissatgesPage implements OnInit {
       codiConversa: this.codiConversa
     };
 
-    (await this.dataService.submit<Message>(this.postEndpoint, missatge)).subscribe(
+    (await this.dataService.submit<Missatge>(this.postEndpoint, missatge)).subscribe(
       data => {
         this.dataService.loadingControllerDismiss();
         this.textMissatge = "";
