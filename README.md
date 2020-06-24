@@ -12,7 +12,7 @@ Mira **Deployment** per coneixer com fer el desplegament del projecte.
 
 _Cal tenir instal·lat el següent:_
 
--[Node.js](https://nodejs.org/es/)
+* [Node.js](https://nodejs.org/es/)
 
 ### Instal·lació 🔧
 _Per instal·lar cordova cal executar el següent:_
