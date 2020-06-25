@@ -46,7 +46,6 @@ export class MissatgesPage implements OnInit, OnDestroy {
 
   async loadData(){
     if(this.loadDataFunctionActivated){
-      console.log("Loading the data");
       (await this.dataService.requestWithoutLoadingModal<Missatge[]>(this.requestEndpoint)).subscribe(
         data => {
           if(this.missatges.length !== data.length){
