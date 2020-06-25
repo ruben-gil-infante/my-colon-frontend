@@ -51,7 +51,17 @@ ionic cordova build android
 
 * **Rubén Gil** - [rgili](https://github.com/rgili)
 
-
-
+## Altres  😺 
+A l'arxiu data.service.ts
+Per fer peticions al backend de Heroku:
+```
+  prefix: string = DEV_ENDPOINT;
+  // prefix: string = HEROKU_ENDPOINT;
+```
+Per fer peticions en l'entron de proves locals:
+```
+  prefix: string = DEV_ENDPOINT;
+  // prefix: string = HEROKU_ENDPOINT;
+```
 
 ---
