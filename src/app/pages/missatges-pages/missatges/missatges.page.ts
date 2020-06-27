@@ -3,7 +3,9 @@ import { DataService } from 'src/app/services/data.service';
 import { PagecomunicationService } from 'src/app/services/pagecomunication.service';
 import { Usuari, Missatge } from 'src/interfaces/interfaces';
 import { IonList, IonContent } from '@ionic/angular';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+
+
 
 @Component({
   selector: 'app-missatges',
@@ -22,14 +24,25 @@ export class MissatgesPage implements OnInit, OnDestroy {
   codiConversa: string = undefined;
   loadDataFunctionActivated: Boolean;
 
-  constructor(private dataService : DataService, private pageComunicationService : PagecomunicationService) { }
+  constructor(private dataService : DataService, private pageComunicationService : PagecomunicationService,
+              private nativeAudio : NativeAudio) { }
 
   ngOnInit() {
-    this.loadDataFunctionActivated = true;
     this.messageReceiverUser = this.pageComunicationService.retrieveData<Usuari>();
     this.codiConversa = this.buildCodiConversa(this.messageReceiverUser.id, this.dataService.getUsuariId());
     this.requestEndpoint = `/api/v1/missatges/${this.codiConversa}`;
+
+    this.loadDataFunctionActivated = true;
     setInterval(() => {this.loadData();}, 500);
+
+    this.nativeAudio.preloadSimple('ping_notification', '/src/assets/audio/ping_notification.mp3').then(
+      () => {
+        console.log("On success");
+      }
+      , () => {
+        console.log("On Error");
+      });
+
   }
 
   ngOnDestroy() {
@@ -51,6 +64,7 @@ export class MissatgesPage implements OnInit, OnDestroy {
           if(this.missatges.length !== data.length){
             this.missatges = data;
             this.content.scrollToBottom();
+            this.nativeAudio.play('ping_notification');
           }
         },
         error => {
