@@ -35,14 +35,6 @@ export class MissatgesPage implements OnInit, OnDestroy {
     this.loadDataFunctionActivated = true;
     setInterval(() => {this.loadData();}, 500);
 
-    this.nativeAudio.preloadSimple('ping_notification', '/src/assets/audio/ping_notification.mp3').then(
-      () => {
-        console.log("On success");
-      }
-      , () => {
-        console.log("On Error");
-      });
-
   }
 
   ngOnDestroy() {
@@ -64,7 +56,9 @@ export class MissatgesPage implements OnInit, OnDestroy {
           if(this.missatges.length !== data.length){
             this.missatges = data;
             this.content.scrollToBottom();
-            this.nativeAudio.play('ping_notification');
+            this.nativeAudio.preloadSimple('audio1', 'src/assets/audio/notification_sound.mp3').then(() => {
+              this.nativeAudio.play('audio1', () => this.nativeAudio.unload('audio1'));
+            });
           }
         },
         error => {
