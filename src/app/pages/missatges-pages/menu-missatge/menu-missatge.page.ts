@@ -3,6 +3,7 @@ import { Usuari } from 'src/interfaces/interfaces';
 import { DataService } from 'src/app/services/data.service';
 import { PagecomunicationService } from 'src/app/services/pagecomunication.service';
 import { Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-menu-missatge',
@@ -12,7 +13,6 @@ import { Router } from '@angular/router';
 export class MenuMissatgePage implements OnInit {
 
   usuaris: Usuari [] = [];
-  endpoint: string = '/api/v1/usuari';
 
   constructor(private dataService : DataService, private pageComunicationService : PagecomunicationService,
               private router : Router) { }
@@ -22,7 +22,7 @@ export class MenuMissatgePage implements OnInit {
   }
 
   async loadData(){
-    (await this.dataService.request<Usuari[]>(this.endpoint)).subscribe(
+    (await this.dataService.request<Usuari[]>(`/api/v1/usuaris/sanitari/${this.dataService.getUsuari().sanitari}`)).subscribe(
       data => {
         this.dataService.loadingControllerDismiss();
         this.usuaris = data;
