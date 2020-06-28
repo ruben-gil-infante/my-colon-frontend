@@ -64,4 +64,6 @@ Per fer peticions en l'entron de proves locals:
   // prefix: string = HEROKU_ENDPOINT;
 ```
 
+__Backend de l'aplicació al següent [repositori](https://github.com/rgili/my-colon-backend)_
+
 ---
