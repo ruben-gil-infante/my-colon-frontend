@@ -5,6 +5,7 @@ export interface Usuari {
     primerCognom : string;
     segonCognom : string;
     correuElectronic : string;
+    sanitari: boolean;
 }
 
 // * Registre Simptomes Interfaces
