@@ -17,8 +17,8 @@ export class CanvisBucalsPage implements OnInit {
   
   simptomes : OptionItem [] = [
     {id: 0, text: 'Boca seca', checked: false},
-    {id: 1, text: 'Llenga enblanquida', checked: false},
-    {id: 2, text: 'Boca amb és sensibilitat o dolor', checked: false},
+    {id: 1, text: 'Llengüa enblanquida', checked: false},
+    {id: 2, text: 'Boca amb més sensibilitat o dolor', checked: false},
     {id: 3, text: 'Canvis en el gust', checked: false}
   ]
 

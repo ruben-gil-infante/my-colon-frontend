@@ -1,6 +1,6 @@
 [
     {
-        "name" : "Signes Vitals",
+        "name" : "Signes vitals",
         "redirectTo" : "/signes-vitals-registre",
         "image" : "/assets/icon/electrocardiogram.svg"
 
@@ -36,7 +36,7 @@
 
     },
     {
-        "name" : "Nàuseas i vòmits",
+        "name" : "Nàusees i vòmits",
         "redirectTo" : "/nausees-vomits-registre",
         "image" : "/assets/icon/vomiting.svg"
 

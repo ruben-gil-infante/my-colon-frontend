@@ -28,7 +28,7 @@ export class DolorPage implements OnInit {
   apareixDolor : OptionItem [] = [
     {id: 0, text: 'En repòs', checked: false},
     {id: 1, text: 'En els canvis de posició', checked: false},
-    {id: 2, text: 'Durant activitat física', checked: false}
+    {id: 2, text: `Durant l'activitat física`, checked: false}
   ];
 
   constructor(private dataService : DataService, private router : Router) { }

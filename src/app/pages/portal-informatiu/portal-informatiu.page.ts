@@ -10,8 +10,8 @@ export class PortalInformatiuPage implements OnInit {
 
   informacio : string [] = [
     'Preparació de proves',
-    'Dietas',
-    'Informació detalla cd CCR',
+    'Dietes',
+    'Informació detalla',
     'Afrontament de la malaltia',
     'Teràpies alternatives'
   ]

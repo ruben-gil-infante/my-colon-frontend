@@ -46,7 +46,7 @@ export class DolorRegistrePage implements OnInit {
       case DESCRIPCIO_DOLOR.ARDENT:
         return ' ▪ Ardent';
       case DESCRIPCIO_DOLOR.COLIC:
-        return ' ▪ Colic';
+        return ' ▪ Còlic';
       case DESCRIPCIO_DOLOR.PENETRANT:
         return ' ▪ Pentrant';
     }
@@ -61,7 +61,7 @@ export class DolorRegistrePage implements OnInit {
       case APARICIO_DOLOR.CANVIS_DE_POSICIO:
         return ' ▪ En els canvis de posició';
       case APARICIO_DOLOR.REALITZANT_ACTIVITAT_FISICA:
-        return ' ▪ Realitzant activitat física';
+        return " ▪ Durant l'activitat física";
     }
   }
 

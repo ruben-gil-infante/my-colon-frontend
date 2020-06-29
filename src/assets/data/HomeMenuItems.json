@@ -5,7 +5,7 @@
         "image" : "/assets/icon/eye.svg"
     },
     {
-        "name" : "Signes Vitals",
+        "name" : "Signes vitals",
         "redirectTo" : "/signes-vitals",
         "image" : "/assets/icon/electrocardiogram.svg"
 
@@ -47,7 +47,7 @@
 
     },
     {
-        "name" :"Portal Informatiu",
+        "name" :"Portal informatiu",
         "redirectTo" : "/portal-informatiu",
         "image" : "/assets/icon/info.svg"
 
