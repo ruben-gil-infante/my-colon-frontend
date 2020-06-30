@@ -24,7 +24,7 @@ _Per instal·lar el framework ionic a la seva última versió:_
 npm install -g ionic
 ```
 
-_Per instal·lar el projecte cal executar el següent_
+_Per instal·lar el projecte cal executar el següent (a la carpeta del projecte)_
 
 ```
 npm install
