@@ -16,7 +16,7 @@ export class SignesVitalsPage implements OnInit {
   signesVitals: SigneVitalItem [] = [
     {tipus: 1, nom: 'Activitat', descripcio: 'Passos', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/person-run.svg"},
     {tipus: 3, nom: 'Glicèmies', descripcio: 'mg/dl', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/hemoglobin-test-meter.svg"},
-    {tipus: 4, nom: 'Freqüència cardiaca', descripcio: 'bpm', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/heart-frequency.svg"},
+    {tipus: 4, nom: 'Freqüència cardíaca', descripcio: 'bpm', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/heart-frequency.svg"},
     {tipus: 5, nom: 'Temperatura', descripcio: 'ºC', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/thermometer.svg"},
     {tipus: 6, nom: 'Pes', descripcio: 'Kg', valor: undefined, valorSecundari: -1, img: "../../../assets/icon/balance.svg"},
   ];

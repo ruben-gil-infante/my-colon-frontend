@@ -9,9 +9,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ColostomiesPage implements OnInit {
   tipusColostomia : OptionItem [] = [
-    {id: 0, text: 'Colòstomia transversal', checked: true},
-    {id: 1, text: 'Colòstomia ascendent', checked: false},
-    {id: 2, text: 'Colòstomia descendent i sigmoide', checked: false},
+    {id: 0, text: 'Colostomia transversal', checked: true},
+    {id: 1, text: 'Colostomia ascendent', checked: false},
+    {id: 2, text: 'Colostomia descendent i sigmoide', checked: false},
   ];
 
   tipusSeleccionat : OptionItem = this.tipusColostomia[0];

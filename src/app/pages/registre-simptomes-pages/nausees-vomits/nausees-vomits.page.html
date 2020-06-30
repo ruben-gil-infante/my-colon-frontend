@@ -1,9 +1,9 @@
 <app-default-header icon="/assets/icon/vomiting.svg" titol="Nàusees i vòmits" defaultHref="/registre-simptomes"></app-default-header>
 
 <ion-content>
-  <app-si-no-selector pregunta="Pateixes nàusees o vòmits" (resposta)="afirmatiuSeleccionat($event)"></app-si-no-selector>
+  <app-si-no-selector pregunta="Pateixes nàusees o vòmits?" (resposta)="afirmatiuSeleccionat($event)"></app-si-no-selector>
   <app-opcions-selector [unique]="true" titol="Quantes vegades al dia sents nàusees?" [items]="nausees"></app-opcions-selector>
   <app-si-no-selector pregunta="Has vomitat avui?" (resposta)="avuiSeleccionat($event)"></app-si-no-selector>
-  <app-opcions-selector titol="En cas afirmatiu, descriu el vomit" [items]="descripcioVomit" ></app-opcions-selector>
+  <app-opcions-selector titol="En cas afirmatiu, descriu el vòmit" [items]="descripcioVomit" ></app-opcions-selector>
   <app-save-button (guardar)="guardar()"></app-save-button>
 </ion-content>
