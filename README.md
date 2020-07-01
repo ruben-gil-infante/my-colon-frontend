@@ -66,9 +66,9 @@ Per fer peticions en l'entron de proves locals:
 ## Possible error executant ```ionic cordova build android``` ❌
 Seguir les següents passes si es dona l'error amb el plugin 'proposal numeric separator'
 1. Executar  ```npm i @babel/plugin-proposal-numeric-separator```
-2. Anar  node_modules/@babel/preset-env/lib/available-plugins.js
-3. Afegir var _pluginTransformNumericSeperator = _interopRequireDefaxult(require("@babel/plugin-proposal-numeric-separator"));
-4. I afegir "proposal-numeric-separator": _pluginTransformNumericSeperator to default variable
+2. Anar  ```node_modules/@babel/preset-env/lib/available-plugins.js```
+3. Afegir ```var _pluginTransformNumericSeperator = _interopRequireDefaxult(require("@babel/plugin-proposal-numeric-separator"));```
+4. I afegir ```"proposal-numeric-separator": _pluginTransformNumericSeperator to default variable```
 
 ## Codi del backend 🗂
 _Backend de l'aplicació al següent [repositori](https://github.com/rgili/my-colon-backend)_
